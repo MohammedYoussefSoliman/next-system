@@ -8,6 +8,7 @@ const config = cva(
     "font-medium",
     "outline-none",
     "border-none",
+    "cursor-pointer",
   ],
   {
     variants: {
