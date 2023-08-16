@@ -25,7 +25,8 @@
       "@assets/*": ["./src/assets/*"],
       "@utils/*": ["./src/utils/*"],
       "@i18n/*": ["./src/i18n/*"],
-      "@appState/*": ["./src/app/appState/*"]
+      "@appState/*": ["./src/appState/*"],
+      "@hooks/*": ["./src/hooks/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ssrTranslation } from "@/i18n/server";
 import Icon from "@components/Icon";
 import Typography from "@components/Typography";
-import type { PageProps } from "@/app/[lng]/common.types";
+import type { PageProps } from "../../../../common.types";
 
 export default async function Page({
   params: { lng },

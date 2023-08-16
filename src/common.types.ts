@@ -4,3 +4,5 @@ export type PageProps = {
     [key: string]: string;
   };
 };
+
+export type LangProps = "ar" | "en" | "fr" | "tr";
