@@ -1,6 +1,6 @@
-export type AppProps = {
+export type PageProps = {
   children: React.ReactNode;
-  params?: {
+  params: {
     [key: string]: string;
   };
 };

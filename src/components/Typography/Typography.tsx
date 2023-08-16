@@ -1,7 +1,10 @@
+"use client";
+
 import React from "react";
 import { TypographyProps } from "./Typography.types";
 import tailwindConfig from "./typography.config";
 import { classNames } from "@/utils";
+import { useTranslation } from "@i18n/client";
 
 const typographyTagGenerator = (tag: string) => {
   const paragraphRegex = /^p[1-3]$/;
@@ -15,7 +18,11 @@ export default function Typography({
   as,
   color,
   truncationWidth,
+  lng,
+  translationSource,
 }: TypographyProps) {
+  const { t } = useTranslation(lng || "ar", translationSource);
+  // text configuration classes based on design system
   const configClasses = tailwindConfig({ as, color });
   // build the typography tag
   const Tag = React.useMemo(
@@ -28,5 +35,5 @@ export default function Typography({
     truncationWidth && ["truncate", `w-[${truncationWidth}px]`],
   ]);
 
-  return <Tag className={classes}>{text}</Tag>;
+  return <Tag className={classes}>{t(text)}</Tag>;
 }

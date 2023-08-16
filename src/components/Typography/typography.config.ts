@@ -14,7 +14,7 @@ const config = cva(["text-grey-800", "font-normal"], {
       small: ["text-[0.5rem]", "md:text-[0.625rem]"],
     },
     color: {
-      base: ["text-grey-800", "dark:text-white"],
+      base: ["text-grey-800"],
       success: ["text-green-500", "dark:text-green-400"],
       warn: ["text-amber-500", "dark:text-amber-400"],
       error: ["text-red-500", "dark:text-red-400"],
