@@ -15,7 +15,7 @@ export default function useAppInit() {
   const route = useRouter();
   let path = pathname;
   if (query.toString()) {
-    path.concat(`?${query.toString()}`);
+    path = `${path}?${query.toString()}`;
   }
 
   // confirms lang for both translations and routing and this function will have more effects in the future
