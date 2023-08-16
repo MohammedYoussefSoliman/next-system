@@ -13,9 +13,9 @@ export default async function Page({
   return (
     <main className="flex h-screen flex-col items-center justify-between p-24">
       <Icon name="search" size={60} />
-      <Typography lng={lng} text="this is a typography" />
-      <Typography lng={lng} as="h1" text={t("title")} />
-      <Typography lng={lng} as="h4" color="warn" text="this is a h4" />
+      <Typography text="this is a typography" />
+      <Typography as="h1" text={t("title")} />
+      <Typography as="h4" color="warn" text="this is a h4" />
       <Link href={`/${lng}/register`}>{t("toRegister")}</Link>
       <div className="flex gap-2">
         {languages.map((lng) => (

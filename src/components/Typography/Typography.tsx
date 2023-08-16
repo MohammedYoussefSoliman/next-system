@@ -1,10 +1,11 @@
 "use client";
 
 import React from "react";
-import { TypographyProps } from "./Typography.types";
-import tailwindConfig from "./typography.config";
+import i18next from "i18next";
 import { classNames } from "@/utils";
 import { useTranslation } from "@i18n/client";
+import { TypographyProps } from "./Typography.types";
+import tailwindConfig from "./typography.config";
 
 const typographyTagGenerator = (tag: string) => {
   const paragraphRegex = /^p[1-3]$/;
@@ -18,10 +19,10 @@ export default function Typography({
   as,
   color,
   truncationWidth,
-  lng,
   translationSource,
 }: TypographyProps) {
-  const { t } = useTranslation(lng || "ar", translationSource);
+  const lng = i18next.language;
+  const { t } = useTranslation(lng, translationSource);
   // text configuration classes based on design system
   const configClasses = tailwindConfig({ as, color });
   // build the typography tag

@@ -6,5 +6,4 @@ export type TypographyProps = {
   capitalizeFirstLetter?: boolean;
   uppercase?: boolean;
   translationSource?: string;
-  lng?: string;
 };
