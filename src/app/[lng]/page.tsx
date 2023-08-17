@@ -2,6 +2,7 @@
 import Link from "next/link";
 import Icon from "@components/Icon";
 import Typography from "@components/Typography";
+import NavLink from "@components/NavLink";
 import Spinner from "@components/Spinner";
 import { useAppUtils } from "@/hooks";
 import type { PageProps } from "../../common.types";

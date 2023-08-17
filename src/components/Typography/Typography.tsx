@@ -20,6 +20,9 @@ export default function Typography({
   color,
   truncationWidth,
   translationSource,
+  capitalizeFirstLetter,
+  uppercase,
+  hoverStyles,
 }: TypographyProps) {
   const lng = i18next.language;
   const { t } = useTranslation(lng, translationSource);
@@ -34,6 +37,9 @@ export default function Typography({
   // build classes
   const classes = classNames(configClasses, [
     truncationWidth && ["truncate", `w-[${truncationWidth}px]`],
+    capitalizeFirstLetter && "first-letter:uppercase",
+    uppercase && "uppercase",
+    hoverStyles && hoverStyles,
   ]);
 
   return <Tag className={classes}>{t(text)}</Tag>;

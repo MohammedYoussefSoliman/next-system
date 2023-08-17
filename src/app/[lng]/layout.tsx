@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import type { PageProps } from "@/common.types";
 import AppProviders from "./AppProviders";
 import AppEffects from "./AppEffects";
+import Header from "@components/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,7 +20,7 @@ export default function RootLayout({ children, params: { lng } }: PageProps) {
       <html lang={lng} dir={dir(lng)}>
         <AppEffects />
         <body className={inter.className}>
-          <nav>header</nav>
+          <Header />
           {children}
           <footer>footer</footer>
         </body>

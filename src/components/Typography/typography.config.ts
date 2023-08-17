@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-const config = cva(["text-grey-800", "font-normal"], {
+const config = cva(["font-normal"], {
   variants: {
     as: {
       p1: ["text-base", "md:text-lg"],
@@ -14,7 +14,9 @@ const config = cva(["text-grey-800", "font-normal"], {
       small: ["text-[0.5rem]", "md:text-[0.625rem]"],
     },
     color: {
-      base: ["text-grey-800"],
+      base: ["text-gray-800"],
+      light: ["text-gray-500", "font-light"],
+      secondary: ["text-rose-700", "dark:text-rose-600"],
       success: ["text-green-500", "dark:text-green-400"],
       warn: ["text-amber-500", "dark:text-amber-400"],
       error: ["text-red-500", "dark:text-red-400"],
