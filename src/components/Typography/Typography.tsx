@@ -19,13 +19,13 @@ export default function Typography({
   as,
   color,
   truncationWidth,
-  translationSource,
+  namespace,
   capitalizeFirstLetter,
   uppercase,
   hoverStyles,
 }: TypographyProps) {
   const lng = i18next.language;
-  const { t } = useTranslation(lng, translationSource);
+  const { t } = useTranslation(lng, namespace);
   // text configuration classes based on design system
   const configClasses = tailwindConfig({ as, color });
   // build the typography tag

@@ -5,6 +5,7 @@ import { UIState } from "../appState.types";
 const initialState: UIState = {
   mode: "light",
   language: "ar",
+  nameSpace: "",
 };
 
 const slice = createSlice({
@@ -19,8 +20,11 @@ const slice = createSlice({
       i18n.changeLanguage(action.payload);
       return { ...state, language: action.payload };
     },
+    setNameSpace(state, action: PayloadAction<string>) {
+      return { ...state, nameSpace: action.payload };
+    },
   },
 });
 
-export const { changeThemeMode, setLanguage } = slice.actions;
+export const { changeThemeMode, setLanguage, setNameSpace } = slice.actions;
 export default slice.reducer;

@@ -11,6 +11,8 @@ const config: Config = {
       backgroundImage: {
         "gradient-primary":
           "background: linear-gradient(90deg, #D20653 0%, #FF951D 100%)",
+        "dark-gradient-primary":
+          "background: linear-gradient(90deg, #b22536 0%, #ca711a 100%)",
       },
       colors: {
         primary: "#D20653",

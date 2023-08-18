@@ -5,6 +5,6 @@ export type TypographyProps = {
   truncationWidth?: number;
   capitalizeFirstLetter?: boolean;
   uppercase?: boolean;
-  translationSource?: string;
+  namespace?: string;
   hoverStyles?: string[];
 };

@@ -20,7 +20,6 @@ export default function Spinner(props: SpinnerProps) {
           color: bottomColor || colors.rose[300],
           animationDuration: "900ms",
           position: "absolute",
-          left: 0,
         }}
         size={size}
         thickness={5}
@@ -34,7 +33,6 @@ export default function Spinner(props: SpinnerProps) {
           color: topColor || colors.rose[500],
           animationDuration: "900ms",
           position: "absolute",
-          left: 0,
           [`& .${circularProgressClasses.circle}`]: {
             strokeLinecap: "round",
           },

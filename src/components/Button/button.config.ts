@@ -9,19 +9,40 @@ const config = cva(
     "outline-none",
     "border-none",
     "cursor-pointer",
+    "rounded-xl",
   ],
   {
     variants: {
       variant: {
-        primary: ["text-white", "bg-gradient-primary"],
-        secondary: ["text-rose-600", "bg-rose-100"],
+        primary: [
+          "text-white",
+          "bg-gradient-to-r",
+          "from-rose-500",
+          "to-amber-500",
+          "enabled:hover:from-rose-600",
+          "enabled:hover:to-amber-600",
+        ],
+        secondary: [
+          "text-rose-600",
+          "bg-rose-100",
+          "enabled:hover:bg-rose-200",
+        ],
+        transparent: ["text-rose-600"],
       },
       size: {
+        small: [
+          "py-2.5",
+          "px-9",
+          "h-8",
+          "text-sm",
+          "md:rounded-lg",
+          "xl:rounded-2xl",
+        ],
         medium: [
           "py-2.5",
           "px-9",
           "h-10",
-          "text-sm",
+          "text-base",
           "md:rounded-lg",
           "xl:rounded-xl",
         ],
@@ -29,8 +50,16 @@ const config = cva(
           "py-3",
           "px-10",
           "h-12",
-          "text-base",
+          "text-lg",
           "md:rounded-xl",
+          "xl:rounded-2xl",
+        ],
+        xLarge: [
+          "py-3",
+          "px-10",
+          "h-14",
+          "text-xl",
+          "rounded-xl",
           "xl:rounded-2xl",
         ],
       },
@@ -44,7 +73,7 @@ const config = cva(
     },
     defaultVariants: {
       variant: "primary",
-      size: "large",
+      size: "medium",
       width: "initial",
     },
   }

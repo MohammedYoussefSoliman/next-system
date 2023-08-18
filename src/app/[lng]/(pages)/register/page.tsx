@@ -12,16 +12,16 @@ export default async function Page({
   return (
     <main className="flex max-h-screen flex-col items-center justify-between p-24">
       <Icon name="mazaady-logo" size={60} />
-      <Typography translationSource="register" text="this is register" />
-      <Typography translationSource="register" as="h1" text="title" />
+      <Typography namespace="register" text="this is register" />
+      <Typography namespace="register" as="h1" text="title" />
       <Typography
-        translationSource="register"
+        namespace="register"
         as="h4"
         color="warn"
         text="this is a h4"
       />
       <Typography
-        translationSource="register"
+        namespace="register"
         as="small"
         color="warn"
         text="this is small from register"
