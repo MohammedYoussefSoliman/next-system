@@ -2,5 +2,7 @@
   "title": "Bienvenue à Mazaady",
   "toRegister": "to register in french",
   "home": "bienvenue",
-  "register": "register"
+  "register": "register",
+  "pleaseWait": "pleaseWait french",
+  "requiredField": "this field is required french"
 }

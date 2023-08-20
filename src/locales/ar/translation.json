@@ -2,5 +2,8 @@
   "title": "مرحباً بكم",
   "toRegister": "تسجيل ",
   "home": "الرئيسية",
-  "register": "تسجيل جديد"
+  "register": "تسجيل جديد",
+  "pleaseWait": "برجاء الإنتظار",
+  "userName": "اسم المستخدم",
+  "requiredField": "هذا الحقل مطلوب"
 }

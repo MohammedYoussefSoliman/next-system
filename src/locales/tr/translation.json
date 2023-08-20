@@ -2,5 +2,6 @@
   "title": "Hoşgeldiniz Mazaady",
   "toRegister": "to register in turkey",
   "home": "home",
-  "register": "register"
+  "register": "register",
+  "requiredField": "this field is required turkey"
 }

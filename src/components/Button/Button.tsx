@@ -2,6 +2,7 @@ import React from "react";
 import i18next from "i18next";
 import colors from "tailwindcss/colors";
 import Spinner from "@components/Spinner";
+import Typography from "@components/Typography";
 import Icon from "@components/Icon";
 import { useTranslation } from "@i18n/client";
 import { ButtonProps } from "./button.types";
@@ -68,7 +69,7 @@ export default function Button({
       type={type}
       disabled={disabled || Boolean(loading)}
     >
-      <div className="flex w-full h-full gap-2 items-center justify-center">
+      <div className="flex w-full  gap-2 items-center justify-center">
         {loading ? (
           <>
             <Spinner
@@ -84,10 +85,10 @@ export default function Button({
               size={resolveIconSize(size)}
               color={variant === "primary" ? "white" : colors.rose[500]}
             />
-            {t(label)}
+            <p>{t(label)}</p>
           </>
         ) : (
-          t(label)
+          <p>{t(label)}</p>
         )}
       </div>
     </button>

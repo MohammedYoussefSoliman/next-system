@@ -3,8 +3,7 @@ import type { Metadata } from "next";
 import { dir } from "i18next";
 import { Tajawal, Nunito } from "next/font/google";
 import type { PageProps } from "@/common.types";
-import AppProviders from "./AppProviders";
-import PersistStoreProvider from "./PersistStoreProvider";
+import AppProviders from "./Providers/AppProviders";
 import AppEffects from "./AppEffects";
 import Header from "@components/Header";
 
@@ -21,17 +20,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children, params: { lng } }: PageProps) {
   return (
-    <AppProviders>
-      <html lang={lng} dir={dir(lng)}>
-        <body className={lng === "ar" ? tajawal.className : nunito.className}>
-          <PersistStoreProvider>
-            <AppEffects />
-            <Header />
-            {children}
-            <footer>footer</footer>
-          </PersistStoreProvider>
-        </body>
-      </html>
-    </AppProviders>
+    <html lang={lng} dir={dir(lng)}>
+      <body className={lng === "ar" ? tajawal.className : nunito.className}>
+        <AppProviders>
+          <AppEffects />
+          <Header />
+          {children}
+          <footer>footer</footer>
+        </AppProviders>
+      </body>
+    </html>
   );
 }

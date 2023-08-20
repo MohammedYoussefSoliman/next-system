@@ -27,7 +27,7 @@ const config = cva(
           "bg-rose-100",
           "enabled:hover:bg-rose-200",
         ],
-        transparent: ["text-rose-600"],
+        transparent: ["text-rose-600", "enabled:hover:bg-rose-100"],
       },
       size: {
         small: [

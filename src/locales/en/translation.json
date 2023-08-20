@@ -2,5 +2,8 @@
   "title": "ًWelcome to Mazaady",
   "toRegister": "to register",
   "home": "home",
-  "register": "register"
+  "register": "register",
+  "pleaseWait": "please wait",
+  "userName": "user name",
+  "requiredField": "this field is required"
 }

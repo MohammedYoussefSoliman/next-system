@@ -1,12 +1,13 @@
 "use client";
 import React from "react";
-import Link from "next/link";
+import Link from "@components/Link";
 import Icon from "@components/Icon";
+import { TextField } from "@components/Inputs";
 import Typography from "@components/Typography";
 import Button from "@components/Button";
-import Spinner from "@components/Spinner";
+import Form from "@components/Form";
 import { useAppUtils } from "@/hooks";
-import type { PageProps } from "../../common.types";
+import type { PageProps } from "@/common.types";
 import { useTranslation } from "@i18n/client";
 
 export default function Page({ params: { lng } }: Omit<PageProps, "children">) {
@@ -17,16 +18,34 @@ export default function Page({ params: { lng } }: Omit<PageProps, "children">) {
     <main className="flex h-screen flex-col items-center justify-between p-24">
       <Icon name="search" size={60} />
       <Typography text="this is a typography" />
-      <Typography as="h1" text={t("title")} />
+      <Typography as="h1" text="title" />
       <Typography as="h4" color="warn" text="this is a h4" />
-      <Spinner />
+      <Form
+        onSubmit={(data) => {
+          console.log(data);
+        }}
+        validateOn="onChange"
+      >
+        {({ control }) => (
+          <div className="flex flex-col gap-3">
+            <TextField
+              name="name"
+              label="userName"
+              control={control}
+              required
+              validationRules={{ required: "requiredField" }}
+            />
+            <Button label="submit" />
+          </div>
+        )}
+      </Form>
       <div className="flex gap-4">
         <Button
           onClick={() => {
             updateLanguage("tr");
           }}
           label="turky"
-          loading="pleaseWait"
+          // loading="pleaseWait"
         />
         <Button
           onClick={() => {
@@ -34,7 +53,6 @@ export default function Page({ params: { lng } }: Omit<PageProps, "children">) {
           }}
           variant="secondary"
           label="arabic"
-          disabled
         />
         <Button
           onClick={() => {
@@ -58,7 +76,12 @@ export default function Page({ params: { lng } }: Omit<PageProps, "children">) {
           english
         </button>
       </div>
-      <Link href={`/${lng}/register`}>{t("toRegister")}</Link>
+      <Link
+        to="/toRegister"
+        label="toRegister"
+        namespace="register"
+        capitalizeFirstLetter
+      />
     </main>
   );
 }
