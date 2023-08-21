@@ -6,5 +6,6 @@ export type TypographyProps = {
   capitalizeFirstLetter?: boolean;
   uppercase?: boolean;
   namespace?: string;
+  className?: string;
   hoverStyles?: string[];
 };

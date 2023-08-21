@@ -1,22 +1,22 @@
 import React from "react";
 import { FieldValues } from "react-hook-form";
 import _ from "lodash";
-import TextFieldBase from "./TextFieldBase";
+import MuiSelectBase from "./MuiSelectBase";
 import withHookFormController from "./withHookFormController";
 import {
-  TextFieldPropsType,
+  SelectFieldPropsType,
   ControllerType,
 } from "@components/Inputs/Inputs.types";
 
 type WithControllerProps<T extends FieldValues> = ControllerType<T> &
-  TextFieldPropsType;
+  SelectFieldPropsType;
 
-export default function TextFields<T extends FieldValues>({
+export default function SelectField<T extends FieldValues>({
   validationRules,
   ...props
 }: WithControllerProps<T>) {
   const Input = React.useMemo(
-    () => withHookFormController<T, WithControllerProps<T>>(TextFieldBase),
+    () => withHookFormController<T, WithControllerProps<T>>(MuiSelectBase),
     []
   );
   const { required } = props;
@@ -36,7 +36,6 @@ export default function TextFields<T extends FieldValues>({
 
   return (
     <Input
-      type="text"
       validationRules={{
         ...resolvedRequired,
         ...validationRules,

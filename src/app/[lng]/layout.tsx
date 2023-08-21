@@ -24,9 +24,11 @@ export default function RootLayout({ children, params: { lng } }: PageProps) {
       <body className={lng === "ar" ? tajawal.className : nunito.className}>
         <AppProviders>
           <AppEffects />
-          <Header />
-          {children}
-          <footer>footer</footer>
+          <main className="flex min-h-screen flex-col items-center justify-between bg-stone-100">
+            <Header />
+            {children}
+            {/* <footer>footer</footer> */}
+          </main>
         </AppProviders>
       </body>
     </html>

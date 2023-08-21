@@ -3,7 +3,10 @@
   "toRegister": "تسجيل ",
   "home": "الرئيسية",
   "register": "تسجيل جديد",
+  "logIn": "تسجيل دخول",
   "pleaseWait": "برجاء الإنتظار",
   "userName": "اسم المستخدم",
-  "requiredField": "هذا الحقل مطلوب"
+  "requiredField": "هذا الحقل مطلوب",
+  "about": "عن مزادي",
+  "ar": "ع"
 }

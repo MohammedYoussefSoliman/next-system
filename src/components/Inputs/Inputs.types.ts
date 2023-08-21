@@ -1,6 +1,6 @@
 import React from "react";
 import { AsyncProps } from "react-select/async";
-import { TextFieldProps } from "@mui/material";
+import { TextFieldProps, SelectProps as MuiSelectProps } from "@mui/material";
 import { Props, GroupBase } from "react-select";
 import {
   ValidationRule,
@@ -98,3 +98,14 @@ export type TextFieldPropsType = {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
 } & TextFieldProps;
+
+export type SelectFieldPropsType = {
+  options: OptionType[];
+  changeHandler?: (value: any) => void;
+  renderValueHandler?: (
+    value: unknown,
+    options: OptionType[]
+  ) => React.ReactNode;
+  namespace?: string;
+  error?: string;
+} & MuiSelectProps;

@@ -10,16 +10,10 @@ export default async function Page({
   const { t } = await ssrTranslation(lng, "register");
 
   return (
-    <main className="flex flex-col items-center flex-1 w-full mb-8">
-      <Icon name="mazaady-logo" size={60} />
-      <Typography namespace="register" text="this is register" />
-      <Typography namespace="register" as="h1" text="title" />
-      <Typography
-        namespace="register"
-        as="h4"
-        color="warn"
-        text="this is a h4"
-      />
+    <main className="flex flex-col items-center justify-between flex-1 w-full mb-8">
+      <Typography namespace="register" text="this is about us" />
+      <Typography namespace="about" as="h1" text="title" />
+      <Typography namespace="register" as="h4" color="warn" text="comingSoon" />
       <Typography
         namespace="register"
         as="small"

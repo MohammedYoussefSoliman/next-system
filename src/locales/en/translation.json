@@ -3,7 +3,9 @@
   "toRegister": "to register",
   "home": "home",
   "register": "register",
+  "logIn": "log in",
   "pleaseWait": "please wait",
   "userName": "user name",
-  "requiredField": "this field is required"
+  "requiredField": "this field is required",
+  "about": "about Mazaady"
 }

@@ -23,6 +23,7 @@ export default function Typography({
   capitalizeFirstLetter,
   uppercase,
   hoverStyles,
+  className,
 }: TypographyProps) {
   const lng = i18next.language;
   const { t } = useTranslation(lng, namespace);
@@ -40,6 +41,7 @@ export default function Typography({
     capitalizeFirstLetter && "first-letter:uppercase",
     uppercase && "uppercase",
     hoverStyles && hoverStyles,
+    className,
   ]);
 
   return <Tag className={classes}>{t(text)}</Tag>;

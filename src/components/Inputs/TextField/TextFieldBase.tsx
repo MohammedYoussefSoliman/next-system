@@ -12,6 +12,7 @@ function TextFieldBase({
   error,
   namespace,
   label,
+  required,
   ...inputProps
 }: TextFieldPropsType) {
   const { language } = useAppSelector((state) => state.ui);
@@ -22,8 +23,8 @@ function TextFieldBase({
       <TextField
         sx={{
           ["& .MuiOutlinedInput-root"]: {
-            borderRadius: "20px",
-            outlineColor: "green",
+            borderRadius: "14px",
+            height: 48,
           },
         }}
         label={label ? t(label) : undefined}

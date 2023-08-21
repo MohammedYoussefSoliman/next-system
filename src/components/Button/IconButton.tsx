@@ -4,8 +4,8 @@ import colors from "tailwindcss/colors";
 import Spinner from "@components/Spinner";
 import Icon from "@components/Icon";
 import { useTranslation } from "@i18n/client";
-import { ButtonProps } from "./button.types";
-import tailwindConfig from "./button.config";
+import { IconButtonProps } from "./button.types";
+import tailwindConfig from "./iconButton.config";
 import { classNames } from "@/utils";
 
 // TODO
@@ -14,7 +14,7 @@ import { classNames } from "@/utils";
  * Add icon setup
  */
 
-const resolveDisabledButton = (variant: ButtonProps["variant"]) => {
+const resolveDisabledButton = (variant: IconButtonProps["variant"]) => {
   const disabledStyles = {
     primary: ["from-rose-200", "to-amber-200", "cursor-not-allowed"],
     secondary: ["bg-slate-100", "text-slate-400", "cursor-not-allowed"],
@@ -22,18 +22,17 @@ const resolveDisabledButton = (variant: ButtonProps["variant"]) => {
   };
   return disabledStyles[variant || "primary"];
 };
-const resolveIconSize = (size: ButtonProps["size"]) => {
+const resolveIconSize = (size: IconButtonProps["size"]) => {
   const iconSizes = {
-    small: 16,
-    medium: 16,
-    large: 24,
-    xLarge: 24,
+    small: 24,
+    medium: 32,
+    large: 36,
+    xLarge: 40,
   };
   return iconSizes[size || "medium"];
 };
 
-export default function Button({
-  children,
+export default function IconButton({
   icon,
   width,
   size,
@@ -43,9 +42,10 @@ export default function Button({
   disabled,
   namespace,
   className,
+  iconColor,
   id,
   type,
-}: ButtonProps) {
+}: IconButtonProps) {
   const lng = i18next.language;
   const { t } = useTranslation(lng, namespace);
 
@@ -70,28 +70,29 @@ export default function Button({
       type={type}
       disabled={disabled || Boolean(loading)}
     >
-      <div className="flex w-full h-full gap-2 items-center justify-center">
+      <div className="flex w-full gap-2 items-center justify-center">
         {loading ? (
           <>
             <Spinner
               topColor={colors.slate[400]}
               bottomColor={colors.slate[300]}
             />
-            <p>{t(typeof loading === "string" ? loading : "loading")}</p>
+            {t(typeof loading === "string" ? loading : "loading")}
           </>
-        ) : icon ? (
-          <>
-            <Icon
-              name={icon}
-              size={resolveIconSize(size)}
-              color={variant === "primary" ? "white" : colors.rose[500]}
-            />
-            {typeof children === "string" ? <p>{t(children)}</p> : children}
-          </>
-        ) : typeof children === "string" ? (
-          <p>{t(children)}</p>
         ) : (
-          children
+          <Icon
+            name={icon}
+            size={resolveIconSize(size)}
+            color={
+              iconColor
+                ? iconColor === "inherit"
+                  ? undefined
+                  : iconColor
+                : variant === "primary"
+                ? "white"
+                : colors.rose[500]
+            }
+          />
         )}
       </div>
     </button>
