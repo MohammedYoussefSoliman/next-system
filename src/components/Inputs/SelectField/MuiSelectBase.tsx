@@ -30,7 +30,7 @@ function MuiSelectBase({
       sx={{
         [".MuiOutlinedInput-root"]: {
           borderRadius: "14px",
-          height: 48,
+          height: "48px",
           ["&:focus-within, &.Mui-focused"]: {
             "svg.chevron path": {
               fill: colors.rose[600],
@@ -40,6 +40,9 @@ function MuiSelectBase({
             "svg.chevron path": {
               fill: colors.red[500],
             },
+          },
+          [".MuiSelect-select"]: {
+            padding: "8px !important",
           },
         },
       }}

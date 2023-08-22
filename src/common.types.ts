@@ -6,3 +6,11 @@ export type PageProps = {
 };
 
 export type LangProps = "ar" | "en" | "fr" | "tr";
+
+export type CountryType = {
+  dialCode: string;
+  ar: string;
+  en: string;
+  code: string;
+  flag: string;
+};

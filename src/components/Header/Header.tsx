@@ -13,26 +13,26 @@ export default function Header() {
     <div className="w-full flex flex-col bg-white">
       <Container>
         <div className="w-full h-20 flex items-center justify-between">
+          <div className="flex gap-8 items-center h-full">
+            <Logo />
+            <nav className=" h-16 flex self-end gap-6 ">
+              <NavLink to="/" label="home" />
+              <NavLink to="/about" label="about" />
+            </nav>
+          </div>
           <div className="flex gap-8 py-2 items-center h-full">
-            <ChangeLanguageMenu />
-            <Divider type="vertical" className="bg-amber-200" />
+            <div className="flex gap-4 items-center h-full">
+              <Link label="register" to="/register" />
+              <Button>logIn</Button>
+            </div>
             <IconButton
               icon="search"
               variant="transparent"
               iconColor="inherit"
               className="enabled:hover:bg-slate-100"
             />
-            <div className="flex gap-4 items-center h-full">
-              <Button>logIn</Button>
-              <Link label="register" to="/register" />
-            </div>
-          </div>
-          <div className="flex gap-8 items-center h-full">
-            <nav className=" h-16 flex self-end gap-6 ">
-              <NavLink to="/" label="home" />
-              <NavLink to="/about" label="about" />
-            </nav>
-            <Logo />
+            <Divider type="vertical" className="bg-amber-200" />
+            <ChangeLanguageMenu />
           </div>
         </div>
       </Container>

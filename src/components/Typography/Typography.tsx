@@ -37,7 +37,7 @@ export default function Typography({
 
   // build classes
   const classes = classNames(configClasses, [
-    truncationWidth && ["truncate", `w-[${truncationWidth}px]`],
+    truncationWidth && ["truncate", `w-[${truncationWidth}px]`, "block"],
     capitalizeFirstLetter && "first-letter:uppercase",
     uppercase && "uppercase",
     hoverStyles && hoverStyles,

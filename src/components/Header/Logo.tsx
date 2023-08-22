@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/alt-text */
 "use client";
 import React from "react";
 import { useAppSelector } from "@/hooks";
@@ -10,7 +9,12 @@ export default function Logo() {
   const { language } = useAppSelector((state) => state.ui);
   return (
     <Link href={`/${language}`}>
-      <Image name="mazaady-logo.png" width={108} height={43} />
+      <Image
+        name="mazaady-logo.png"
+        width={108}
+        height={43}
+        alt="mazaady logo"
+      />
     </Link>
   );
 }

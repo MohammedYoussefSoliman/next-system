@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Link from "@components/Link";
-import Icon from "@components/Icon";
 import { TextField, SelectField } from "@components/Inputs";
 import Typography from "@components/Typography";
 import { Button } from "@components/Button";
