@@ -2,5 +2,13 @@
   "title": "New register",
   "toHome": "to home",
   "helloToMazaady": "hello to Mazaady",
-  "createAccount": "create account"
+  "createAccount": "create account",
+  "inviteCode": "invite code",
+  "fullName": "full name",
+  "email": "email address",
+  "phoneNumber": "phone number",
+  "password": "password",
+  "confirmPassword": "confirm password",
+  "create": "create",
+  "or": "or"
 }

@@ -39,7 +39,7 @@ export default function DialCode({ control }: Props) {
           return (
             <div
               key={selectedCountry.dialCode}
-              className="flex items-center gap-1 w-full justify-between"
+              className="flex items-center gap-1 w-full justify-between mt-2 mr-1"
             >
               <Typography as="p2" text={selectedCountry.dialCode} />
               <Typography text={selectedCountry.flag} />

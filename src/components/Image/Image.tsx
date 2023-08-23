@@ -6,15 +6,17 @@ type Props = {
   alt: string;
   width?: number;
   height?: number;
+  className?: string;
 };
 
-export default function Image({ name, width, height, alt }: Props) {
+export default function Image({ name, width, height, alt, className }: Props) {
   return (
     <NextImage
       src={`/images/${name}`}
       height={height}
       width={width}
       alt={alt}
+      className={className}
     />
   );
 }

@@ -22,7 +22,7 @@ export default async function Page({
             <Header />
             <RegisterForm />
           </Paper>
-          <div className="w-full md:w-auto">
+          <div className="w-full md:w-1/2">
             <Banner />
           </div>
         </div>

@@ -3,5 +3,13 @@
   "toHome": "الرئيسية",
   "register": "تسجيل جديد",
   "helloToMazaady": "مرحباً بكم في مزادي",
-  "createAccount": "إنشاء حساب"
+  "createAccount": "إنشاء حساب",
+  "inviteCode": "كود استضافة",
+  "fullName": "الاسم كاملاً",
+  "email": "البريد الالكتروني",
+  "phoneNumber": "رقم الهاتف",
+  "password": "كلمة السر",
+  "confirmPassword": "تأكيد كلمة السر",
+  "create": "انشاء",
+  "or": "او"
 }

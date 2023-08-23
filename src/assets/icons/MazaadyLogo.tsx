@@ -1,4 +1,3 @@
-import colors from "tailwindcss/colors";
 import { SVGProp } from "./icon.types";
 
 function MazaadyLogo({ size, color }: SVGProp) {

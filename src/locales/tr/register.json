@@ -2,5 +2,6 @@
   "title": "Yeni kayıt",
   "toHome": "eve",
   "helloToMazaady": "hello to Mazaady",
-  "createAccount": "create account"
+  "createAccount": "create account",
+  "inviteCode": "invite code"
 }
