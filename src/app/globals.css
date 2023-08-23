@@ -25,6 +25,10 @@
     )
     rgb(var(--background-start-rgb));
 } */
+.MuiPaper-root {
+  border-radius: 14px !important;
+}
 .MuiList-root {
   height: 300px;
+  width: 220px;
 }

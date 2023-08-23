@@ -4,6 +4,8 @@ import CheckIcon from "./CheckIcon";
 import GlobeIcon from "./GlobeIcon";
 import VisibleIcon from "./VisibleIcon";
 import InVisibleIcon from "./InVisibleIcon";
+import MenuIcon from "./MenuIcon";
+import TimesIcon from "./TimesIcon";
 import MazaadyLogo from "./MazaadyLogo";
 
 export type { SVGProp } from "./icon.types";
@@ -16,6 +18,8 @@ const icons = {
   "mazaady-logo": MazaadyLogo,
   visible: VisibleIcon,
   invisible: InVisibleIcon,
+  menu: MenuIcon,
+  times: TimesIcon,
 };
 
 export default icons;

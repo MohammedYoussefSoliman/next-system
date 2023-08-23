@@ -69,9 +69,9 @@ function MuiSelectBase({
         error={Boolean(error)}
         {...rest}
       >
-        {options.map((option) => (
+        {options.map((option, index) => (
           <MenuItem
-            key={`${name}-opt-${option.value}`}
+            key={`${name}-opt-${option.value}-${index}`}
             value={option.value}
             sx={(theme) => ({
               ["&.Mui-selected"]: {
