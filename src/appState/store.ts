@@ -2,10 +2,14 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { createLogger } from "redux-logger";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { persistStore, persistReducer } from "redux-persist";
+import authSlice from "./slices/auth";
+import uiActionsSlice from "./slices/ui-actions";
 import uiSlice from "./slices/ui/slice";
 
 const rootReducer = combineReducers({
   ui: uiSlice,
+  auth: authSlice,
+  uiAction: uiActionsSlice,
 });
 
 const persistConfig = {

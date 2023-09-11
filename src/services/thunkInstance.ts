@@ -1,7 +1,6 @@
-/* eslint-disable no-param-reassign */
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
 import { ThunkDispatch, AnyAction } from "@reduxjs/toolkit";
-import { logout } from "state/auth/slice";
+import { logout } from "@appState/slices/auth";
 import { RootState } from "@appState/store";
 import { setGlobalError } from "@appState/slices/globals/slice";
 
@@ -15,11 +14,11 @@ function generateInstance(
   } = state;
 
   const instance: AxiosInstance = axios.create({
-    baseURL: process.env.REACT_APP_baseUrl,
+    baseURL: process.env.NEXT_PUBLIC_BASE_URL,
     transformRequest: [
       (data, headers) => {
         if (token) {
-          headers!.Authorization = token.value;
+          headers!.Authorization = token;
         }
         headers!["content-language"] = language;
         headers!["content-type"] = "application/json";

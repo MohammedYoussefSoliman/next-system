@@ -4,6 +4,7 @@ import Link from "@components/Link";
 import { TextField, SelectField } from "@components/Inputs";
 import Typography from "@components/Typography";
 import { Button } from "@components/Button";
+import Snackbar from "@components/Snackbar";
 import Form from "@components/Form";
 import { useAppUtils } from "@/hooks";
 import type { PageProps } from "@/common.types";
@@ -115,6 +116,12 @@ export default function Page({ params: { lng } }: Omit<PageProps, "children">) {
         label="toRegister"
         namespace="register"
         capitalizeFirstLetter
+      />
+      <Snackbar
+        status="success"
+        title="عنوان الاشعار"
+        message="اختبار الاشعارات"
+        closeOnClickAnyway={false}
       />
     </main>
   );
