@@ -83,7 +83,7 @@ export default function RegisterForm() {
             />
             <Typography
               className="text-gray-400"
-              text="if you are registering by a friend code, Use it and your friend will inform that you are in."
+              text="inviteDescription"
               namespace="register"
             />
             <TextField

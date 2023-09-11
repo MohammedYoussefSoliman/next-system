@@ -3,5 +3,6 @@
   "toHome": "eve",
   "helloToMazaady": "hello to Mazaady",
   "createAccount": "create account",
-  "inviteCode": "invite code"
+  "inviteCode": "invite code",
+  "inviteDescription": "Eğer arkadaş kodu ile kayıt oluyorsanız, onu kullanın, arkadaşınız sizin dahil olduğunuzu bildirecektir."
 }

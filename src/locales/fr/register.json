@@ -3,5 +3,6 @@
   "toHome": "à la maison",
   "helloToMazaady": "hello to Mazaady",
   "createAccount": "create account",
-  "inviteCode": "invite code"
+  "inviteCode": "invite code",
+  "inviteDescription": "si vous vous inscrivez avec un code ami, utilisez-le et votre ami vous informera que vous y êtes."
 }

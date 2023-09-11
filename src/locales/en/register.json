@@ -10,5 +10,6 @@
   "password": "password",
   "confirmPassword": "confirm password",
   "create": "create",
-  "or": "or"
+  "or": "or",
+  "inviteDescription": "if you are registering by a friend code, Use it and your friend will inform that you are in."
 }
