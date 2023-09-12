@@ -21,6 +21,7 @@ const instance: AxiosInstance = axios.create({
         headers!.Authorization = token;
       }
       headers!["content-language"] = language;
+      headers!["private-key"] = process.env.NEXT_PUBLIC_PRIVATE_KEY;
       headers!["content-type"] = "application/json";
       return data;
     },

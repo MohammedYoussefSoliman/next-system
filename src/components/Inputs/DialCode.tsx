@@ -27,13 +27,15 @@ const dialCodeMapper = (
 
 type Props = {
   control: Control<any>;
+  changeHandler?: (country: CountryType) => void;
+  name?: string;
 };
 
-export default function DialCode({ control }: Props) {
+export default function DialCode({ name, control, changeHandler }: Props) {
   const { language } = useAppSelector((state) => state.ui);
   return (
     <SelectField
-      name="dialCode"
+      name={"country_code"}
       control={control}
       defaultValue="+971"
       //   label="dialCode"
@@ -42,6 +44,9 @@ export default function DialCode({ control }: Props) {
       })}
       renderValueHandler={(value) => {
         const selectedCountry = countries.find((opt) => opt.dialCode === value);
+        if (changeHandler && selectedCountry) {
+          changeHandler(selectedCountry);
+        }
         if (selectedCountry) {
           return (
             <div

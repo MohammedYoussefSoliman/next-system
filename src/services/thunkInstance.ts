@@ -22,6 +22,7 @@ function generateInstance(
         }
         headers!["content-language"] = language;
         headers!["content-type"] = "application/json";
+        headers!["private-key"] = process.env.NEXT_PUBLIC_PRIVATE_KEY;
         return data;
       },
     ],

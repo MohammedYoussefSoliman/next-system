@@ -30,7 +30,7 @@ export default function withHookFormController<
           <Component
             {...fields}
             onChange={(e) => {
-              onChange(e);
+              onChange(e.target.value);
               if (changeHandler) changeHandler(e.target.value);
             }}
             error={error?.message}

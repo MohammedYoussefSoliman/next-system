@@ -7,24 +7,52 @@ import {
   EmailField,
   DialCode,
 } from "@components/Inputs";
+import { useAppDispatch } from "@/hooks";
+import { formDataHandler } from "@/utils";
+import registerService from "@appState/slices/auth/registerService";
+import { deviceType, isAndroid, isIOS } from "react-device-detect";
 import { Button } from "@/components/Button";
 import Typography from "@/components/Typography";
+import _get from "lodash/get";
 
 import Or from "./Or";
 import Link from "@/components/Link/Link";
 
 export default function RegisterForm() {
+  const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
+  const dispatch = useAppDispatch();
   return (
     <Form
       onSubmit={(data) => {
-        console.log(data);
+        delete data.confirmPassword;
+        const device_type = deviceType;
+        const platform = isAndroid ? "android" : isIOS ? "ios" : "web";
+        const device_id = _get(window, "navigator.platform", "");
+        const registerData = {
+          ...data,
+          device_id,
+          device_type,
+          platform,
+          country_code: +data.country_code.substring(1),
+        };
+        dispatch(
+          registerService({
+            formData: formDataHandler(registerData),
+            setLoading(value) {
+              setIsSubmitting(value);
+            },
+          })
+        );
+      }}
+      defaultValues={{
+        country_code: "+971",
       }}
       className="w-full"
     >
-      {({ control }) => (
+      {({ control, setValue }) => (
         <div className="flex flex-col gap-4 w-full">
           <TextField
-            name="fullName"
+            name="name"
             label="fullName"
             namespace="register"
             control={control}
@@ -40,7 +68,7 @@ export default function RegisterForm() {
           <div className="flex gap-4 w-full">
             <div className="grow">
               <TextField
-                name="phoneNumber"
+                name="phone"
                 label="phoneNumber"
                 namespace="register"
                 type="number"
@@ -58,7 +86,10 @@ export default function RegisterForm() {
                 required
               />
             </div>
-            <DialCode control={control} />
+            <DialCode
+              control={control}
+              changeHandler={(country) => setValue("country_key", country.code)}
+            />
           </div>
           <PasswordField
             control={control}
@@ -87,11 +118,10 @@ export default function RegisterForm() {
               namespace="register"
             />
             <TextField
-              name="inviteCode"
+              name="came_by"
               label="inviteCode"
               namespace="register"
               control={control}
-              required
             />
           </div>
           <span className="inline">
@@ -106,7 +136,12 @@ export default function RegisterForm() {
               to="/terms"
             />
           </span>
-          <Button namespace="register" size="large" className="capitalize pt-4">
+          <Button
+            loading={isSubmitting}
+            namespace="register"
+            size="large"
+            className="capitalize pt-4"
+          >
             create
           </Button>
           <Or />
