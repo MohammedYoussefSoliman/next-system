@@ -1,3 +1,4 @@
+import React from "react";
 import { AxiosRequestConfig } from "axios";
 import { createAsyncThunk, AsyncThunk } from "@reduxjs/toolkit";
 import generateInstance from "@/services/thunkInstance";
@@ -9,7 +10,7 @@ type Args = {
   formData: FormData;
   onSuccess?: () => void;
   onEnd?: () => void;
-  onFailure?: (message: string[]) => void;
+  onFailure?: (message: React.ReactNode) => void;
   setLoading?: (value: boolean) => void;
   successMessage?: string;
 };
@@ -49,7 +50,7 @@ export default class ThunkService implements Service {
           if (onFailure) {
             onFailure(messages);
           } else {
-            dispatch(showError(messages.join(", ")));
+            dispatch(showError(messages));
           }
           return rejectWithValue(messages);
         } finally {
@@ -82,7 +83,7 @@ export default class ThunkService implements Service {
           if (onFailure) {
             onFailure(messages);
           } else {
-            dispatch(showError(messages.join(", ")));
+            dispatch(showError(messages));
           }
           return rejectWithValue(messages);
         } finally {

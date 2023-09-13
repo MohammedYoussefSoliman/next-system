@@ -1,3 +1,4 @@
+import React from "react";
 import { SnackbarOrigin } from "@mui/material";
 import { GrowProps } from "@mui/material/Grow";
 import { FadeProps } from "@mui/material/Fade";
@@ -18,7 +19,7 @@ type FadeTransition = {
 
 export type SnackbarProps = {
   title?: string;
-  message: string | null;
+  message: React.ReactNode | string | null;
   transition?: SlideTransition | GrowTransition | FadeTransition;
   anchorOrigin?: SnackbarOrigin;
   autoHideDuration?: number;

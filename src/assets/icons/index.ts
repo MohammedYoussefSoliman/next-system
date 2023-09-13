@@ -10,6 +10,8 @@ import MazaadyLogo from "./MazaadyLogo";
 import CheckBadgeIcon from "./CheckBadgeIcon";
 import TimesBadgeIcon from "./TimesBadgeIcon";
 import InfoBadgeIcon from "./InfoBadgeIcon";
+import GoogleIcon from "./GoogleIcon";
+import AppleIcon from "./AppleIcon";
 
 export type { SVGProp } from "./icon.types";
 
@@ -26,6 +28,8 @@ const icons = {
   "check-badge": CheckBadgeIcon,
   "times-badge": TimesBadgeIcon,
   "info-badge": InfoBadgeIcon,
+  google: GoogleIcon,
+  apple: AppleIcon,
 };
 
 export default icons;

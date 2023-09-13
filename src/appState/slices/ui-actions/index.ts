@@ -1,3 +1,4 @@
+import React from "react";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import _ from "lodash";
 import type { SnackbarProps } from "@components/Snackbar/Snackbar.types";
@@ -34,7 +35,10 @@ const slice = createSlice({
   reducers: {
     showMessage: {
       reducer: messageReducer,
-      prepare: (message: string, options?: Omit<SnackbarProps, "message">) => {
+      prepare: (
+        message: React.ReactNode,
+        options?: Omit<SnackbarProps, "message">
+      ) => {
         const payload: SnackbarProps = {
           ...initialState.snackbar,
           message,
@@ -45,7 +49,10 @@ const slice = createSlice({
     },
     showError: {
       reducer: messageReducer,
-      prepare: (message: string, options?: Omit<SnackbarProps, "message">) => {
+      prepare: (
+        message: React.ReactNode,
+        options?: Omit<SnackbarProps, "message">
+      ) => {
         return {
           payload: {
             ...initialState.snackbar,
@@ -58,7 +65,10 @@ const slice = createSlice({
     },
     showSuccess: {
       reducer: messageReducer,
-      prepare: (message: string, options?: Omit<SnackbarProps, "message">) => {
+      prepare: (
+        message: React.ReactNode,
+        options?: Omit<SnackbarProps, "message">
+      ) => {
         return {
           payload: {
             ...initialState.snackbar,

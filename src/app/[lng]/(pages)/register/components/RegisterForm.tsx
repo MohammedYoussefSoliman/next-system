@@ -13,6 +13,7 @@ import registerService from "@appState/slices/auth/registerService";
 import { deviceType, isAndroid, isIOS } from "react-device-detect";
 import { Button } from "@/components/Button";
 import Typography from "@/components/Typography";
+import OAuth from "@/components/OAuth";
 import _get from "lodash/get";
 
 import Or from "./Or";
@@ -145,6 +146,8 @@ export default function RegisterForm() {
             create
           </Button>
           <Or />
+          <OAuth provider="google" />
+          <OAuth provider="apple" />
         </div>
       )}
     </Form>

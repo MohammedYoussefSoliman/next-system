@@ -74,7 +74,6 @@ function Snackbar({
         width: "100%",
         top: "0 !important",
       }}
-      key={message}
       anchorOrigin={
         anchorOrigin || {
           vertical: "top",
@@ -112,11 +111,17 @@ function Snackbar({
             />
           )}
           {message && (
-            <Typography
-              as="p1"
-              text={message}
-              className={status !== "info" ? "text-white" : undefined}
-            />
+            <>
+              {typeof message === "string" ? (
+                <Typography
+                  as="p1"
+                  text={message}
+                  className={status !== "info" ? "text-white" : undefined}
+                />
+              ) : (
+                message
+              )}
+            </>
           )}
         </div>
         <IconButton
