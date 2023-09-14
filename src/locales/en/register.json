@@ -11,5 +11,6 @@
   "confirmPassword": "confirm password",
   "create": "create",
   "or": "or",
-  "inviteDescription": "if you are registering by a friend code, Use it and your friend will inform that you are in."
+  "inviteDescription": "if you are registering by a friend code, Use it and your friend will inform that you are in.",
+  "alreadyHaveAccount": "already have an account ?"
 }

@@ -22,6 +22,7 @@ export type OptionType = {
   label: React.ReactNode;
   value: string | number;
 };
+
 export type AsyncOptionType = {
   label: React.ReactNode;
   stringLabel: string;
@@ -99,6 +100,10 @@ export type TextFieldPropsType = {
   ) => void;
 } & TextFieldProps;
 
+export type PasswordTextField = TextFieldPropsType & {
+  showStrength?: boolean;
+};
+
 export type SelectFieldPropsType = {
   options: OptionType[];
   changeHandler?: (value: any) => void;
@@ -109,3 +114,8 @@ export type SelectFieldPropsType = {
   namespace?: string;
   error?: string;
 } & MuiSelectProps;
+
+export type PasswordProgress = {
+  name: string;
+  control: Control<any>;
+};

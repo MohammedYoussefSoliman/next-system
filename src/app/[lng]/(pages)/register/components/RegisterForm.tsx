@@ -6,6 +6,7 @@ import {
   PasswordField,
   EmailField,
   DialCode,
+  OTPInput,
 } from "@components/Inputs";
 import { useAppDispatch } from "@/hooks";
 import { formDataHandler } from "@/utils";
@@ -66,6 +67,7 @@ export default function RegisterForm() {
             namespace="register"
             required
           />
+          <OTPInput name="otp" verificationCodeLength={6} />
           <div className="flex gap-4 w-full">
             <div className="grow">
               <TextField
@@ -97,6 +99,7 @@ export default function RegisterForm() {
             namespace="register"
             name="password"
             label="password"
+            showStrength
             required
           />
           <PasswordField
@@ -148,6 +151,17 @@ export default function RegisterForm() {
           <Or />
           <OAuth provider="google" />
           <OAuth provider="apple" />
+          <div className="flex w-full items-center justify-center">
+            <span className="inline">
+              <Typography
+                className="inline"
+                color="light"
+                text="alreadyHaveAccount"
+                namespace="register"
+              />{" "}
+              <Link className="inline" label="login" to="/login" />
+            </span>
+          </div>
         </div>
       )}
     </Form>

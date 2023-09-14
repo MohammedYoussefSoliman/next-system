@@ -15,7 +15,7 @@ export default async function Page({
   const { t } = await ssrTranslation(lng, "register");
 
   return (
-    <main className="flex flex-col items-center flex-1 w-full mt-16">
+    <main className="flex flex-col items-center flex-1 w-full my-16">
       <Container>
         <div className="flex flex-col md:flex-row md:justify-between w-full gap-2">
           <Paper className="flex flex-col items-center  gap-2 w-full md:w-2/5">
