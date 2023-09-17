@@ -13,8 +13,8 @@ const getErrorMessage = (errorResponse: any): React.ReactNode => {
     <div className="flex flex-col gap-1">
       {keys.map((key) => (
         <div key={`${key}-${message[key]}`} className="flex items-center gap-2">
-          <Typography className="font-medium" text={key} />
-          <Typography text={message[key]} />
+          <Typography className="font-medium text-white" text={key} />
+          <Typography className="text-white" text={message[key]} />
         </div>
       ))}
     </div>

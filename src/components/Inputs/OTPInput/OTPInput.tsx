@@ -5,7 +5,7 @@ import { OTPInputPropsType } from "./OTPInput.types";
 
 export default function OTP({
   name,
-  verificationCodeLength,
+  codeLength,
   onFinish,
   setValue,
   hasError,
@@ -17,11 +17,11 @@ export default function OTP({
   }, []);
 
   React.useEffect(() => {
-    if (otpValue.length === verificationCodeLength) {
-      if (setValue) setValue(name, otpValue);
+    if (otpValue.length === codeLength) {
+      if (setValue && name) setValue(name, otpValue);
       if (onFinish) onFinish(otpValue);
     }
-  }, [name, onFinish, otpValue, setValue, verificationCodeLength]);
+  }, [name, onFinish, otpValue, setValue, codeLength]);
 
   return (
     <Wrapper>
@@ -30,7 +30,7 @@ export default function OTP({
         inputStyle="otp-input"
         containerStyle="otp-container"
         renderInput={(props) => <Input {...props} hasError={hasError} />}
-        numInputs={verificationCodeLength}
+        numInputs={codeLength}
         inputType="number"
         onChange={handleCodeChanges}
         shouldAutoFocus

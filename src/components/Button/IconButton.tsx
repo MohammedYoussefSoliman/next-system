@@ -24,7 +24,7 @@ const resolveDisabledButton = (variant: IconButtonProps["variant"]) => {
 };
 const resolveIconSize = (size: IconButtonProps["size"]) => {
   const iconSizes = {
-    small: 24,
+    small: 20,
     medium: 32,
     large: 36,
     xLarge: 40,

@@ -29,17 +29,7 @@ const config = cva(
         transparent: ["text-rose-600", "enabled:hover:bg-rose-100"],
       },
       size: {
-        small: [
-          "p-2",
-          "w-8",
-          "h-8",
-          "md:w-9",
-          "md:h-9",
-          "lg:w-10",
-          "lg:h-10",
-          "md:rounded-lg",
-          "xl:rounded-2xl",
-        ],
+        small: ["p-0.5", "w-6", "h-6", "rounded-md"],
         medium: [
           "p-2",
           "w-10",

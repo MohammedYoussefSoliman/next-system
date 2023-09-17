@@ -8,5 +8,15 @@
   "userName": "user name",
   "requiredField": "this field is required",
   "about": "about Mazaady",
-  "login": "log in"
+  "login": "log in",
+  "verifyDesc": "We have successfully sent the verification code to the email address <editEmail></editEmail>. Kindly check your inbox and enter the code below.",
+  "verifyFirstDesc": "We have successfully sent the verification code to the email address",
+  "verifySecondDesc": "Kindly check your inbox and enter the code below.",
+  "verifyEmail": "Verify your email",
+  "resendCode": "resend code",
+  "logOut": "log out",
+  "whyNotReceiveOtp": "why didn't you receive the code ?",
+  "makeSure": "make sure that",
+  "emailCorrect": "your email is correct",
+  "inboxNotFull": "your inbox is not full"
 }

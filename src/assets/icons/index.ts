@@ -12,6 +12,7 @@ import TimesBadgeIcon from "./TimesBadgeIcon";
 import InfoBadgeIcon from "./InfoBadgeIcon";
 import GoogleIcon from "./GoogleIcon";
 import AppleIcon from "./AppleIcon";
+import EditIcon from "./EditIcon";
 
 export type { SVGProp } from "./icon.types";
 
@@ -30,6 +31,7 @@ const icons = {
   "info-badge": InfoBadgeIcon,
   google: GoogleIcon,
   apple: AppleIcon,
+  edit: EditIcon,
 };
 
 export default icons;

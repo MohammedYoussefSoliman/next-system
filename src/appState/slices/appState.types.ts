@@ -20,6 +20,7 @@ export type AuthState = {
     UserResponse,
     "token" | "refresh_token" | "token_expired_at"
   > | null;
+  isVerified: boolean;
 };
 
 export type UIActionsState = {

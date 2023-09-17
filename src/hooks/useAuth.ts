@@ -1,15 +1,15 @@
 import React from "react";
-import { useRouter } from "next/navigation";
 import { formDataHandler } from "@/utils";
 import logoutService from "@appState/slices/auth/logoutService";
 import { useAppDispatch, useAppSelector } from "./reduxHooks";
+import { useNavigation } from ".";
 
 export default function useAuth() {
   const dispatch = useAppDispatch();
-  const route = useRouter();
+  const { navigate } = useNavigation();
 
   const {
-    auth: { token, user },
+    auth: { token, user, isVerified },
   } = useAppSelector((state) => state);
 
   const logout = React.useCallback(async () => {
@@ -22,15 +22,16 @@ export default function useAuth() {
       logoutService({
         formData,
         onSuccess() {
-          route.push("/");
+          navigate("/");
         },
       })
     );
-  }, [dispatch, route]);
+  }, [dispatch, navigate]);
 
   return {
-    loggedIn: Boolean(token),
-    ...user,
+    loggedIn: isVerified,
+    hasToken: Boolean(token),
+    user,
     logout,
   };
 }

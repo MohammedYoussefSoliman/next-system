@@ -2,6 +2,7 @@
 import React from "react";
 import Divider from "@components/Divider";
 import NavLink from "@components/NavLink";
+import { useAuth } from "@/hooks";
 import { Button, IconButton } from "@components/Button";
 import Link from "@components/Link";
 import Container from "@components/Container";
@@ -11,6 +12,7 @@ import ChangeLanguageMenu from "./ChangeLanguageMenu";
 import Logo from "./Logo";
 
 export default function Header() {
+  const { loggedIn } = useAuth();
   const [openMenuDrawer, setOpenMenuDrawer] = React.useState<boolean>(false);
 
   return (
@@ -25,10 +27,14 @@ export default function Header() {
             </nav>
           </div>
           <div className="flex gap-8 py-2 items-center h-full">
-            <div className="flex gap-4 items-center h-full">
-              <Link label="register" to="/register" />
-              <Button>logIn</Button>
-            </div>
+            {!loggedIn ? (
+              <div className="flex gap-4 items-center h-full">
+                <Link label="register" to="/register" />
+                <Button>logIn</Button>
+              </div>
+            ) : (
+              <Button>logOut</Button>
+            )}
             <IconButton
               icon="search"
               variant="transparent"

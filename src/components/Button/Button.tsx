@@ -70,7 +70,7 @@ export default function Button({
       type={type}
       disabled={disabled || Boolean(loading)}
     >
-      <div className="flex w-full h-full gap-2 items-center justify-center">
+      <div className="flex w-full h-full gap-2 items-center justify-center mt-1.5">
         {loading ? (
           <>
             <Spinner

@@ -17,7 +17,7 @@ export default function withHookFormController<
     validationRules,
     ...rest
   }: Props) {
-    const { name, changeHandler, showStrength } = rest;
+    const { name, changeHandler } = rest;
     return (
       <Controller
         name={name as Path<FormType>}

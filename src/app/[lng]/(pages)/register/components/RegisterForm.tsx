@@ -6,9 +6,8 @@ import {
   PasswordField,
   EmailField,
   DialCode,
-  OTPInput,
 } from "@components/Inputs";
-import { useAppDispatch } from "@/hooks";
+import { useAppDispatch, useNavigation } from "@/hooks";
 import { formDataHandler } from "@/utils";
 import registerService from "@appState/slices/auth/registerService";
 import { deviceType, isAndroid, isIOS } from "react-device-detect";
@@ -22,6 +21,7 @@ import Link from "@/components/Link/Link";
 
 export default function RegisterForm() {
   const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
+  const { navigate } = useNavigation();
   const dispatch = useAppDispatch();
   return (
     <Form
@@ -42,6 +42,9 @@ export default function RegisterForm() {
             formData: formDataHandler(registerData),
             setLoading(value) {
               setIsSubmitting(value);
+            },
+            onSuccess() {
+              navigate("/register/verify-email");
             },
           })
         );
@@ -67,7 +70,6 @@ export default function RegisterForm() {
             namespace="register"
             required
           />
-          <OTPInput name="otp" verificationCodeLength={6} />
           <div className="flex gap-4 w-full">
             <div className="grow">
               <TextField
@@ -99,7 +101,6 @@ export default function RegisterForm() {
             namespace="register"
             name="password"
             label="password"
-            showStrength
             required
           />
           <PasswordField
