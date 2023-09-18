@@ -27,5 +27,6 @@
   "emailCorrect": "البريد الإلكتروني صحيح",
   "inboxNotFull": "صندوق البريد لديك غير مكتمل",
   "loading": "جاري الارسال",
-  "dontHaveAccount": "ليس لديك حساب ؟"
+  "dontHaveAccount": "ليس لديك حساب ؟",
+  "phoneNumberVerified": "تم التحقق من رقم الجوال"
 }

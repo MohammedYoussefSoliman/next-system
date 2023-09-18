@@ -34,29 +34,51 @@ export default function VerifyComponent({ mode }: VerifyComponentProps) {
   const [sendingOtp, setSendingOtp] = React.useState<boolean>(false);
   const [resendingOtp, setResendingOtp] = React.useState<boolean>(false);
 
-  const sendOTP = React.useCallback(() => {
+  const phoneNumberSendOTP = React.useCallback(async () => {
     const formData = {
-      email: mode === "email" ? loGet(user, mode, "") : undefined,
-      phone: mode === "phone" ? loGet(user, mode, "") : undefined,
-      country_code:
-        mode === "phone" ? loGet(user, "country_code", "") : undefined,
+      phone: loGet(user, "phone", ""),
+      country_code: loGet(user, "country_code", ""),
       type: mode,
       cause: `verify_${mode}`,
       code: otp ? +otp : "",
     };
+    setSendingOtp(true);
 
-    dispatch(
-      verifyOtpService({
-        formData: formDataHandler(formData),
-        setLoading(value) {
-          setSendingOtp(value);
-        },
-        onSuccess() {
-          mode === "email" ? route.push("/") : navigate("/verify-email");
-        },
-      })
-    );
-  }, [mode, user, otp, dispatch, route, navigate]);
+    try {
+      await post("verify-otp-code", formDataHandler(formData));
+      dispatch(showSuccess("phoneNumberVerified"));
+      navigate("/verify-email");
+    } catch (err) {
+      const messages = getErrorMessage(err as any);
+      dispatch(showError(messages));
+    } finally {
+      setSendingOtp(false);
+    }
+  }, [mode, user, otp, post, dispatch, navigate]);
+
+  const sendOTP = React.useCallback(() => {
+    if (mode === "email") {
+      const formData = {
+        email: loGet(user, "email", ""),
+        type: mode,
+        cause: "verify_email",
+        code: otp ? +otp : "",
+      };
+      dispatch(
+        verifyOtpService({
+          formData: formDataHandler(formData),
+          setLoading(value) {
+            setSendingOtp(value);
+          },
+          onSuccess() {
+            mode === "email" ? route.push("/") : navigate("/verify-email");
+          },
+        })
+      );
+    } else {
+      phoneNumberSendOTP();
+    }
+  }, [mode, user, otp, dispatch, route, navigate, phoneNumberSendOTP]);
 
   const resendOTP = React.useCallback(async () => {
     const formData = {
