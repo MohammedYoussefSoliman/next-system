@@ -8,7 +8,7 @@ import Typography from "@components/Typography/Typography";
 import { IconButton } from "@/components/Button";
 
 type RegisterHeaderProps = {
-  page: "register" | "verify-email";
+  page: "register" | "verify-email" | "verify-phone";
 };
 
 export default function RegisterHeader({ page }: RegisterHeaderProps) {
@@ -29,29 +29,56 @@ export default function RegisterHeader({ page }: RegisterHeaderProps) {
       )}
       <Typography
         as="h3"
-        text={page === "register" ? "createAccount" : "verifyEmail"}
+        text={
+          page === "register"
+            ? "createAccount"
+            : page === "verify-phone"
+            ? "verifyPhone"
+            : "verifyEmail"
+        }
         namespace="register"
         className="font-medium capitalize"
       />
-      {page === "verify-email" && (
+      {page !== "register" && (
         <div className="max-w-xs flex items-center justify-center mt-2">
           <span className="inline text-sm md:text-base text-center">
-            <Typography text="verifyFirstDesc" className="inline" />{" "}
+            <Typography
+              text={
+                page === "verify-phone"
+                  ? "verifyFirstPhoneDesc"
+                  : "verifyFirstEmailDesc"
+              }
+              className="inline"
+            />{" "}
             <div className="inline-flex items-center gap-0.5">
               <Typography
                 as="p1"
-                text={loGet(user, "email", "")}
+                text={`${
+                  page === "verify-phone" &&
+                  loGet(user, "country_code", "") + "-"
+                }${loGet(
+                  user,
+                  page === "verify-phone" ? "phone" : "email",
+                  ""
+                )}`}
                 className="inline font-bold"
               />
               <IconButton
                 icon="edit"
-                onClick={() => console.log("edit email !")}
+                onClick={() => console.log("edit email/phone !")}
                 className="inline"
                 variant="transparent"
                 size="small"
               />
             </div>{" "}
-            <Typography text="verifySecondDesc" className="inline" />
+            <Typography
+              text={
+                page === "verify-phone"
+                  ? "verifySecondPhoneDesc"
+                  : "verifySecondEmailDesc"
+              }
+              className="inline"
+            />
           </span>
         </div>
       )}

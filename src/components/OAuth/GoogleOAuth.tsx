@@ -1,15 +1,21 @@
 import React from "react";
 import axios from "axios";
-import { classNames } from "@/utils";
 import { useGoogleLogin } from "@react-oauth/google";
+import { useRouter } from "next/navigation";
+import loGet from "lodash/get";
+import socialMediaRegisterService from "@appState/slices/auth/socialMediaRegisterService";
+import { useAppDispatch } from "@/hooks";
+import { classNames, formDataHandler } from "@/utils";
 import Typography from "@components/Typography";
 import withOAuthGoogleProvider from "@components/withOAuthGoogleProvider";
 import Icon from "@components/Icon";
 
 function GoogleOAuth() {
+  const dispatch = useAppDispatch();
+  const route = useRouter();
   const googleLogin = useGoogleLogin({
     onSuccess: async (res) => {
-      const userInfo = await axios.get(
+      const userResponse = await axios.get(
         "https://www.googleapis.com/oauth2/v3/userinfo",
         {
           headers: {
@@ -17,7 +23,20 @@ function GoogleOAuth() {
           },
         }
       );
-      console.log(userInfo);
+      dispatch(
+        socialMediaRegisterService({
+          formData: formDataHandler({
+            provider_id: +loGet(userResponse, "data.sub", ""),
+            provider_name: "google",
+            email: loGet(userResponse, "data.email", ""),
+            name: loGet(userResponse, "data.name", ""),
+            avatar_url: loGet(userResponse, "data.picture", ""),
+          }),
+          onSuccess() {
+            route.push("/");
+          },
+        })
+      );
     },
   });
   const classes = classNames([

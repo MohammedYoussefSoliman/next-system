@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import _get from "lodash/get";
 import Form from "@components/Form";
 import {
   TextField,
@@ -14,10 +15,9 @@ import { deviceType, isAndroid, isIOS } from "react-device-detect";
 import { Button } from "@/components/Button";
 import Typography from "@/components/Typography";
 import OAuth from "@/components/OAuth";
-import _get from "lodash/get";
-
+import Link from "@/components/Link";
+import RedirectAuthStatement from "@/components/RedirectAuthStatement";
 import Or from "./Or";
-import Link from "@/components/Link/Link";
 
 export default function RegisterForm() {
   const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
@@ -152,17 +152,7 @@ export default function RegisterForm() {
           <Or />
           <OAuth provider="google" />
           <OAuth provider="apple" />
-          <div className="flex w-full items-center justify-center">
-            <span className="inline">
-              <Typography
-                className="inline"
-                color="light"
-                text="alreadyHaveAccount"
-                namespace="register"
-              />{" "}
-              <Link className="inline" label="login" to="/login" />
-            </span>
-          </div>
+          <RedirectAuthStatement type="login" />
         </div>
       )}
     </Form>

@@ -13,6 +13,8 @@ import InfoBadgeIcon from "./InfoBadgeIcon";
 import GoogleIcon from "./GoogleIcon";
 import AppleIcon from "./AppleIcon";
 import EditIcon from "./EditIcon";
+import EmailIcon from "./EmailIcon";
+import PhoneIcon from "./PhoneIcon";
 
 export type { SVGProp } from "./icon.types";
 
@@ -32,6 +34,8 @@ const icons = {
   google: GoogleIcon,
   apple: AppleIcon,
   edit: EditIcon,
+  email: EmailIcon,
+  phone: PhoneIcon,
 };
 
 export default icons;

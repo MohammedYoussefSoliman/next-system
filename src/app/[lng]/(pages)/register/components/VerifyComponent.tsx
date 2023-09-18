@@ -12,7 +12,11 @@ import verifyOtpService from "@appState/slices/auth/verifyOtpService";
 import { showError, showSuccess } from "@appState/slices/ui-actions";
 import Typography from "@components/Typography";
 
-export default function VerifyComponent() {
+type VerifyComponentProps = {
+  mode: "email" | "phone";
+};
+
+export default function VerifyComponent({ mode }: VerifyComponentProps) {
   const dispatch = useAppDispatch();
   const route = useRouter();
   const { user } = useAuth();
@@ -26,9 +30,9 @@ export default function VerifyComponent() {
 
   const sendOTP = React.useCallback(() => {
     const formData = {
-      email: loGet(user, "email", ""),
-      type: "email",
-      cause: "verify_email",
+      email: loGet(user, mode, ""),
+      type: mode,
+      cause: `verify_${mode}`,
       code: otp ? +otp : "",
     };
 
@@ -39,17 +43,17 @@ export default function VerifyComponent() {
           setSendingOtp(value);
         },
         onSuccess() {
-          route.push("/");
+          route.push(mode === "email" ? "/" : "/verify-email");
         },
       })
     );
-  }, [user, otp, dispatch, route]);
+  }, [user, otp, dispatch, route, mode]);
 
   const resendOTP = React.useCallback(async () => {
     const formData = {
-      email: loGet(user, "email", ""),
-      type: "email",
-      cause: "verify_email",
+      email: loGet(user, mode, ""),
+      type: mode,
+      cause: `verify_${mode}`,
     };
     setResendingOtp(true);
 
@@ -63,7 +67,7 @@ export default function VerifyComponent() {
       setResend(false);
       setResendingOtp(false);
     }
-  }, [dispatch, post, user]);
+  }, [dispatch, post, user, mode]);
   return (
     <div className="flex flex-col gap-4 mt-2 mb-4 w-full">
       <OTPInput codeLength={6} onFinish={(otp) => setOtp(otp)} />

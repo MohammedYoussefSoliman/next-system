@@ -12,8 +12,11 @@
   "language": "اللغة :",
   "login": "تسجيل دخول",
   "verifyDesc": "تم ارسال كود التحقق للبريد الإلكتروني  <editEmail>{{value}}<editEmail /> . من فضلك قم كتابة الكود",
-  "verifyFirstDesc": "تم ارسال كود التحقق للبريد الإلكتروني",
-  "verifySecondDesc": "من فضلك قم بكتابة الك،د المرسل إليك",
+  "verifyFirstEmailDesc": "تم ارسال كود التحقق للبريد الإلكتروني",
+  "verifySecondEmailDesc": "من فضلك قم بكتابة الكود المرسل إليك",
+  "verifyFirstPhoneDesc": "تم ارسال كود التحقق لرقم الجوال",
+  "verifySecondPhoneDesc": "من فضلك قم بكتابة الكود المرسل إليك",
+  "verifyPhone": "تحقيق رقم الجوال",
   "verifyEmail": "تحقيق البريد الإلكتروني",
   "confirm": "تأكيد",
   "resendCode": "إعادة ارسال كود التحقيق",
@@ -23,5 +26,6 @@
   "makeSure": "تاكد من الآتي",
   "emailCorrect": "البريد الإلكتروني صحيح",
   "inboxNotFull": "صندوق البريد لديك غير مكتمل",
-  "loading": "جاري الارسال"
+  "loading": "جاري الارسال",
+  "dontHaveAccount": "ليس لديك حساب ؟"
 }

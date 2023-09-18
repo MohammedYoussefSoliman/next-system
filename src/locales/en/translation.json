@@ -18,5 +18,6 @@
   "whyNotReceiveOtp": "why didn't you receive the code ?",
   "makeSure": "make sure that",
   "emailCorrect": "your email is correct",
-  "inboxNotFull": "your inbox is not full"
+  "inboxNotFull": "your inbox is not full",
+  "dontHaveAccount": "don't have an account ?"
 }
