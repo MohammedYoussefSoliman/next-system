@@ -44,7 +44,7 @@ export default function RegisterForm() {
               setIsSubmitting(value);
             },
             onSuccess() {
-              navigate("/register/verify-email");
+              navigate("/register/verify-phone");
             },
           })
         );

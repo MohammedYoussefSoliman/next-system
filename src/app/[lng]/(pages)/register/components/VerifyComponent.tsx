@@ -7,7 +7,12 @@ import { Button } from "@/components/Button";
 import { ConfirmModal } from "@/components/Modal";
 import { OTPInput } from "@/components/Inputs";
 import { formDataHandler, getErrorMessage } from "@/utils";
-import { useAuth, useAppDispatch, useAxiosInstance } from "@/hooks";
+import {
+  useAuth,
+  useAppDispatch,
+  useAxiosInstance,
+  useNavigation,
+} from "@/hooks";
 import verifyOtpService from "@appState/slices/auth/verifyOtpService";
 import { showError, showSuccess } from "@appState/slices/ui-actions";
 import Typography from "@components/Typography";
@@ -17,6 +22,7 @@ type VerifyComponentProps = {
 };
 
 export default function VerifyComponent({ mode }: VerifyComponentProps) {
+  const { navigate } = useNavigation();
   const dispatch = useAppDispatch();
   const route = useRouter();
   const { user } = useAuth();
@@ -30,7 +36,10 @@ export default function VerifyComponent({ mode }: VerifyComponentProps) {
 
   const sendOTP = React.useCallback(() => {
     const formData = {
-      email: loGet(user, mode, ""),
+      email: mode === "email" ? loGet(user, mode, "") : undefined,
+      phone: mode === "phone" ? loGet(user, mode, "") : undefined,
+      country_code:
+        mode === "phone" ? loGet(user, "country_code", "") : undefined,
       type: mode,
       cause: `verify_${mode}`,
       code: otp ? +otp : "",
@@ -43,15 +52,16 @@ export default function VerifyComponent({ mode }: VerifyComponentProps) {
           setSendingOtp(value);
         },
         onSuccess() {
-          route.push(mode === "email" ? "/" : "/verify-email");
+          mode === "email" ? route.push("/") : navigate("/verify-email");
         },
       })
     );
-  }, [user, otp, dispatch, route, mode]);
+  }, [mode, user, otp, dispatch, route, navigate]);
 
   const resendOTP = React.useCallback(async () => {
     const formData = {
-      email: loGet(user, mode, ""),
+      email: mode === "email" ? loGet(user, mode, "") : undefined,
+      phone: mode === "phone" ? loGet(user, mode, "") : undefined,
       type: mode,
       cause: `verify_${mode}`,
     };

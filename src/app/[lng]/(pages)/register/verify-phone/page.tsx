@@ -17,7 +17,7 @@ export default async function Page({
       <Container spacing={4}>
         <div className="flex flex-col md:flex-row md:justify-between w-full gap-2 items-center">
           <Paper className="flex flex-col items-center  gap-2 md:w-2/5 h-fit">
-            <RegisterHeader page="verify-email" />
+            <RegisterHeader page="verify-phone" />
             <VerifyComponent mode="phone" />
           </Paper>
           <div className="w-full md:w-1/2">
