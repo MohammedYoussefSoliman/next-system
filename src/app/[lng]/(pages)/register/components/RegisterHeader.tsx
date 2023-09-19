@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Icon from "@components/Icon";
-import { redirect } from "next/navigation";
 import loGet from "lodash/get";
 import { useAuth } from "@/hooks";
 import Typography from "@components/Typography/Typography";

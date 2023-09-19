@@ -3,6 +3,7 @@ import React from "react";
 import colors from "tailwindcss/colors";
 import { classNames } from "@/utils";
 import i18next from "i18next";
+import Typography from "@components/Typography";
 import { useTranslation } from "@i18n/client";
 import { TabsStore } from "./context";
 import { TabButtonType } from "./Tabs.types";
@@ -16,33 +17,34 @@ export default function TabButton({ label, icon, value }: TabButtonType) {
   const classes = classNames(
     [
       "flex",
+      "flex-1",
       "items-center",
       "justify-center",
       "outline-none",
       "border-none",
       "cursor-pointer",
-      "rounded-xl",
+      "rounded-[8px]",
       "text-gray-700",
-      "enabled:hover:bg-stone-200",
+      "enabled:hover:bg-slate-100",
       "gap-2",
+      "h-full",
     ],
-    [
-      active && [
-        "text-orange-500",
-        "bg-amber-100",
-        "enabled:hover:bg-amber-200",
-      ],
-    ]
+    [active && ["text-orange-400", "bg-amber-50", "enabled:hover:bg-amber-100"]]
   );
+  const textClasses = classNames(
+    ["font-medium", "mt-1.5"],
+    [active && ["text-orange-500", "font-bold"]]
+  );
+
   return (
     <button className={classes} onClick={() => updateActiveTab(value)}>
       {icon && (
         <Icon
           name={icon}
-          color={active ? colors.orange[500] : colors.gray[700]}
+          color={active ? colors.orange[400] : colors.gray[700]}
         />
       )}
-      {t(label)}
+      <Typography className={textClasses} as="p2" text={label} />
     </button>
   );
 }

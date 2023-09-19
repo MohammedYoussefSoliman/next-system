@@ -1,12 +1,9 @@
 import React from "react";
 import AppleOAuth from "./AppleOAuth";
 import GoogleOAuth from "./GoogleOAuth";
+import { OAuthProps } from "./OAuth.types";
 
-type OAuthProps = {
-  provider: "google" | "apple";
-};
-
-export default function OAuth({ provider }: OAuthProps) {
+export default function OAuth({ provider, mode }: OAuthProps) {
   const OAuthProvider = provider === "apple" ? AppleOAuth : GoogleOAuth;
-  return <OAuthProvider />;
+  return <OAuthProvider mode={mode} />;
 }

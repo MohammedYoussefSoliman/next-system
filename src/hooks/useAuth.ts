@@ -1,5 +1,4 @@
 import React from "react";
-import { formDataHandler } from "@/utils";
 import logoutService from "@appState/slices/auth/logoutService";
 import { useAppDispatch, useAppSelector } from "./reduxHooks";
 import { useNavigation } from ".";
@@ -13,14 +12,9 @@ export default function useAuth() {
   } = useAppSelector((state) => state);
 
   const logout = React.useCallback(async () => {
-    let formDataObj = {};
-
-    const formData = formDataHandler({
-      ...formDataObj,
-    });
     dispatch(
       logoutService({
-        formData,
+        formData: {},
         onSuccess() {
           navigate("/");
         },

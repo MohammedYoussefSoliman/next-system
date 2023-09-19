@@ -1,5 +1,5 @@
-import Typography from "@/components/Typography";
 import React from "react";
+import Typography from "@/components/Typography";
 
 export default function Or() {
   return (

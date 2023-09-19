@@ -9,6 +9,10 @@
   "requiredField": "this field is required",
   "about": "about Mazaady",
   "login": "log in",
+  "email": "email address",
+  "phoneNumber": "phone number",
+  "password": "password",
+  "confirmPassword": "confirm password",
   "verifyDesc": "We have successfully sent the verification code to the email address <editEmail></editEmail>. Kindly check your inbox and enter the code below.",
   "verifyFirstDesc": "We have successfully sent the verification code to the email address",
   "verifySecondDesc": "Kindly check your inbox and enter the code below.",
@@ -19,5 +23,13 @@
   "makeSure": "make sure that",
   "emailCorrect": "your email is correct",
   "inboxNotFull": "your inbox is not full",
-  "dontHaveAccount": "don't have an account ?"
+  "dontHaveAccount": "don't have an account ?",
+  "phoneNumberVerified": "phone number verified successfully",
+  "byEmail": "by email",
+  "byPhone": "phone number",
+  "passwordMinLength": "password should be greater than 6 characters",
+  "phoneNumberMinLength": "phone number must not be less than 9 digits",
+  "phoneNumberMaxLength": "phone number must not be greater than 12 digits",
+  "forgetPassword": "forget password ?",
+  "welcomeBack": "welcome back"
 }

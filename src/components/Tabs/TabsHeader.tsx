@@ -1,13 +1,18 @@
 import React from "react";
+import { classNames } from "@/utils";
 import { TabsStore } from "./context";
 import TabButton from "./TabButton";
 
 export default function TabsHeader() {
-  const { tabs } = React.useContext(TabsStore);
+  const { tabs, headerClasses } = React.useContext(TabsStore);
+  const classes = classNames(
+    "p-1 rounded-xl flex items-center flex-warp border border-slate-200 h-12 w-full gap-2",
+    headerClasses
+  );
 
   if (tabs.length <= 0) return null;
   return (
-    <div className="ms-auto p-0.5 rounded-xl flex items-center flex-warp border-slate-200">
+    <div className={classes}>
       {tabs.map((tab) => (
         <TabButton
           key={`${tab.label}-${tab.value}`}

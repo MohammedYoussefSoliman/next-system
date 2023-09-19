@@ -4,13 +4,15 @@ import { useGoogleLogin } from "@react-oauth/google";
 import { useRouter } from "next/navigation";
 import loGet from "lodash/get";
 import socialMediaRegisterService from "@appState/slices/auth/socialMediaRegisterService";
+import socialMediaLoginService from "@appState/slices/auth/socialMediaLoginService";
 import { useAppDispatch } from "@/hooks";
-import { classNames, formDataHandler } from "@/utils";
+import { classNames } from "@/utils";
 import Typography from "@components/Typography";
 import withOAuthGoogleProvider from "@components/withOAuthGoogleProvider";
 import Icon from "@components/Icon";
+import { ProviderProps } from "./OAuth.types";
 
-function GoogleOAuth() {
+function GoogleOAuth({ mode }: ProviderProps) {
   const dispatch = useAppDispatch();
   const route = useRouter();
   const googleLogin = useGoogleLogin({
@@ -23,20 +25,36 @@ function GoogleOAuth() {
           },
         }
       );
-      dispatch(
-        socialMediaRegisterService({
-          formData: formDataHandler({
-            provider_id: +loGet(userResponse, "data.sub", ""),
-            provider_name: "google",
-            email: loGet(userResponse, "data.email", ""),
-            name: loGet(userResponse, "data.name", ""),
-            avatar_url: loGet(userResponse, "data.picture", ""),
-          }),
-          onSuccess() {
-            route.push("/");
-          },
-        })
-      );
+      if (mode === "register") {
+        dispatch(
+          socialMediaRegisterService({
+            formData: {
+              provider_id: +loGet(userResponse, "data.sub", ""),
+              provider_name: "google",
+              email: loGet(userResponse, "data.email", ""),
+              name: loGet(userResponse, "data.name", ""),
+              avatar_url: loGet(userResponse, "data.picture", ""),
+            },
+            onSuccess() {
+              route.push("/");
+            },
+          })
+        );
+      } else {
+        dispatch(
+          socialMediaLoginService({
+            formData: {
+              provider_id: +loGet(userResponse, "data.sub", ""),
+              provider_name: "google",
+              email: loGet(userResponse, "data.email", ""),
+            },
+            showSuccessMessage: true,
+            onSuccess() {
+              route.push("/");
+            },
+          })
+        );
+      }
     },
   });
   const classes = classNames([

@@ -10,6 +10,12 @@
   "about": "عن مزادي",
   "ar": "ع",
   "language": "اللغة :",
+  "email": "البريد الالكتروني",
+  "phoneNumber": "رقم الهاتف",
+  "password": "كلمة السر",
+  "confirmPassword": "تأكيد كلمة السر",
+  "create": "انشاء",
+  "or": "او",
   "login": "تسجيل دخول",
   "verifyDesc": "تم ارسال كود التحقق للبريد الإلكتروني  <editEmail>{{value}}<editEmail /> . من فضلك قم كتابة الكود",
   "verifyFirstEmailDesc": "تم ارسال كود التحقق للبريد الإلكتروني",
@@ -28,5 +34,12 @@
   "inboxNotFull": "صندوق البريد لديك غير مكتمل",
   "loading": "جاري الارسال",
   "dontHaveAccount": "ليس لديك حساب ؟",
-  "phoneNumberVerified": "تم التحقق من رقم الجوال"
+  "phoneNumberVerified": "تم التحقق من رقم الجوال",
+  "byEmail": "التسجيل بالإيميل",
+  "byPhone": "التسجيل بالجوال",
+  "passwordMinLength": "كلمة المرور لا يجب ان تكون اقل من ٦ آحرف",
+  "phoneNumberMinLength": "رقم الجوال لا يجب ان يقل عن ٩",
+  "phoneNumberMaxLength": "رقم الجوال لا يجب ان يزيد عن ١٢",
+  "forgetPassword": "نسيت كلمة المرور ؟",
+  "welcomeBack": "مرحباً بك مجدداً"
 }

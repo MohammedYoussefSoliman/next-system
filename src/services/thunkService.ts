@@ -2,17 +2,17 @@ import React from "react";
 import { AxiosRequestConfig } from "axios";
 import { createAsyncThunk, AsyncThunk } from "@reduxjs/toolkit";
 import generateInstance from "@/services/thunkInstance";
-import { getErrorMessage } from "@/utils";
+import { getResponseMessage, formDataHandler } from "@/utils";
 import { showError, showSuccess } from "@appState/slices/ui-actions";
 import { RootState } from "@appState/store";
 
 type Args = {
-  formData: FormData;
-  onSuccess?: () => void;
+  formData: { [key: string]: any };
+  onSuccess?: (resData: any) => void;
   onEnd?: () => void;
   onFailure?: (message: React.ReactNode) => void;
   setLoading?: (value: boolean) => void;
-  successMessage?: string;
+  showSuccessMessage?: boolean;
 };
 
 type GetArgs = Omit<Args, "formData"> & {
@@ -35,18 +35,20 @@ export default class ThunkService implements Service {
           formData,
           onSuccess,
           setLoading,
-          successMessage,
+          showSuccessMessage,
           onFailure,
           onEnd,
         } = args;
         try {
+          const readyFormData = formDataHandler(formData);
           if (setLoading) setLoading(true);
-          const response = await axiosInstance.post(endpoint, formData);
-          if (onSuccess) onSuccess();
-          if (successMessage) dispatch(showSuccess(successMessage));
+          const response = await axiosInstance.post(endpoint, readyFormData);
+          if (showSuccessMessage)
+            dispatch(showSuccess(getResponseMessage(response.data)));
+          if (onSuccess) onSuccess(response.data);
           return response.data;
         } catch (err) {
-          const messages = getErrorMessage(err as any);
+          const messages = getResponseMessage(err as any, true);
           if (onFailure) {
             onFailure(messages);
           } else {
@@ -68,24 +70,25 @@ export default class ThunkService implements Service {
           onSuccess,
           config,
           setLoading,
-          successMessage,
+          showSuccessMessage,
           onFailure,
           onEnd,
         } = args;
         try {
           if (setLoading) setLoading(true);
           const response = await axiosInstance.get(endpoint, { ...config });
-          if (onSuccess) onSuccess();
-          if (successMessage) dispatch(showSuccess(successMessage));
+          if (onSuccess) onSuccess(response.data);
+          if (showSuccessMessage)
+            dispatch(showSuccess(getResponseMessage(response.data)));
           return response.data;
         } catch (err) {
-          const messages = getErrorMessage(err as any);
+          const messages = getResponseMessage(err as any, true);
           if (onFailure) {
             onFailure(messages);
           } else {
             dispatch(showError(messages));
           }
-          return rejectWithValue(messages);
+          return rejectWithValue(err);
         } finally {
           if (setLoading) setLoading(false);
           if (onEnd) onEnd();

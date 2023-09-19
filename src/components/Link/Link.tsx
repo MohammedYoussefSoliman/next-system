@@ -8,11 +8,12 @@ export default function Link({
   to,
   label,
   onClick,
+  isDirect,
   ...textProps
 }: NavLinkProps) {
   const { language } = useAppSelector((state) => state.ui);
   return (
-    <NextLink href={`/${language}/${to}`} onClick={onClick}>
+    <NextLink href={isDirect ? to : `/${language}/${to}`} onClick={onClick}>
       <Typography
         text={label}
         color="secondary"

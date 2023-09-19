@@ -15,6 +15,13 @@ export type ButtonProps = {
   className?: string;
 };
 
+export type LinkButtonProps = Omit<
+  ButtonProps,
+  "onClick" | "disabled" | "type" | "loading"
+> & {
+  to: string;
+};
+
 export type IconButtonProps = {
   icon: IconType;
   iconColor?: "inherit" | string;

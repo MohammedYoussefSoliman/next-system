@@ -4,8 +4,9 @@ import AppleLogin from "react-apple-login";
 import { classNames } from "@/utils";
 import Typography from "@components/Typography";
 import Icon from "@components/Icon";
+import { ProviderProps } from "./OAuth.types";
 
-export default function AppleOAuth() {
+export default function AppleOAuth({ mode }: ProviderProps) {
   const classes = classNames([
     "outline-none",
     "border-none",

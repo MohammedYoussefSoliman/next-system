@@ -27,11 +27,12 @@ const authInit = (state: AuthState, action: PayloadAction<any>) => {
   };
 };
 
-const updateUserState = (state: AuthState, action: PayloadAction<any>) => {
+const authInitLogin = (state: AuthState, action: PayloadAction<any>) => {
   const { token, refresh_token, token_expired_at, ...user } =
     action.payload.data;
   return {
     ...state,
+    isVerified: true,
     token,
     refreshToken: refresh_token,
     expirationDate: new Date(token_expired_at * 1000),
@@ -53,7 +54,7 @@ const slice = createSlice({
     logout: () => initialState,
   },
   extraReducers: {
-    [loginService.fulfilled.type]: authInit,
+    [loginService.fulfilled.type]: authInitLogin,
     [loginService.rejected.type]: () => initialState,
     [logoutService.fulfilled.type]: () => initialState,
     [logoutService.rejected.type]: () => initialState,

@@ -7,6 +7,7 @@ interface AppContextInterface {
   updateActiveTab: (value: number | string) => void;
   activeTab: number | string;
   namespace?: string;
+  headerClasses?: string | string[];
 }
 
 export const TabsStore = React.createContext<AppContextInterface>({
@@ -15,9 +16,15 @@ export const TabsStore = React.createContext<AppContextInterface>({
   updateActiveTab: () => {},
   activeTab: "",
   namespace: "",
+  headerClasses: "",
 });
 
-export default function Tabs({ children, defaultValue, namespace }: TabsType) {
+export default function Tabs({
+  children,
+  defaultValue,
+  namespace,
+  headerClasses,
+}: TabsType) {
   const [tabs, setTabs] = React.useState<TabType[]>([]);
   const [activeTab, setActiveTab] = React.useState<number | string>(
     defaultValue || ""
@@ -42,6 +49,7 @@ export default function Tabs({ children, defaultValue, namespace }: TabsType) {
       updateActiveTab,
       activeTab,
       namespace,
+      headerClasses,
     }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [activeTab, tabs, setTabs]

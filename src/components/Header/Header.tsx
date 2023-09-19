@@ -3,7 +3,7 @@ import React from "react";
 import Divider from "@components/Divider";
 import NavLink from "@components/NavLink";
 import { useAuth } from "@/hooks";
-import { Button, IconButton } from "@components/Button";
+import { Button, IconButton, LinkButton } from "@components/Button";
 import Link from "@components/Link";
 import Container from "@components/Container";
 import Drawer from "@components/Drawer";
@@ -30,7 +30,7 @@ export default function Header() {
             {!loggedIn ? (
               <div className="flex gap-4 items-center h-full">
                 <Link label="register" to="/register" />
-                <Button>logIn</Button>
+                <LinkButton to="/login">logIn</LinkButton>
               </div>
             ) : (
               <Button>logOut</Button>

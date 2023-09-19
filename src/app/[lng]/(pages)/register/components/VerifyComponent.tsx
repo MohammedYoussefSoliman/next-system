@@ -6,7 +6,7 @@ import CountDown from "@/components/CountDown";
 import { Button } from "@/components/Button";
 import { ConfirmModal } from "@/components/Modal";
 import { OTPInput } from "@/components/Inputs";
-import { formDataHandler, getErrorMessage } from "@/utils";
+import { getResponseMessage, formDataHandler } from "@/utils";
 import {
   useAuth,
   useAppDispatch,
@@ -45,11 +45,11 @@ export default function VerifyComponent({ mode }: VerifyComponentProps) {
     setSendingOtp(true);
 
     try {
-      await post("verify-otp-code", formDataHandler(formData));
-      dispatch(showSuccess("phoneNumberVerified"));
+      const response = await post("verify-otp-code", formDataHandler(formData));
+      dispatch(showSuccess(getResponseMessage(response.data)));
       navigate("/verify-email");
     } catch (err) {
-      const messages = getErrorMessage(err as any);
+      const messages = getResponseMessage(err as any, true);
       dispatch(showError(messages));
     } finally {
       setSendingOtp(false);
@@ -66,10 +66,11 @@ export default function VerifyComponent({ mode }: VerifyComponentProps) {
       };
       dispatch(
         verifyOtpService({
-          formData: formDataHandler(formData),
+          formData,
           setLoading(value) {
             setSendingOtp(value);
           },
+          showSuccessMessage: true,
           onSuccess() {
             mode === "email" ? route.push("/") : navigate("/verify-email");
           },
@@ -90,10 +91,10 @@ export default function VerifyComponent({ mode }: VerifyComponentProps) {
     setResendingOtp(true);
 
     try {
-      await post("send-otp-code", formDataHandler(formData));
-      dispatch(showSuccess("otpCodeSent"));
+      const response = await post("send-otp-code", formData);
+      dispatch(showSuccess(getResponseMessage(response.data)));
     } catch (err) {
-      const messages = getErrorMessage(err as any);
+      const messages = getResponseMessage(err as any, true);
       dispatch(showError(messages));
     } finally {
       setResend(false);

@@ -8,18 +8,17 @@ import {
   EmailField,
   DialCode,
 } from "@components/Inputs";
-import { useAppDispatch, useNavigation } from "@/hooks";
-import { formDataHandler } from "@/utils";
+import { useAppDispatch, useNavigation, useDeviceInfo } from "@/hooks";
 import registerService from "@appState/slices/auth/registerService";
-import { deviceType, isAndroid, isIOS } from "react-device-detect";
 import { Button } from "@/components/Button";
 import Typography from "@/components/Typography";
 import OAuth from "@/components/OAuth";
 import Link from "@/components/Link";
 import RedirectAuthStatement from "@/components/RedirectAuthStatement";
-import Or from "./Or";
+import Or from "@/components/Or";
 
 export default function RegisterForm() {
+  const deviceInfo = useDeviceInfo();
   const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
   const { navigate } = useNavigation();
   const dispatch = useAppDispatch();
@@ -27,22 +26,18 @@ export default function RegisterForm() {
     <Form
       onSubmit={(data) => {
         delete data.confirmPassword;
-        const device_type = deviceType;
-        const platform = isAndroid ? "android" : isIOS ? "ios" : "web";
-        const device_id = _get(window, "navigator.platform", "");
         const registerData = {
+          ...deviceInfo,
           ...data,
-          device_id,
-          device_type,
-          platform,
           country_code: +data.country_code.substring(1),
         };
         dispatch(
           registerService({
-            formData: formDataHandler(registerData),
+            formData: registerData,
             setLoading(value) {
               setIsSubmitting(value);
             },
+            showSuccessMessage: true,
             onSuccess() {
               navigate("/register/verify-phone");
             },
@@ -63,13 +58,7 @@ export default function RegisterForm() {
             control={control}
             required
           />
-          <EmailField
-            name="email"
-            label="email"
-            control={control}
-            namespace="register"
-            required
-          />
+          <EmailField name="email" label="email" control={control} required />
           <div className="flex gap-4 w-full">
             <div className="grow">
               <TextField
@@ -80,11 +69,11 @@ export default function RegisterForm() {
                 validationRules={{
                   minLength: {
                     value: 9,
-                    message: "minLength9",
+                    message: "phoneNumberMinLength",
                   },
                   maxLength: {
                     value: 12,
-                    message: "maxLength12",
+                    message: "phoneNumberMaxLength",
                   },
                 }}
                 control={control}
@@ -98,16 +87,26 @@ export default function RegisterForm() {
           </div>
           <PasswordField
             control={control}
-            namespace="register"
             name="password"
             label="password"
+            validationRules={{
+              minLength: {
+                value: 6,
+                message: "passwordMinLength",
+              },
+            }}
             required
           />
           <PasswordField
             control={control}
             name="confirmPassword"
             label="confirmPassword"
-            namespace="register"
+            validationRules={{
+              minLength: {
+                value: 6,
+                message: "passwordMinLength",
+              },
+            }}
             required
           />
           <div className="flex flex-col mt-10 mb-6 gap-4">
@@ -150,8 +149,8 @@ export default function RegisterForm() {
             create
           </Button>
           <Or />
-          <OAuth provider="google" />
-          <OAuth provider="apple" />
+          <OAuth provider="google" mode="register" />
+          <OAuth provider="apple" mode="register" />
           <RedirectAuthStatement type="login" />
         </div>
       )}

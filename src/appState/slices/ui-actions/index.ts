@@ -7,7 +7,7 @@ import { UIActionsState } from "../appState.types";
 const initialState: UIActionsState = {
   snackbar: {
     message: null,
-    autoHideDuration: 5000,
+    autoHideDuration: 7000,
     anchorOrigin: {
       vertical: "top",
       horizontal: "center",

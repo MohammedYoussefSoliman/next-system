@@ -6,6 +6,7 @@ import Paper from "@components/Paper";
 import { useAuth } from "@/hooks";
 import Banner from "@/components/Banner";
 import RedirectAuthStatement from "@/components/RedirectAuthStatement";
+import LoginForm from "./components/LoginForm";
 
 export default function Page() {
   const { loggedIn } = useAuth();
@@ -17,11 +18,11 @@ export default function Page() {
   }, [loggedIn]);
 
   return (
-    <main className="flex flex-col items-center flex-1 w-full my-16">
+    <main className="flex flex-col items-center flex-1 w-full mt-16">
       <Container>
         <div className="flex flex-col md:flex-row md:justify-between w-full gap-2">
           <Paper className="flex flex-col items-center  gap-2 w-full md:w-2/5">
-            login
+            <LoginForm />
             <RedirectAuthStatement type="register" />
           </Paper>
           <div className="w-full md:w-1/2">

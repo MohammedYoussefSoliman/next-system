@@ -2,25 +2,30 @@ import Typography from "@/components/Typography";
 import get from "lodash/get";
 import React from "react";
 
-const getErrorMessage = (errorResponse: any): React.ReactNode => {
-  const message = get(errorResponse, "response.data.message", {});
-
-  const errorMessages = [];
+const getResponseMessage = (
+  response: any,
+  error?: boolean
+): React.ReactNode => {
+  const message = error
+    ? get(response, "response.data.message", {})
+    : get(response, "message", {});
 
   const keys = Object.keys(message);
 
-  const errorContent = (
+  const content = (
     <div className="flex flex-col gap-1">
       {keys.map((key) => (
         <div key={`${key}-${message[key]}`} className="flex items-center gap-2">
-          <Typography className="font-medium text-white" text={key} />
+          {error && (
+            <Typography className="font-medium text-white" text={key} />
+          )}
           <Typography className="text-white" text={message[key]} />
         </div>
       ))}
     </div>
   );
 
-  return errorContent;
+  return content;
 };
 
-export default getErrorMessage;
+export default getResponseMessage;

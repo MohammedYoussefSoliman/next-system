@@ -6,7 +6,7 @@ import Paper from "@components/Paper";
 import { useAuth } from "@/hooks";
 import Banner from "@/components/Banner";
 import RegisterForm from "./components/RegisterForm";
-import RegisterHeaderProps from "./components/RegisterHeader";
+import RegisterHeader from "./components/RegisterHeader";
 
 export default function Page() {
   const { loggedIn } = useAuth();
@@ -22,7 +22,7 @@ export default function Page() {
       <Container>
         <div className="flex flex-col md:flex-row md:justify-between w-full gap-2">
           <Paper className="flex flex-col items-center  gap-2 w-full md:w-2/5">
-            <RegisterHeaderProps page="login" />
+            <RegisterHeader page="register" />
             <RegisterForm />
           </Paper>
           <div className="w-full md:w-1/2">

@@ -1,22 +1,14 @@
 import React from "react";
 import i18next from "i18next";
+import NextLink from "next/link";
 import colors from "tailwindcss/colors";
-import Spinner from "@components/Spinner";
 import Icon from "@components/Icon";
 import { useTranslation } from "@i18n/client";
-import { ButtonProps } from "./button.types";
+import { LinkButtonProps } from "./button.types";
 import tailwindConfig from "./button.config";
 import { classNames } from "@/utils";
 
-const resolveDisabledButton = (variant: ButtonProps["variant"]) => {
-  const disabledStyles = {
-    primary: ["from-rose-200", "to-amber-200", "cursor-not-allowed"],
-    secondary: ["bg-slate-100", "text-slate-400", "cursor-not-allowed"],
-    transparent: ["text-slate-600", "cursor-not-allowed"],
-  };
-  return disabledStyles[variant || "primary"];
-};
-const resolveIconSize = (size: ButtonProps["size"]) => {
+const resolveIconSize = (size: LinkButtonProps["size"]) => {
   const iconSizes = {
     small: 16,
     medium: 16,
@@ -26,20 +18,17 @@ const resolveIconSize = (size: ButtonProps["size"]) => {
   return iconSizes[size || "medium"];
 };
 
-export default function Button({
+export default function LinkButton({
+  to,
   children,
   icon,
   width,
   size,
   variant,
-  onClick,
-  loading,
-  disabled,
   namespace,
   className,
   id,
-  type,
-}: ButtonProps) {
+}: LinkButtonProps) {
   const lng = i18next.language;
   const { t } = useTranslation(lng, namespace);
 
@@ -51,29 +40,15 @@ export default function Button({
           size,
           width,
         }),
-        [(disabled || loading) && resolveDisabledButton(variant)],
+        ["hover:from-rose-600", "hover:to-amber-600"],
         className
       ),
-    [variant, size, width, disabled, loading, className]
+    [variant, size, width, className]
   );
   return (
-    <button
-      id={id}
-      className={classes}
-      onClick={onClick}
-      type={type}
-      disabled={disabled || Boolean(loading)}
-    >
+    <NextLink id={id} className={classes} href={`/${lng}/${to}`}>
       <div className="flex w-full h-full gap-2 items-center justify-center mt-1.5">
-        {loading ? (
-          <>
-            <Spinner
-              topColor={colors.slate[400]}
-              bottomColor={colors.slate[300]}
-            />
-            <p>{t(typeof loading === "string" ? loading : "loading")}</p>
-          </>
-        ) : icon ? (
+        {icon ? (
           <>
             <Icon
               name={icon}
@@ -88,6 +63,6 @@ export default function Button({
           children
         )}
       </div>
-    </button>
+    </NextLink>
   );
 }
