@@ -58,7 +58,7 @@ export default function VerifyComponent() {
         setSendingOtp(false);
       }
     },
-    [user, otp, post, dispatch]
+    [user, otp, post, dispatch, route, language]
   );
 
   const resendOTP = React.useCallback(

@@ -53,8 +53,9 @@ export default function RegisterHeader({ page }: RegisterHeaderProps) {
               <Typography
                 as="p1"
                 text={`${
-                  page === "verify-phone" &&
-                  loGet(user, "country_code", "") + "-"
+                  page === "verify-phone"
+                    ? loGet(user, "country_code", "") + "-"
+                    : ""
                 }${loGet(
                   user,
                   page === "verify-phone" ? "phone" : "email",
