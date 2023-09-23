@@ -10,6 +10,7 @@ import Drawer from "@components/Drawer";
 import Typography from "@components/Typography";
 import ChangeLanguageMenu from "./ChangeLanguageMenu";
 import Logo from "./Logo";
+import HeaderAction from "./components/HeaderActions";
 
 export default function Header() {
   const { loggedIn } = useAuth();
@@ -26,24 +27,7 @@ export default function Header() {
               <NavLink to="/about" label="about" />
             </nav>
           </div>
-          <div className="flex gap-8 py-2 items-center h-full">
-            {!loggedIn ? (
-              <div className="flex gap-4 items-center h-full">
-                <Link label="register" to="/register" />
-                <LinkButton to="/login">logIn</LinkButton>
-              </div>
-            ) : (
-              <Button>logOut</Button>
-            )}
-            <IconButton
-              icon="search"
-              variant="transparent"
-              iconColor="inherit"
-              className="enabled:hover:bg-slate-100"
-            />
-            <Divider type="vertical" className="bg-amber-200" />
-            <ChangeLanguageMenu />
-          </div>
+          <HeaderAction />
         </div>
         <div className="w-full h-20 items-center flex justify-between md:hidden">
           <div className="flex items-center gap-2">

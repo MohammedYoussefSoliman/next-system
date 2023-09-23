@@ -11,6 +11,7 @@ export type ButtonProps = {
   id?: string;
   type?: "reset" | "submit" | "button";
   icon?: IconType;
+  iconReverse?: IconType;
   namespace?: string;
   className?: string;
 };

@@ -6,7 +6,7 @@ import Counter from "./Counter";
 export default function Banner() {
   return (
     <>
-      <div className="hidden md:block relative w-full md:w-[624px] mr-auto">
+      <div className="hidden md:block relative w-full md:w-[624px] md:mr-auto">
         <div className="w-full h-full">
           <Image
             height={756}
@@ -21,7 +21,7 @@ export default function Banner() {
           <Counter number={26} label="providers" />
         </div>
       </div>
-      <div className="w-full p-12 rounded-3xl my-4 flex justify-between md:hidden bg-gradient-to-r from-rose-500 to-amber-500">
+      <div className="p-12 mx-4 rounded-3xl my-4 flex justify-between md:hidden bg-gradient-to-r from-rose-500 to-amber-500">
         <Counter number={43} label="categories" />
         <Counter number={30} label="products" />
         <Counter number={26} label="providers" />

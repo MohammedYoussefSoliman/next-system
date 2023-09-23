@@ -16,10 +16,10 @@ export type AuthState = {
   token: string | null;
   refreshToken: string | null;
   expirationDate: Date | null;
-  user: Omit<
+  user: Partial<Omit<
     UserResponse,
     "token" | "refresh_token" | "token_expired_at"
-  > | null;
+  > | null>;
   isVerified: boolean;
 };
 

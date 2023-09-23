@@ -15,6 +15,7 @@ import AppleIcon from "./AppleIcon";
 import EditIcon from "./EditIcon";
 import EmailIcon from "./EmailIcon";
 import PhoneIcon from "./PhoneIcon";
+import LogoutIcon from "./LogoutIcon";
 
 export type { SVGProp } from "./icon.types";
 
@@ -36,6 +37,7 @@ const icons = {
   edit: EditIcon,
   email: EmailIcon,
   phone: PhoneIcon,
+  logout: LogoutIcon,
 };
 
 export default icons;

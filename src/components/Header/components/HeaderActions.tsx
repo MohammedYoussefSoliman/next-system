@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Divider from "@components/Divider";
+import Logout from "@components/Logout";
 import { useAuth } from "@/hooks";
 import { Button, IconButton, LinkButton } from "@components/Button";
 import Link from "@components/Link";
@@ -16,7 +17,7 @@ export default function HeaderAction() {
           <LinkButton to="/login">logIn</LinkButton>
         </div>
       ) : (
-        <Button>logOut</Button>
+        <Logout />
       )}
       <IconButton
         icon="search"

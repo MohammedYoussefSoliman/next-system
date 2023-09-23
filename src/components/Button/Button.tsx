@@ -19,9 +19,9 @@ const resolveDisabledButton = (variant: ButtonProps["variant"]) => {
 const resolveIconSize = (size: ButtonProps["size"]) => {
   const iconSizes = {
     small: 16,
-    medium: 16,
-    large: 24,
-    xLarge: 24,
+    medium: 20,
+    large: 28,
+    xLarge: 28,
   };
   return iconSizes[size || "medium"];
 };
@@ -29,6 +29,7 @@ const resolveIconSize = (size: ButtonProps["size"]) => {
 export default function Button({
   children,
   icon,
+  iconReverse,
   width,
   size,
   variant,
@@ -64,7 +65,7 @@ export default function Button({
       type={type}
       disabled={disabled || Boolean(loading)}
     >
-      <div className="flex w-full h-full gap-2 items-center justify-center mt-1.5">
+      <div className="flex w-full h-full gap-2 items-center justify-center mt-1">
         {loading ? (
           <>
             <Spinner
@@ -81,6 +82,15 @@ export default function Button({
               color={variant === "primary" ? "white" : colors.rose[500]}
             />
             {typeof children === "string" ? <p>{t(children)}</p> : children}
+          </>
+        ) : iconReverse ? (
+          <>
+            {typeof children === "string" ? <p>{t(children)}</p> : children}
+            <Icon
+              name={iconReverse}
+              size={resolveIconSize(size)}
+              color={variant === "primary" ? "white" : colors.rose[500]}
+            />
           </>
         ) : typeof children === "string" ? (
           <p>{t(children)}</p>

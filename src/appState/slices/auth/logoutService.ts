@@ -1,5 +1,5 @@
 import ThunkService from "@/services/thunkService";
 
-const { postService: registerService } = new ThunkService("logout");
+const { postService: logoutService } = new ThunkService("logout");
 
-export default registerService;
+export default logoutService;

@@ -31,10 +31,13 @@ function ConfirmModal({
 
   const call = React.useCallback(async () => {
     setLoading(true);
-    onConfirm().then(() => {
-      setLoading(false);
-      onClose();
-    });
+    onConfirm()
+      .then(() => {
+        setLoading(false);
+      })
+      .then(() => {
+        setTimeout(() => onClose(), 0);
+      });
   }, [onConfirm, onClose]);
 
   return (

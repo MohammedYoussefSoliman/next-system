@@ -1,4 +1,5 @@
 import React from "react";
+import isEmpty from "lodash/isEmpty";
 import { AxiosRequestConfig } from "axios";
 import { createAsyncThunk, AsyncThunk } from "@reduxjs/toolkit";
 import generateInstance from "@/services/thunkInstance";
@@ -7,7 +8,7 @@ import { showError, showSuccess } from "@appState/slices/ui-actions";
 import { RootState } from "@appState/store";
 
 type Args = {
-  formData: { [key: string]: any };
+  formData?: { [key: string]: any };
   onSuccess?: (resData: any) => void;
   onEnd?: () => void;
   onFailure?: (message: React.ReactNode) => void;
@@ -40,7 +41,9 @@ export default class ThunkService implements Service {
           onEnd,
         } = args;
         try {
-          const readyFormData = formDataHandler(formData);
+          const readyFormData = !isEmpty(formData)
+            ? formDataHandler(formData)
+            : undefined;
           if (setLoading) setLoading(true);
           const response = await axiosInstance.post(endpoint, readyFormData);
           if (showSuccessMessage)

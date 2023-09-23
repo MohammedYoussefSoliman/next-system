@@ -39,6 +39,7 @@ const authInitLogin = (state: AuthState, action: PayloadAction<any>) => {
     user,
   };
 };
+
 const verifyState = (state: AuthState, action: PayloadAction<any>) => {
   console.log(action.payload);
   return {
@@ -52,6 +53,15 @@ const slice = createSlice({
   initialState,
   reducers: {
     logout: () => initialState,
+    setUserEmail: (state: AuthState, action: PayloadAction<string>) => {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          email: action.payload,
+        },
+      };
+    },
   },
   extraReducers: {
     [loginService.fulfilled.type]: authInitLogin,
@@ -69,5 +79,5 @@ const slice = createSlice({
   },
 });
 
-export const { logout } = slice.actions;
+export const { logout, setUserEmail } = slice.actions;
 export default slice.reducer;
