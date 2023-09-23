@@ -11,11 +11,17 @@ import Typography from "@components/Typography";
 import { ConfirmModal } from "@/components/Modal";
 import { OTPInput } from "@/components/Inputs";
 import { getResponseMessage, formDataHandler } from "@/utils";
-import { useAuth, useAppDispatch, useAxiosInstance } from "@/hooks";
+import {
+  useAuth,
+  useAppDispatch,
+  useAxiosInstance,
+  useAppSelector,
+} from "@/hooks";
 import { showError, showSuccess } from "@appState/slices/ui-actions";
 
 export default function VerifyComponent() {
   const dispatch = useAppDispatch();
+  const { language } = useAppSelector((state) => state.ui);
   const route = useRouter();
   const { user } = useAuth();
   const { post } = useAxiosInstance();
@@ -44,7 +50,7 @@ export default function VerifyComponent() {
           formDataHandler(formData)
         );
         dispatch(showSuccess(getResponseMessage(response.data)));
-        route.push("/login");
+        route.push(`/${language}/login`);
       } catch (err) {
         const messages = getResponseMessage(err as any, true);
         dispatch(showError(messages));
