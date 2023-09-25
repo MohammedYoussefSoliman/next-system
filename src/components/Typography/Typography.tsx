@@ -7,11 +7,11 @@ import { useTranslation } from "@i18n/client";
 import { TypographyProps } from "./Typography.types";
 import tailwindConfig from "./typography.config";
 
-const typographyTagGenerator = (tag: string) => {
+const typographyTagGenerator = (tag: string): keyof JSX.IntrinsicElements => {
   const paragraphRegex = /^p[1-3]$/;
   const validParagraph = paragraphRegex.test(tag);
   if (validParagraph) return "p";
-  return tag;
+  return tag as keyof JSX.IntrinsicElements;
 };
 
 export default function Typography({
@@ -30,10 +30,7 @@ export default function Typography({
   // text configuration classes based on design system
   const configClasses = tailwindConfig({ as, color });
   // build the typography tag
-  const Tag = React.useMemo(
-    () => typographyTagGenerator(as || "p1"),
-    [as]
-  ) as keyof JSX.IntrinsicElements;
+  const Tag = React.useMemo(() => typographyTagGenerator(as || "p1"), [as]);
 
   // build classes
   const classes = classNames(configClasses, [

@@ -3,7 +3,7 @@ import React from "react";
 import Icon from "@components/Icon";
 import Typography from "@components/Typography/Typography";
 
-export default function RegisterHeader() {
+export default function ForgetPasswordHeader() {
   return (
     <div className="flex flex-col gap-4 w-full items-center justify-center mb-6">
       <div className="mb-6">

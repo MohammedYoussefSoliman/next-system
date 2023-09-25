@@ -62,6 +62,7 @@ export default function EmailForm() {
             label="forgetPassword"
             capitalizeFirstLetter
           />
+          <Link to="/forget-email" label="forgetEmail" capitalizeFirstLetter />
           <Button
             loading={isSubmitting}
             size="large"

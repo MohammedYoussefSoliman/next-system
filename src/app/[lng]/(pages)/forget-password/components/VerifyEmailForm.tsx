@@ -86,7 +86,7 @@ export default function VerifyComponent() {
   );
   return (
     <>
-      <Form onSubmit={sendOTP} className="flex flex-col gap-4 mt-2 mb-4 w-full">
+      <Form onSubmit={sendOTP} className="flex flex-col gap-4  w-full">
         {({ control, setValue, getValues }) => (
           <>
             <OTPInput
@@ -117,7 +117,7 @@ export default function VerifyComponent() {
               />
             </div>
             <Divider type="horizontal" />
-            <div className="flex flex-col w-full my-6 justify-center items-center gap-4">
+            <div className="flex flex-col w-full my-4 justify-center items-center gap-4">
               <Typography as="h3" text="newPassword" />
               <Typography text="newPasswordStatement" color="light" />
             </div>
