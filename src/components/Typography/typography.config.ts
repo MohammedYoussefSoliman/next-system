@@ -3,8 +3,8 @@ import { cva } from "class-variance-authority";
 const config = cva(["font-normal"], {
   variants: {
     as: {
-      p1: ["text-base", "md:text-lg"],
-      p2: ["text-sm", "md:text-base"],
+      p1: ["text-base", "md:text-lg", "!leading-5"],
+      p2: ["text-sm", "md:text-base", "!leading-5"],
       h1: ["text-4xl", "md:text-5xl", "xl:text-6xl", "font-bold"],
       h2: ["text-3xl", "md:text-4xl", "xl:text-5xl", "font-bold"],
       h3: ["text-2xl", "md:text-3xl", "xl:text-4xl", "font-bold"],

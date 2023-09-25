@@ -1,9 +1,8 @@
 "use client";
 import React from "react";
-import Divider from "@components/Divider";
 import NavLink from "@components/NavLink";
 import { useAuth } from "@/hooks";
-import { Button, IconButton, LinkButton } from "@components/Button";
+import { Button, IconButton } from "@components/Button";
 import Link from "@components/Link";
 import Container from "@components/Container";
 import Drawer from "@components/Drawer";

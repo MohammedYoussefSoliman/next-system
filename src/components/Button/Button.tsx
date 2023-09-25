@@ -65,14 +65,16 @@ export default function Button({
       type={type}
       disabled={disabled || Boolean(loading)}
     >
-      <div className="flex w-full h-full gap-2 items-center justify-center mt-1">
+      <div className="flex w-full h-full gap-2 items-center justify-center">
         {loading ? (
           <>
             <Spinner
               topColor={colors.slate[400]}
               bottomColor={colors.slate[300]}
             />
-            <p>{t(typeof loading === "string" ? loading : "loading")}</p>
+            <p className="!leading-5">
+              {t(typeof loading === "string" ? loading : "loading")}
+            </p>
           </>
         ) : icon ? (
           <>
@@ -93,7 +95,7 @@ export default function Button({
             />
           </>
         ) : typeof children === "string" ? (
-          <p>{t(children)}</p>
+          <p className="!leading-5">{t(children)}</p>
         ) : (
           children
         )}
