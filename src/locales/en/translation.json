@@ -34,6 +34,8 @@
   "welcomeBack": "welcome back",
   "areYouSureLogout": "are you sure you want to logout ?",
   "forgetPasswordStatement": "Don’t worry it is an easy process to recover your account again so Please enter your e-mail and a confirmation code will be send on it.",
+  "forgetEmailStatement": "Don’t worry it is an easy process to restore your email address  so Please enter your phone number and it will be sent to your WhatsApp.",
   "newPassword": "new password",
-  "newPasswordStatement": "Please enter your new password and repeat it again. Try to not forget it again 😉"
+  "newPasswordStatement": "Please enter your new password and repeat it again. Try to not forget it again 😉",
+  "forgetEmail": "forgetEmail"
 }

@@ -3,7 +3,7 @@ import React from "react";
 import Icon from "@components/Icon";
 import Typography from "@components/Typography/Typography";
 
-export default function ForgetPasswordHeader() {
+export default function ForgetEmailHeader() {
   return (
     <div className="flex flex-col gap-4 w-full items-center justify-center mb-6">
       <div className="mb-6">
@@ -11,12 +11,12 @@ export default function ForgetPasswordHeader() {
       </div>
       <Typography
         as="h3"
-        text="forgetPassword"
+        text="forgetEmail"
         className="font-medium capitalize"
       />
       <Typography
         as="p2"
-        text="forgetPasswordStatement"
+        text="forgetEmailStatement"
         color="light"
         capitalizeFirstLetter
         className="text-center"

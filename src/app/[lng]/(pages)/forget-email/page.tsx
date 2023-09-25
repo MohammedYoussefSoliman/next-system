@@ -5,7 +5,7 @@ import Container from "@components/Container";
 import Paper from "@components/Paper";
 import { useAuth } from "@/hooks";
 import Banner from "@/components/Banner";
-import VerifyEmailForm from "../forget-password/components/VerifyEmailForm";
+import ForgetPasswordForm from "./components/ForgetPasswordForm";
 import RegisterHeader from "../register/components/RegisterHeader";
 
 export default function Page() {
@@ -22,8 +22,7 @@ export default function Page() {
       <Container>
         <div className="flex flex-col md:flex-row md:justify-between w-full gap-2">
           <Paper className="flex flex-col items-center self-center gap-4 w-full md:w-2/5">
-            <RegisterHeader page="verify-email" />
-            <VerifyEmailForm />
+            <ForgetPasswordForm />
           </Paper>
           <div className="w-full md:w-1/2">
             <Banner />
