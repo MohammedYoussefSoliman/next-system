@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import NavLink from "@components/NavLink";
-import { useAuth } from "@/hooks";
 import { Button, IconButton } from "@components/Button";
 import Link from "@components/Link";
 import Container from "@components/Container";
@@ -10,9 +9,9 @@ import Typography from "@components/Typography";
 import ChangeLanguageMenu from "./ChangeLanguageMenu";
 import Logo from "./Logo";
 import HeaderAction from "./components/HeaderActions";
+import DrawerAction from "./components/DrawerActions";
 
 export default function Header() {
-  const { loggedIn } = useAuth();
   const [openMenuDrawer, setOpenMenuDrawer] = React.useState<boolean>(false);
 
   return (
@@ -78,26 +77,7 @@ export default function Header() {
               onClick={() => setOpenMenuDrawer(false)}
             />
           </nav>
-          <div className="w-full p-6 flex items-center justify-between">
-            <Typography
-              as="h4"
-              className="font-normal"
-              color="light"
-              text="language"
-              capitalizeFirstLetter
-            />
-            <ChangeLanguageMenu />
-          </div>
-          <div className="w-full p-6 flex flex-col gap-8 items-center">
-            <Button size="large" className="w-full">
-              logIn
-            </Button>
-            <Link
-              label="register"
-              to="/register"
-              onClick={() => setOpenMenuDrawer(false)}
-            />
-          </div>
+          <DrawerAction setOpenMenuDrawer={() => setOpenMenuDrawer(false)} />
         </div>
       </Drawer>
     </div>

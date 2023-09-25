@@ -18,7 +18,7 @@ export type ButtonProps = {
 
 export type LinkButtonProps = Omit<
   ButtonProps,
-  "onClick" | "disabled" | "type" | "loading"
+  "disabled" | "type" | "loading"
 > & {
   to: string;
 };

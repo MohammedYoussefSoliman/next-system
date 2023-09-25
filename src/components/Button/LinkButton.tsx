@@ -21,6 +21,7 @@ const resolveIconSize = (size: LinkButtonProps["size"]) => {
 export default function LinkButton({
   to,
   children,
+  onClick,
   icon,
   width,
   size,
@@ -46,7 +47,12 @@ export default function LinkButton({
     [variant, size, width, className]
   );
   return (
-    <NextLink id={id} className={classes} href={`/${lng}/${to}`}>
+    <NextLink
+      onClick={onClick}
+      id={id}
+      className={classes}
+      href={`/${lng}/${to}`}
+    >
       <div className="flex w-full h-full gap-2 items-center justify-center mt-1.5">
         {icon ? (
           <>
