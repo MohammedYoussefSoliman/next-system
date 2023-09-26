@@ -10,7 +10,13 @@ import HTML from "@/components/HTML";
 
 import { LangProps } from "@/common.types";
 
-export async function generateMetadata({ params }: { [key: string]: any }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: {
+    lng: LangProps;
+  };
+}) {
   const { t } = await ssrTranslation(params.lng as LangProps);
 
   return {
@@ -20,7 +26,7 @@ export async function generateMetadata({ params }: { [key: string]: any }) {
 
 export const revalidate = 20 * 60 * 60;
 
-export const getData = async () => {
+const getData = async () => {
   const { get } = instance;
   const response = await get("blogs/privacy");
   return response;
