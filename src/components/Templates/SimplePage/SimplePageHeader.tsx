@@ -13,8 +13,8 @@ export default function SimplePageHeader({
 }: SimplePageHeaderProps) {
   return (
     <Container>
-      <div className="w-full p-px bg-gradient-to-r from-rose-500 to-amber-300 rounded-2xl h-[275px]">
-        <div className="w-full h-full flex flex-col justify-center items-center bg-amber-100 p-8 overflow-hidden rounded-[15px] gap-2 relative">
+      <div className="w-full p-px bg-gradient-to-r from-rose-500 to-amber-300 rounded-2xl md:h-[275px]">
+        <div className="w-full h-full flex flex-col justify-center items-center bg-amber-50 p-8 overflow-hidden rounded-[15px] gap-2 relative">
           <Typography
             as="h1"
             text={title}
@@ -26,10 +26,14 @@ export default function SimplePageHeader({
             subTitle
           )}
           {upperOrnament && (
-            <div className="absolute top-2 right-2">{upperOrnament}</div>
+            <div className="hidden md:block absolute top-3 right-3">
+              {upperOrnament}
+            </div>
           )}
           {lowerOrnament && (
-            <div className="absolute top-2 right-2">{lowerOrnament}</div>
+            <div className="hidden md:block absolute bottom-3 left-3">
+              {lowerOrnament}
+            </div>
           )}
         </div>
       </div>

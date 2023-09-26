@@ -7,9 +7,17 @@ type Props = {
   width?: number;
   height?: number;
   className?: string;
+  style?: React.CSSProperties;
 };
 
-export default function Image({ name, width, height, alt, className }: Props) {
+export default function Image({
+  name,
+  width,
+  height,
+  alt,
+  className,
+  style,
+}: Props) {
   return (
     <NextImage
       src={`/images/${name}`}
@@ -17,6 +25,8 @@ export default function Image({ name, width, height, alt, className }: Props) {
       width={width}
       alt={alt}
       className={className}
+      style={style}
+      draggable={false}
     />
   );
 }

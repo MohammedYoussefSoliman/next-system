@@ -30,7 +30,6 @@ const instance: AxiosInstance = axios.create({
 
 instance.interceptors.response.use(
   (response: AxiosResponse) => {
-    if (response.data.data) response.data = response.data.data;
     return response;
   },
   (errorResponse: AxiosError) => {

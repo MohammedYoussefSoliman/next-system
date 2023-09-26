@@ -1,12 +1,9 @@
 "use client";
 import React from "react";
 import NavLink from "@components/NavLink";
-import { Button, IconButton } from "@components/Button";
-import Link from "@components/Link";
+import { IconButton } from "@components/Button";
 import Container from "@components/Container";
 import Drawer from "@components/Drawer";
-import Typography from "@components/Typography";
-import ChangeLanguageMenu from "./ChangeLanguageMenu";
 import Logo from "./Logo";
 import HeaderAction from "./components/HeaderActions";
 import DrawerAction from "./components/DrawerActions";
@@ -15,7 +12,7 @@ export default function Header() {
   const [openMenuDrawer, setOpenMenuDrawer] = React.useState<boolean>(false);
 
   return (
-    <div className="w-full flex flex-col bg-white">
+    <div className="w-full flex flex-col bg-white sticky top-0 z-10 drop-shadow-sm">
       <Container spacing={2}>
         <div className="hidden w-full h-20 md:flex items-center justify-between">
           <div className="flex gap-8 items-center h-full">

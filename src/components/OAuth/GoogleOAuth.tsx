@@ -81,6 +81,7 @@ function GoogleOAuth({ mode }: ProviderProps) {
           className="font-medium"
           text="googleLogin"
           namespace="register"
+          capitalizeFirstLetter
         />
       </div>
     </button>

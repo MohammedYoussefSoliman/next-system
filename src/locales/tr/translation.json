@@ -5,5 +5,7 @@
   "logIn": "log in",
   "register": "register",
   "requiredField": "this field is required turkey",
-  "about": "about Mazaady"
+  "about": "about Mazaady",
+  "privacyPolicy": "Gizlilik Politikası",
+  "termsAndCondition": "Şartlar ve koşullar"
 }

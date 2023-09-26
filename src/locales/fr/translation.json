@@ -6,5 +6,7 @@
   "register": "register",
   "pleaseWait": "pleaseWait french",
   "requiredField": "this field is required french",
-  "about": "about Mazaady"
+  "about": "about Mazaady",
+  "privacyPolicy": "politique de confidentialité",
+  "termsAndCondition": "termes et conditions"
 }

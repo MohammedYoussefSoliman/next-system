@@ -39,6 +39,7 @@ export default function AppleOAuth({ mode }: ProviderProps) {
               className="font-medium"
               text={`appleLogin`}
               namespace="register"
+              capitalizeFirstLetter
             />
           </div>
         </button>

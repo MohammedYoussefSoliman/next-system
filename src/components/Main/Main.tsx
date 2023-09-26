@@ -8,7 +8,7 @@ type MainProps = {
 
 export default function Main({ children, className }: MainProps) {
   const classes = classNames(
-    ["flex", "flex-col", "items-center", "flex-1", "mt-16", "w-full"],
+    ["flex", "flex-col", "items-center", "flex-1", "mt-10", "w-full"],
     className
   );
 

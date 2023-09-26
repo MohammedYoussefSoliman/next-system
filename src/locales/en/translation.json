@@ -38,5 +38,7 @@
   "newPassword": "new password",
   "newPasswordStatement": "Please enter your new password and repeat it again. Try to not forget it again 😉",
   "forgetEmail": "forgetEmail",
-  "termsAndCondition": "terms and conditions"
+  "termsAndCondition": "terms and conditions",
+  "privacyPolicy": "privacy policy",
+  "clickingCreate": "By register in Mazaady you agree on our Privacy Policy and Terms of Use"
 }

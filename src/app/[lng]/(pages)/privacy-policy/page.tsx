@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { [key: string]: any }) {
   const { t } = await ssrTranslation(params.lng as LangProps);
 
   return {
-    title: t("termsAndCondition"),
+    title: t("privacyPolicy"),
   };
 }
 
@@ -22,7 +22,7 @@ export const revalidate = 20 * 60 * 60;
 
 export const getData = async () => {
   const { get } = instance;
-  const response = await get("blogs/terms");
+  const response = await get("blogs/privacy");
   return response;
 };
 
@@ -32,21 +32,21 @@ export default async function Page() {
   return (
     <Main>
       <SimplePage
-        title="termsAndCondition"
+        title="privacyPolicy"
         upperOrnament={
           <Image
-            name="terms-upper-ornament.png"
-            alt="terms upper ornament"
-            width={82}
-            height={112}
+            name="privacy-upper-ornament.png"
+            alt="privacy upper ornament"
+            width={123}
+            height={134}
           />
         }
         lowerOrnament={
           <Image
-            name="terms-lower-ornament.png"
-            alt="terms lower ornament"
-            width={60}
-            height={60}
+            name="privacy-lower-ornament.png"
+            alt="privacy lower ornament"
+            width={113}
+            height={128}
           />
         }
       >

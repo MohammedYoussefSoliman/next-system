@@ -16,7 +16,7 @@ const getResponseMessage = (
     <div className="flex flex-col gap-1">
       {keys.map((key) => (
         <div key={`${key}-${message[key]}`} className="flex items-center gap-2">
-          {error && (
+          {error && key !== "txt" && (
             <Typography className="font-medium text-white" text={key} />
           )}
           <Typography className="text-white" text={message[key]} />

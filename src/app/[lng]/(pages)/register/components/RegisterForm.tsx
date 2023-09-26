@@ -132,12 +132,14 @@ export default function RegisterForm() {
             <Typography
               className="inline"
               color="light"
-              text="By clicking on Create you are accept in our "
-            />
+              text="clickingCreate"
+            />{" "}
+            <Link className="inline" label="termsAndCondition" to="/terms" />
+            <Typography className="inline" color="light" text=" , " />
             <Link
               className="inline"
-              label="Terms and Condition , Privacy Policy"
-              to="/terms"
+              label="privacyPolicy"
+              to="/privacy-policy"
             />
           </span>
           <Button

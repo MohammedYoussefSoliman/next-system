@@ -7,6 +7,8 @@
   "fullName": "full name",
   "create": "create",
   "or": "or",
+  "googleLogin": "log in by Google",
+  "appleLogin": "log in by Apple",
   "inviteDescription": "if you are registering by a friend code, Use it and your friend will inform that you are in.",
   "alreadyHaveAccount": "already have an account ?"
 }
