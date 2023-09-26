@@ -6,7 +6,6 @@ import Paper from "@components/Paper";
 import { useAuth } from "@/hooks";
 import Banner from "@/components/Banner";
 import ForgetPasswordForm from "./components/ForgetPasswordForm";
-import RegisterHeader from "../register/components/RegisterHeader";
 
 export default function Page() {
   const { loggedIn } = useAuth();

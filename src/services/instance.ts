@@ -34,10 +34,10 @@ instance.interceptors.response.use(
     return response;
   },
   (errorResponse: AxiosError) => {
-    if (errorResponse.response?.status === 401) {
-      store.dispatch(logout());
-      window.location.replace("/login");
-    }
+    // if (errorResponse.response?.status === 401) {
+    //   store.dispatch(logout());
+    //   window.location.replace("/login");
+    // }
     if (errorResponse.response?.status === 500) {
       store.dispatch(
         setGlobalError({ message: "unknownError", type: "error" })

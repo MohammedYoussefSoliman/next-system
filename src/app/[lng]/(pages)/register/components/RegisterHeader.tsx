@@ -3,7 +3,7 @@ import React from "react";
 import Icon from "@components/Icon";
 import loGet from "lodash/get";
 import { useAuth } from "@/hooks";
-import Typography from "@components/Typography/Typography";
+import Typography from "@components/Typography";
 import { IconButton } from "@/components/Button";
 
 type RegisterHeaderProps = {
