@@ -16,6 +16,8 @@ import EditIcon from "./EditIcon";
 import EmailIcon from "./EmailIcon";
 import PhoneIcon from "./PhoneIcon";
 import LogoutIcon from "./LogoutIcon";
+import BellIcon from "./BellIcon";
+import PlusCircleIcon from "./PlusCircleIcon";
 
 export type { SVGProp } from "./icon.types";
 
@@ -38,6 +40,8 @@ const icons = {
   email: EmailIcon,
   phone: PhoneIcon,
   logout: LogoutIcon,
+  bell: BellIcon,
+  "plus-circle": PlusCircleIcon,
 };
 
 export default icons;

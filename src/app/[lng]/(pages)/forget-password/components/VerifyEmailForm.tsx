@@ -32,8 +32,6 @@ export default function VerifyComponent() {
   const [sendingOtp, setSendingOtp] = React.useState<boolean>(false);
   const [resendingOtp, setResendingOtp] = React.useState<boolean>(false);
 
-  console.log(user);
-
   const sendOTP = React.useCallback(
     async (data: any) => {
       const formData = {

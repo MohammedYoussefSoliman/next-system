@@ -19,7 +19,7 @@ const resolveDisabledButton = (variant: ButtonProps["variant"]) => {
 const resolveIconSize = (size: ButtonProps["size"]) => {
   const iconSizes = {
     small: 16,
-    medium: 20,
+    medium: 24,
     large: 28,
     xLarge: 28,
   };
@@ -72,7 +72,7 @@ export default function Button({
               topColor={colors.slate[400]}
               bottomColor={colors.slate[300]}
             />
-            <p className="!leading-5">
+            <p className={`!leading-5 ${lng === "ar" ? "mt-1" : ""}`}>
               {t(typeof loading === "string" ? loading : "loading")}
             </p>
           </>
@@ -83,11 +83,23 @@ export default function Button({
               size={resolveIconSize(size)}
               color={variant === "primary" ? "white" : colors.rose[500]}
             />
-            {typeof children === "string" ? <p>{t(children)}</p> : children}
+            {typeof children === "string" ? (
+              <p className={`!leading-5 ${lng === "ar" ? "mt-1" : ""}`}>
+                {t(children)}
+              </p>
+            ) : (
+              children
+            )}
           </>
         ) : iconReverse ? (
           <>
-            {typeof children === "string" ? <p>{t(children)}</p> : children}
+            {typeof children === "string" ? (
+              <p className={`!leading-5 ${lng === "ar" ? "mt-1" : ""}`}>
+                {t(children)}
+              </p>
+            ) : (
+              children
+            )}
             <Icon
               name={iconReverse}
               size={resolveIconSize(size)}
@@ -95,7 +107,9 @@ export default function Button({
             />
           </>
         ) : typeof children === "string" ? (
-          <p className="!leading-5">{t(children)}</p>
+          <p className={`!leading-5 ${lng === "ar" ? "mt-1" : ""}`}>
+            {t(children)}
+          </p>
         ) : (
           children
         )}

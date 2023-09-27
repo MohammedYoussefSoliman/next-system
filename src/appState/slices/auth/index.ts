@@ -41,7 +41,6 @@ const authInitLogin = (state: AuthState, action: PayloadAction<any>) => {
 };
 
 const verifyState = (state: AuthState, action: PayloadAction<any>) => {
-  console.log(action.payload);
   return {
     ...state,
     isVerified: true,

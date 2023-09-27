@@ -11,7 +11,7 @@ import { classNames } from "@/utils";
 const resolveIconSize = (size: LinkButtonProps["size"]) => {
   const iconSizes = {
     small: 16,
-    medium: 16,
+    medium: 24,
     large: 24,
     xLarge: 24,
   };
@@ -25,7 +25,7 @@ export default function LinkButton({
   icon,
   width,
   size,
-  variant,
+  variant = "primary",
   namespace,
   className,
   id,
@@ -46,6 +46,7 @@ export default function LinkButton({
       ),
     [variant, size, width, className]
   );
+
   return (
     <NextLink
       onClick={onClick}
@@ -53,7 +54,7 @@ export default function LinkButton({
       className={classes}
       href={`/${lng}/${to}`}
     >
-      <div className="flex w-full h-full gap-2 items-center justify-center mt-1.5">
+      <div className="flex w-full h-full gap-2 items-center justify-center">
         {icon ? (
           <>
             <Icon
@@ -61,10 +62,18 @@ export default function LinkButton({
               size={resolveIconSize(size)}
               color={variant === "primary" ? "white" : colors.rose[500]}
             />
-            {typeof children === "string" ? <p>{t(children)}</p> : children}
+            {typeof children === "string" ? (
+              <p className={`!leading-5 ${lng === "ar" ? "mt-1" : ""}`}>
+                {t(children)}
+              </p>
+            ) : (
+              children
+            )}
           </>
         ) : typeof children === "string" ? (
-          <p>{t(children)}</p>
+          <p className={`!leading-5 ${lng === "ar" ? "mt-1" : ""}`}>
+            {t(children)}
+          </p>
         ) : (
           children
         )}

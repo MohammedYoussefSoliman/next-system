@@ -31,7 +31,7 @@ const config = cva(
       },
       size: {
         small: [
-          "py-2.5",
+          "py-2",
           "px-4",
           "h-8",
           "text-sm",
@@ -39,7 +39,7 @@ const config = cva(
           "xl:rounded-2xl",
         ],
         medium: [
-          "py-2.5",
+          "py-2",
           "px-6",
           "h-10",
           "text-base",
@@ -47,7 +47,7 @@ const config = cva(
           "xl:rounded-xl",
         ],
         large: [
-          "py-3",
+          "py-2",
           "px-9",
           "h-12",
           "text-lg",
