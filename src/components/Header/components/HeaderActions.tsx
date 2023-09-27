@@ -9,7 +9,7 @@ import Link from "@components/Link";
 import UserInfo from "./UserInfo";
 
 export default function HeaderAction() {
-  const { loggedIn, user } = useAuth();
+  const { loggedIn } = useAuth();
 
   return (
     <div className="flex gap-4 py-2 items-center h-full">
