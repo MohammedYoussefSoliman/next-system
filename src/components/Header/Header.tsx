@@ -12,7 +12,7 @@ export default function Header() {
   const [openMenuDrawer, setOpenMenuDrawer] = React.useState<boolean>(false);
 
   return (
-    <div className="w-full flex flex-col bg-white sticky top-0 z-10 drop-shadow-sm">
+    <header className="w-full flex flex-col bg-white sticky top-0 z-10 drop-shadow-sm">
       <Container spacing={2}>
         <div className="hidden w-full h-20 md:flex items-center justify-between">
           <div className="flex gap-8 items-center h-full">
@@ -77,6 +77,6 @@ export default function Header() {
           <DrawerAction setOpenMenuDrawer={() => setOpenMenuDrawer(false)} />
         </div>
       </Drawer>
-    </div>
+    </header>
   );
 }
