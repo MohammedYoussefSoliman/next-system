@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { StepsType, Status, AppContextInterface } from "./Stepper.types";
 
@@ -36,17 +37,15 @@ export default function StepperContext({
     setActiveStep(index);
   };
 
-  const handleNext = (callback?: () => void) => {
+  const handleNext = () => {
     if (activeStep < steps.length - 1) {
       setActiveStep((step) => step + 1);
-      if (callback) callback();
     }
   };
 
-  const handleBack = (callback?: () => void) => {
+  const handleBack = () => {
     if (activeStep > 0) {
       setActiveStep((step) => step - 1);
-      if (callback) callback();
     }
   };
   const handleCompleted = (index: number, callback?: () => void) => {

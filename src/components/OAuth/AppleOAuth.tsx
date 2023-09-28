@@ -7,6 +7,7 @@ import Icon from "@components/Icon";
 import { ProviderProps } from "./OAuth.types";
 
 export default function AppleOAuth({ mode }: ProviderProps) {
+  console.log(process.env.NEXT_PUBLIC_APPLE_CLIENTID);
   const classes = classNames([
     "outline-none",
     "border-none",
@@ -24,7 +25,7 @@ export default function AppleOAuth({ mode }: ProviderProps) {
   ]);
   return (
     <AppleLogin
-      clientId="com.react.apple.login"
+      clientId={process.env.NEXT_PUBLIC_APPLE_CLIENTID as string}
       redirectURI={process.env.NEXT_PUBLIC_ORIGIN_URL as string}
       responseType="code"
       responseMode="query"
@@ -39,7 +40,6 @@ export default function AppleOAuth({ mode }: ProviderProps) {
               className="font-medium"
               text={`appleLogin`}
               namespace="register"
-              capitalizeFirstLetter
             />
           </div>
         </button>

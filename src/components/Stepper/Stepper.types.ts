@@ -1,4 +1,5 @@
 import React from "react";
+import { ButtonProps } from "@components/Button/button.types";
 
 export type Status = {
   [key: number]: boolean;
@@ -29,11 +30,10 @@ export type StepsType = {
 };
 
 export type StepperActionsType = {
-  completed: Status;
-  stepLength: number;
-  handleNext: (callback?: () => void) => void;
-  handleBack: (callback?: () => void) => void;
-  handleCompleted: (index: number, callback?: () => void) => void;
+  handleNext: () => void;
+  handleBack: () => void;
+  prevButtonProps?: ButtonProps;
+  nextButtonProps?: ButtonProps;
 };
 
 export interface AppContextInterface
