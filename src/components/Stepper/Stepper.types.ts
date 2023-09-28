@@ -28,8 +28,12 @@ export type StepsType = {
   currentStep?: number;
 };
 
-export type HeaderType = {
-  readOnly?: boolean;
+export type StepperActionsType = {
+  completed: Status;
+  stepLength: number;
+  handleNext: (callback?: () => void) => void;
+  handleBack: (callback?: () => void) => void;
+  handleCompleted: (index: number, callback?: () => void) => void;
 };
 
 export interface AppContextInterface
