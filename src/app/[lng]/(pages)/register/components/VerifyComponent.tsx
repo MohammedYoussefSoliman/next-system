@@ -103,13 +103,13 @@ export default function VerifyComponent({ mode }: VerifyComponentProps) {
   }, [dispatch, post, user, mode]);
   return (
     <div className="flex flex-col gap-4 mt-2 mb-4 w-full">
-      <OTPInput codeLength={6} onFinish={(otp) => setOtp(otp)} />
+      <OTPInput codeLength={6} onChange={(otp) => setOtp(otp)} />
       <div className="mb-4" />
       <Button
         onClick={sendOTP}
         size="large"
         loading={sendingOtp}
-        disabled={!Boolean(otp)}
+        disabled={!otp || otp.length < 6}
       >
         confirm
       </Button>

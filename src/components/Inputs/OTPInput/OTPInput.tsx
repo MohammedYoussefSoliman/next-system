@@ -8,17 +8,22 @@ export default function OTP({
   codeLength,
   onFinish,
   setValue,
+  onChange,
   hasError,
 }: OTPInputPropsType) {
   const [otpValue, setOtpValue] = React.useState("");
 
-  const handleCodeChanges = React.useCallback((value: string) => {
-    setOtpValue(value);
-  }, []);
+  const handleCodeChanges = React.useCallback(
+    (value: string) => {
+      setOtpValue(value);
+      if (onChange) onChange(value);
+      if (setValue && name) setValue(name, otpValue);
+    },
+    [name, onChange, otpValue, setValue]
+  );
 
   React.useEffect(() => {
     if (otpValue.length === codeLength) {
-      if (setValue && name) setValue(name, otpValue);
       if (onFinish) onFinish(otpValue);
     }
   }, [name, onFinish, otpValue, setValue, codeLength]);

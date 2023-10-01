@@ -146,7 +146,7 @@ export default function RegisterForm() {
             loading={isSubmitting}
             namespace="register"
             size="large"
-            className="capitalize pt-4"
+            className="capitalize"
           >
             create
           </Button>

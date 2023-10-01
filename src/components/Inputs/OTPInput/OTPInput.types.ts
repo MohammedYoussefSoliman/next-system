@@ -6,4 +6,5 @@ export type OTPInputPropsType = {
   hasError?: boolean;
   onFinish?: (code: string) => void;
   setValue?: UseFormSetValue<FieldValues>;
+  onChange?: (code: string) => void;
 };
