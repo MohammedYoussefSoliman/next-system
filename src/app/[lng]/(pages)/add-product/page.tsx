@@ -21,7 +21,7 @@ export async function generateMetadata({
 
 export default async function Page() {
   return (
-    <Main>
+    <Main className="h-[calc(100vh-120px)] flex-none">
       <AddProduct />
     </Main>
   );

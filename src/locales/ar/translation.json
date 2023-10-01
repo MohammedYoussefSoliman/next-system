@@ -58,5 +58,8 @@
   "clickingCreate": "بالتسجيل في مزادي تكون موافق على سياسة و خصوصية الموقع و شروط الاستخدام",
   "addProduct": "اضف منتج",
   "next": "التالي",
-  "previous": "السابق"
+  "previous": "السابق",
+  "chooseAuction": "اختر نوع المزايدة",
+  "chooseMainCategory": "اختر القسم الرئيسي",
+  "chooseSubCategory": "اختر القسم الفرعي"
 }

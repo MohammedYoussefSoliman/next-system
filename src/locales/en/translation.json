@@ -37,9 +37,12 @@
   "forgetEmailStatement": "Don’t worry it is an easy process to restore your email address  so Please enter your phone number and it will be sent to your WhatsApp.",
   "newPassword": "new password",
   "newPasswordStatement": "Please enter your new password and repeat it again. Try to not forget it again 😉",
-  "forgetEmail": "forgetEmail",
+  "forgetEmail": "forget email",
   "termsAndCondition": "terms and conditions",
   "privacyPolicy": "privacy policy",
   "clickingCreate": "By register in Mazaady you agree on our Privacy Policy and Terms of Use",
-  "addProduct": "add product"
+  "addProduct": "add product",
+  "chooseAuction": "choose auction type",
+  "chooseMainCategory": "choose main category",
+  "chooseSubCategory": "choose sub category"
 }

@@ -16,21 +16,23 @@ export default function StepperActions({
   const progress = (activeStep + 1) / steps.length;
 
   return (
-    <div className="w-full gap-3 flex flex-col md:flex-row items-center">
+    <div className="w-full gap-3 flex  md:flex-row items-center">
       <Button
         disabled={activeStep === 0}
         variant="secondary"
         onClick={handleBack}
+        className="flex-1 md:flex-none"
         {...prevButtonProps}
       >
         previous
       </Button>
-      <div className="flex-1">
+      <div className="flex-none md:flex-1">
         <Progress progress={progress} />
       </div>
       <Button
         disabled={activeStep === steps.length - 1}
         onClick={handleNext}
+        className="flex-1 md:flex-none"
         {...nextButtonProps}
       >
         next

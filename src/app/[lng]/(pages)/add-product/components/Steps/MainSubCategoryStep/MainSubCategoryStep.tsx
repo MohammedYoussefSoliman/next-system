@@ -12,9 +12,9 @@ export default function AuctionTypeStep() {
         console.log("next");
       }}
       title="addProduct"
-      subTitle="chooseMainCategory"
+      subTitle="chooseSubCategory"
     >
-      <div className="w-full">choose main category</div>
+      <div className="w-full">choose sub category</div>
     </Step>
   );
 }

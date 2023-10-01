@@ -1,19 +1,20 @@
 "use client";
 import React from "react";
-import Typography from "@/components/Typography";
-import { StepperActions, useStepperApi } from "@/components/Stepper";
+import { useStepperApi } from "@/components/Stepper";
+
+import Step from "../../Step";
 
 export default function AuctionTypeStep() {
-  const { handleNext, handleBack } = useStepperApi();
+  const { handleCompleted } = useStepperApi();
   return (
-    <div className="w-full flex flex-col gap-8 p-8">
-      <Typography text="AuctionTypeStep" />
-      <StepperActions
-        handleBack={handleBack}
-        handleNext={() => {
-          handleNext();
-        }}
-      />
-    </div>
+    <Step
+      handleNext={() => {
+        console.log("next");
+      }}
+      title="addProduct"
+      subTitle="chooseAuction"
+    >
+      <div className="w-full">auction types</div>
+    </Step>
   );
 }

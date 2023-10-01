@@ -27,6 +27,7 @@ export type StepsType = {
   children: React.ReactNode;
   readOnly?: boolean;
   currentStep?: number;
+  className?: string | string[];
 };
 
 export type StepperActionsType = {

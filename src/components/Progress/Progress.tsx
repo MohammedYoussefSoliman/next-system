@@ -14,12 +14,13 @@ export default function Progress({ progress }: ProgressProps) {
     "duration-300",
     "ease-out",
     "bg-orange-400",
-    "rounded-full",
+    "rounded-l-full",
+    "md:rounded-full",
     "h-full",
   ]);
 
   return (
-    <div className="fixed top-20 md:static w-full bg-orange-100 h-2 rounded-full">
+    <div className="fixed top-20 left-0 rounded-none md:static w-full bg-orange-100 h-2 md:rounded-full">
       <StyledProgress progress={`${progress * 100}`} className={classes} />
     </div>
   );
