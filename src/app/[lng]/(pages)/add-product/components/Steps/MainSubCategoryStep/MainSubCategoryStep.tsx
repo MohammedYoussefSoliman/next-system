@@ -2,7 +2,7 @@
 import React from "react";
 import { useStepperApi } from "@/components/Stepper";
 
-import Step from "../../Step";
+import Step from "../../UI/Step";
 
 export default function AuctionTypeStep() {
   const { handleCompleted } = useStepperApi();

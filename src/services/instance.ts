@@ -1,5 +1,5 @@
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from "axios";
-import { logout } from "@appState/slices/auth";
+// import { logout } from "@appState/slices/auth";
 import { store, RootState } from "@appState/store";
 import { setGlobalError } from "@appState/slices/globals/slice";
 

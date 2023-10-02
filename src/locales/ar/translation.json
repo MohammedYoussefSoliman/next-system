@@ -61,5 +61,8 @@
   "previous": "السابق",
   "chooseAuction": "اختر نوع المزايدة",
   "chooseMainCategory": "اختر القسم الرئيسي",
-  "chooseSubCategory": "اختر القسم الفرعي"
+  "chooseSubCategory": "اختر القسم الفرعي",
+  "notMatchedPassword": "كلمة المرور غير مطابقة",
+  "normalAuctionDefinition": "تعريف تفصيلي عن المزايدة العادية",
+  "fastAuctionDefinition": "تعريف تفصيلي عن المزايدة السريعة والتي تنتهي بسرعة"
 }

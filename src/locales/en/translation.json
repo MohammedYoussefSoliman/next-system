@@ -44,5 +44,6 @@
   "addProduct": "add product",
   "chooseAuction": "choose auction type",
   "chooseMainCategory": "choose main category",
-  "chooseSubCategory": "choose sub category"
+  "chooseSubCategory": "choose sub category",
+  "notMatchedPassword": "password does not match"
 }

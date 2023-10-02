@@ -18,6 +18,12 @@ import PhoneIcon from "./PhoneIcon";
 import LogoutIcon from "./LogoutIcon";
 import BellIcon from "./BellIcon";
 import PlusCircleIcon from "./PlusCircleIcon";
+import HammerIcon from "./HammerIcon";
+import CameraIcon from "./CameraIcon";
+import FlashIcon from "./FlashIcon";
+import ProductPackIcon from "./ProductPackIcon";
+import MultiProductPackIcon from "./MultiProductPackIcon";
+import MoneyTimeIcon from "./MoneyTimeIcon";
 
 export type { SVGProp } from "./icon.types";
 
@@ -42,6 +48,12 @@ const icons = {
   logout: LogoutIcon,
   bell: BellIcon,
   "plus-circle": PlusCircleIcon,
+  hammer: HammerIcon,
+  camera: CameraIcon,
+  flash: FlashIcon,
+  "multi-product": MultiProductPackIcon,
+  product: ProductPackIcon,
+  "money-time": MoneyTimeIcon,
 };
 
 export default icons;
