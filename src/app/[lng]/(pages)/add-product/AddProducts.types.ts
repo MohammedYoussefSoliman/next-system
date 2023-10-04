@@ -1,4 +1,6 @@
 import React from "react";
+import type { FormValidationRules } from "@/components/Inputs/Inputs.types";
+import type { IconType } from "@components/Icon/Icon.types";
 
 export type AddProductForm = {
   name: string;
@@ -36,4 +38,27 @@ export type StepProps = {
   subTitle?: string;
   children: React.ReactNode;
   handleNext: (callback?: () => void) => void;
+};
+
+export type CheckboxProps = {
+  name: string;
+  value: string | number;
+  image: string;
+  title: string;
+};
+
+export type CheckListProps = {
+  name: string;
+  checkItems: Omit<CheckboxProps, "name">[];
+};
+
+export type AuctionRadioProps = {
+  name: string;
+  radios: {
+    label: string;
+    description?: string;
+    icon: IconType;
+    value: string | number;
+  }[];
+  validationRules?: FormValidationRules;
 };

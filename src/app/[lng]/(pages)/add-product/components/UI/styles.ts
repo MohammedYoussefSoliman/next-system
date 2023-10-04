@@ -7,6 +7,10 @@ type RadioProps = {
   error?: boolean;
 };
 
+type CheckboxProps = {
+  active: boolean;
+};
+
 export const StyledRadio = styled("label")<RadioProps>`
   ${({ active }) => css`
     border: 1.5px solid ${active ? colors.orange[500] : colors.orange[100]};
@@ -35,5 +39,12 @@ export const StyledRadio = styled("label")<RadioProps>`
         background-color: ${colors.orange[500]};
       }
     }
+  `}
+`;
+
+export const CheckCircle = styled("div")<CheckboxProps>`
+  ${({ active }) => css`
+    border: 1px solid ${active ? colors.orange[500] : colors.orange[100]};
+    background-color: ${active ? colors.orange[500] : colors.white};
   `}
 `;

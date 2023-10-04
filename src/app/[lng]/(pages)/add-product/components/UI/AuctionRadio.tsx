@@ -3,24 +3,15 @@ import loGet from "lodash/get";
 import colors from "tailwindcss/colors";
 import { useFormContext } from "react-hook-form";
 import Icon from "@components/Icon";
-import type { IconType } from "@components/Icon/Icon.types";
 import Error from "@/components/Inputs/Error";
 import { StyledRadio } from "./styles";
-import type { FormValidationRules } from "@/components/Inputs/Inputs.types";
 import Typography from "@/components/Typography";
-
-type Props = {
-  name: string;
-  radios: {
-    label: string;
-    description?: string;
-    icon: IconType;
-    value: string | number;
-  }[];
-  validationRules?: FormValidationRules;
-};
-
-export default function AuctionRadio({ name, radios, validationRules }: Props) {
+import type { AuctionRadioProps } from "../../AddProducts.types";
+export default function AuctionRadio({
+  name,
+  radios,
+  validationRules,
+}: AuctionRadioProps) {
   const {
     watch,
     register,
