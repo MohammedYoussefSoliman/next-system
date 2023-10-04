@@ -20,6 +20,7 @@ export type AddProductForm = {
   down_payment: number;
   selling_type: "under_approval" | "estimation_value" | "highest_price";
   type: "normal" | "fast" | "bidding" | "fixed_price";
+  mainAuctionType: "single" | "multiple";
   description: string;
   quantity: number;
   unit: string;

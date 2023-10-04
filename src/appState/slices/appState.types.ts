@@ -1,4 +1,4 @@
-import type { LangProps, UserResponse } from "@/common.types";
+import type { LangProps, UserResponse, Category } from "@/common.types";
 import type { SnackbarProps } from "@components/Snackbar/Snackbar.types";
 
 export type UIState = {
@@ -10,6 +10,11 @@ export type UIState = {
 export type GlobalState = {
   message: any | null;
   type: "info" | "error" | "maintenance";
+};
+
+export type CategoriesState = {
+  mainCategories: Category[];
+  subCategories: Category[];
 };
 
 export type AuthState = {

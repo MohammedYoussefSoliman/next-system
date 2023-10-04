@@ -8,6 +8,7 @@ type Props = {
   height?: number;
   className?: string;
   style?: React.CSSProperties;
+  isNotRelative?: boolean;
 };
 
 export default function Image({
@@ -17,10 +18,11 @@ export default function Image({
   alt,
   className,
   style,
+  isNotRelative,
 }: Props) {
   return (
     <NextImage
-      src={`/images/${name}`}
+      src={isNotRelative ? name : `/images/${name}`}
       height={height}
       width={width}
       alt={alt}

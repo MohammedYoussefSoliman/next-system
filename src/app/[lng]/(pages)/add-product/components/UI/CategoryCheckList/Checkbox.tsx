@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useFormContext } from "react-hook-form";
-import Image from "next/image";
+import Image from "@/components/Image";
 import Icon from "@components/Icon";
 import Typography from "@/components/Typography";
 import colors from "tailwindcss/colors";
@@ -17,14 +17,14 @@ export default function Checkbox({ name, value, image, title }: CheckboxProps) {
     "justify-between",
     "items-center",
     "border-b",
-    "border-gray-300",
-    "nth-of-type:border-none",
+    "border-gray-200",
+    "last-of-type:border-none",
     "py-2",
-    "hover:bg-orange-50",
+    // "hover:bg-orange-50",
   ]);
   const { watch, register } = useFormContext();
 
-  const active = watch(name).includes(value);
+  const active = (watch(name) || []).includes(`${value}`);
 
   return (
     <label className={classes}>
@@ -36,11 +36,12 @@ export default function Checkbox({ name, value, image, title }: CheckboxProps) {
       />
       <div className="flex items-center gap-2">
         <Image
-          src={image}
+          isNotRelative
+          name={image}
           alt={title}
           width={100}
           height={100}
-          className="rounded-md"
+          className="rounded-xl"
           style={{
             objectFit: "cover",
             height: "48px",

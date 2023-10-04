@@ -2,7 +2,13 @@
 
 const nextConfig = {
   images: {
-    domains: ["localhost", "unsplash.com", "images.unsplash.com"],
+    domains: [
+      "localhost",
+      "unsplash.com",
+      "images.unsplash.com",
+      "stagingapi.mazaady.com",
+      "mazaady.com",
+    ],
   },
 };
 

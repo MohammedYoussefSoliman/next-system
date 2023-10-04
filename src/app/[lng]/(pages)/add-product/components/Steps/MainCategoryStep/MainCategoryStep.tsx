@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
+import loGet from "lodash/get";
 import { useStepperApi } from "@/components/Stepper";
-
+import { useAppSelector } from "@/hooks";
 import Step from "../../UI/Step";
 import CategoryCheckList from "../../UI/CategoryCheckList";
 
@@ -21,6 +22,12 @@ const sampleItems = [
   {
     title: "Cars and Automobiles",
     value: "cars",
+    image:
+      "https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1760&q=80",
+  },
+  {
+    title: "Cars and Automobiles",
+    value: "cars2",
     image:
       "https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1760&q=80",
   },
@@ -64,6 +71,7 @@ const sampleItems = [
 
 export default function AuctionTypeStep() {
   const { handleCompleted } = useStepperApi();
+  const { mainCategories } = useAppSelector((state) => state.categories);
   return (
     <Step
       handleNext={() => {
@@ -72,8 +80,17 @@ export default function AuctionTypeStep() {
       title="addProduct"
       subTitle="chooseMainCategory"
     >
-      <div className="w-full">
-        <CategoryCheckList name="category" checkItems={sampleItems} />
+      <div className="w-full max-h-[580px] md:max-h-[520px]">
+        <CategoryCheckList
+          name="category"
+          checkItems={mainCategories.map((cat) => ({
+            title: cat.name,
+            value: cat.id,
+            image:
+              loGet(cat, "image.medium", "") ||
+              loGet(cat, "image.place_holder.medium_bg", ""),
+          }))}
+        />
       </div>
     </Step>
   );

@@ -48,3 +48,12 @@ export type UserResponse = {
   code: string;
   google2fa_enable: boolean;
 };
+
+export type Category = {
+  id: string | number;
+  parent_id: string | number | null;
+  name: string;
+  slug: string;
+  image: MediaResponse;
+  is_other: boolean;
+};

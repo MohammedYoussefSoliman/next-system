@@ -5,11 +5,13 @@ import { persistStore, persistReducer } from "redux-persist";
 import authSlice from "./slices/auth";
 import uiActionsSlice from "./slices/ui-actions";
 import uiSlice from "./slices/ui/slice";
+import categoriesSlice from "./slices/categories";
 
 const rootReducer = combineReducers({
   ui: uiSlice,
   auth: authSlice,
   uiAction: uiActionsSlice,
+  categories: categoriesSlice,
 });
 
 const persistConfig = {
