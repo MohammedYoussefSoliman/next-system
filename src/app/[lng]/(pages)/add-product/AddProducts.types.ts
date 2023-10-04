@@ -17,7 +17,7 @@ export type AddProductForm = {
   estimated_price: number;
   down_payment: number;
   selling_type: "under_approval" | "estimation_value" | "highest_price";
-  type: "normal" | "fast" | "hot_sale" | "fixed_price";
+  type: "normal" | "fast" | "bidding" | "fixed_price";
   description: string;
   quantity: number;
   unit: string;
