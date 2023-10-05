@@ -63,17 +63,13 @@ export default function LinkButton({
               color={variant === "primary" ? "white" : colors.rose[500]}
             />
             {typeof children === "string" ? (
-              <p className={`!leading-5 ${lng === "ar" ? "mt-1" : ""}`}>
-                {t(children)}
-              </p>
+              <p className={`!leading-5`}>{t(children)}</p>
             ) : (
               children
             )}
           </>
         ) : typeof children === "string" ? (
-          <p className={`!leading-5 ${lng === "ar" ? "mt-1" : ""}`}>
-            {t(children)}
-          </p>
+          <p className={`!leading-5`}>{t(children)}</p>
         ) : (
           children
         )}

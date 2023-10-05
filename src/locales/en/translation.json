@@ -45,5 +45,10 @@
   "chooseAuction": "choose auction type",
   "chooseMainCategory": "choose main category",
   "chooseSubCategory": "choose sub category",
-  "notMatchedPassword": "password does not match"
+  "notMatchedPassword": "password does not match",
+  "knowCorrectCat": "to know the correct category to your product.",
+  "showGuide": "show Guide",
+  "subCategories": "sub categories",
+  "mainCategories": "main categories",
+  "categoriesGuide": "categories guide"
 }

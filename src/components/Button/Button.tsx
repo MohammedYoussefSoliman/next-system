@@ -72,7 +72,7 @@ export default function Button({
               topColor={colors.slate[400]}
               bottomColor={colors.slate[300]}
             />
-            <p className={`!leading-5 ${lng === "ar" ? "mt-1" : ""}`}>
+            <p className={`!leading-5 ${lng === "ar" ? "mt-0.5" : ""}`}>
               {t(typeof loading === "string" ? loading : "loading")}
             </p>
           </>
@@ -84,7 +84,7 @@ export default function Button({
               color={variant === "primary" ? "white" : colors.rose[500]}
             />
             {typeof children === "string" ? (
-              <p className={`!leading-5 ${lng === "ar" ? "mt-1" : ""}`}>
+              <p className={`!leading-5 ${lng === "ar" ? "mt-0.5" : ""}`}>
                 {t(children)}
               </p>
             ) : (
@@ -94,7 +94,7 @@ export default function Button({
         ) : iconReverse ? (
           <>
             {typeof children === "string" ? (
-              <p className={`!leading-5 ${lng === "ar" ? "mt-1" : ""}`}>
+              <p className={`!leading-5 ${lng === "ar" ? "mt-0.5" : ""}`}>
                 {t(children)}
               </p>
             ) : (
@@ -107,7 +107,7 @@ export default function Button({
             />
           </>
         ) : typeof children === "string" ? (
-          <p className={`!leading-5 ${lng === "ar" ? "mt-1" : ""}`}>
+          <p className={`!leading-5 ${lng === "ar" ? "mt-0.5" : ""}`}>
             {t(children)}
           </p>
         ) : (

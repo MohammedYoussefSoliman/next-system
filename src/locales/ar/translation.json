@@ -65,5 +65,10 @@
   "notMatchedPassword": "كلمة المرور غير مطابقة",
   "normalAuction": "مزايدة عادية",
   "normalAuctionDefinition": "تعريف تفصيلي عن المزايدة العادية",
-  "fastAuctionDefinition": "تعريف تفصيلي عن المزايدة السريعة والتي تنتهي بسرعة"
+  "fastAuctionDefinition": "تعريف تفصيلي عن المزايدة السريعة والتي تنتهي بسرعة",
+  "knowCorrectCat": "لمعرفة القسم الصحيح المراد اختياره لمنتجك",
+  "showGuide": "اعرض المرشد",
+  "subCategories": "الاقسام الفرعية",
+  "mainCategories": "الاقسام الرئيسية",
+  "categoriesGuide": "مرشد الاقسام"
 }

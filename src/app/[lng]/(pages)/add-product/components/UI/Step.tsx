@@ -19,7 +19,7 @@ export default function Step({
         <Paper className="flex flex-col justify-between flex-1 px-4 py-6 md:px-6 md:py-8 md:mb-8">
           <div className="flex flex-col w-full gap-2 md:gap-8">
             {title && <Typography className="mb-2" as="h2" text={title} />}
-            {subTitle && <Typography as="h4" text={subTitle} />}
+            {subTitle && <Typography as="h6" text={subTitle} />}
             {children}
           </div>
           <div className="w-full hidden md:block">

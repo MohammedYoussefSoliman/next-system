@@ -1,4 +1,9 @@
 @tailwind base;
+@layer base {
+  p:lang(ar) {
+    margin-top: 0.25rem;
+  }
+}
 @tailwind components;
 @tailwind utilities;
 
