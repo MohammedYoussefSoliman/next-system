@@ -16,9 +16,12 @@ export default function AuctionRadio({
     watch,
     register,
     formState: { errors },
+    clearErrors,
   } = useFormContext();
 
   const error = errors[name];
+
+  const registerInstance = register(name, { ...validationRules });
 
   return (
     <div className="w-full flex-col gap-1">
@@ -34,8 +37,12 @@ export default function AuctionRadio({
               <input
                 type="radio"
                 value={value}
-                {...register(name, { ...validationRules })}
+                {...registerInstance}
                 className="absolute w-full h-full opacity-0 cursor-pointer"
+                onChange={(event) => {
+                  clearErrors(name);
+                  registerInstance.onChange(event);
+                }}
               />
               <div className="p-1 flex-1 flex gap-2 self-stretch">
                 <div className="icon--wrapper rounded-xl flex items-center justify-center w-11 h-11">

@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import loGet from "lodash/get";
-import { useStepperApi } from "@/components/Stepper";
 import { useAppSelector } from "@/hooks";
 import Typography from "@/components/Typography";
 import { SlideModal } from "@/components/Modal";
@@ -11,18 +10,12 @@ import CategoryCheckList from "../../UI/CategoryCheckList";
 import CategoriesGuide from "./CategoriesGuide";
 
 export default function AuctionTypeStep() {
-  const { handleCompleted } = useStepperApi();
   const { mainCategories } = useAppSelector((state) => state.categories);
 
   const [openGuideModal, setOpenGuideModal] = React.useState<boolean>(false);
 
   return (
-    <Step
-      handleNext={() => {
-        console.log("next");
-      }}
-      title="addProduct"
-    >
+    <Step title="addProduct">
       <div className="w-full flex flex-col gap-4 max-h-[580px] md:max-h-[520px]">
         <div className="flex flex-col">
           <Typography as="h6" text="chooseMainCategory" />

@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import i18next from "i18next";
 import { classNames } from "@/utils";
@@ -16,6 +15,7 @@ const typographyTagGenerator = (tag: string): keyof JSX.IntrinsicElements => {
 
 export default function Typography({
   text,
+  children,
   as,
   color,
   truncationWidth,
@@ -32,6 +32,13 @@ export default function Typography({
   // build the typography tag
   const Tag = React.useMemo(() => typographyTagGenerator(as || "p1"), [as]);
 
+  let content;
+
+  if (children) {
+    content = typeof children === "string" ? t(children) : children;
+  } else {
+    content = t(`${text}`);
+  }
   // build classes
   const classes = classNames(configClasses, [
     truncationWidth && ["truncate", `w-[${truncationWidth}px]`, "block"],
@@ -41,5 +48,5 @@ export default function Typography({
     className,
   ]);
 
-  return <Tag className={classes}>{t(text)}</Tag>;
+  return <Tag className={classes}>{content}</Tag>;
 }

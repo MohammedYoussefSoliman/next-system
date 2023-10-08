@@ -1,38 +1,36 @@
 "use client";
 import React from "react";
-import { useStepperApi } from "@/components/Stepper";
-
 import Step from "../../UI/Step";
 import AuctionRadio from "../../UI/AuctionRadio";
+import ActualAuction from "./ActualAuction";
 
 export default function AuctionTypeStep() {
-  const { handleCompleted } = useStepperApi();
   return (
     <Step
-      handleNext={() => {
-        console.log("next");
-      }}
       title="addProduct"
       subTitle="chooseAuction"
+      stepNames={["mainAuctionType", "type"]}
     >
-      <div className="w-full">
+      <div className="w-full flex flex-col gap-8">
         <AuctionRadio
-          name="type"
+          name="mainAuctionType"
           radios={[
             {
-              label: "normalAuction",
-              value: "normal",
-              icon: "hammer",
-              description: "normalAuctionDefinition",
+              label: "live",
+              value: "live",
+              icon: "camera",
+              description: "liveAuctionDefinition",
             },
             {
-              label: "fastAuction",
-              value: "fast",
+              label: "hot",
+              value: "hot",
               icon: "flash",
-              description: "fastAuctionDefinition",
+              description: "hotSaleDefinition",
             },
           ]}
+          validationRules={{ required: "mainAuctionTypeRequired" }}
         />
+        <ActualAuction />
       </div>
     </Step>
   );

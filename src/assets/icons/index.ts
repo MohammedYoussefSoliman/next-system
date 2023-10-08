@@ -26,6 +26,7 @@ import FlashIcon from "./FlashIcon";
 import ProductPackIcon from "./ProductPackIcon";
 import MultiProductPackIcon from "./MultiProductPackIcon";
 import MoneyTimeIcon from "./MoneyTimeIcon";
+import TimerIcon from "./TimerIcon";
 
 export type { SVGProp } from "./icon.types";
 
@@ -58,6 +59,7 @@ const icons = {
   "multi-product": MultiProductPackIcon,
   product: ProductPackIcon,
   "money-time": MoneyTimeIcon,
+  timer: TimerIcon,
 };
 
 export default icons;

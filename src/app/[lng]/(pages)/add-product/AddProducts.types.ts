@@ -20,7 +20,8 @@ export type AddProductForm = {
   down_payment: number;
   selling_type: "under_approval" | "estimation_value" | "highest_price";
   type: "normal" | "fast" | "bidding" | "fixed_price";
-  mainAuctionType: "single" | "multiple";
+  productType: "single" | "multi";
+  mainAuctionType: "live" | "hot";
   description: string;
   quantity: number;
   unit: string;
@@ -38,7 +39,8 @@ export type StepProps = {
   title?: string;
   subTitle?: string;
   children: React.ReactNode;
-  handleNext: (callback?: () => void) => void;
+  handleNext?: (callback?: () => void) => void;
+  stepNames?: string | string[];
 };
 
 export type CheckboxProps = {
@@ -61,5 +63,5 @@ export type AuctionRadioProps = {
     icon: IconType;
     value: string | number;
   }[];
-  validationRules?: FormValidationRules;
+  validationRules?: Partial<FormValidationRules>;
 };

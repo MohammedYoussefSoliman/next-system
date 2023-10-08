@@ -2,8 +2,9 @@ import React from "react";
 import Stepper from "@/components/Stepper";
 import FormContext from "../Form/FormContext";
 import AuctionTypeStep from "../Steps/AuctionTypeStep";
+import ProductTypeStep from "../Steps/ProductType";
 import MainCategoryStep from "../Steps/MainCategoryStep";
-import MainSubCategoryStep from "../Steps/MainSubCategoryStep";
+import SubCategoriesStep from "../Steps/SubCategories";
 
 export default function AddProduct() {
   return (
@@ -15,10 +16,13 @@ export default function AddProduct() {
               children: <AuctionTypeStep />,
             },
             {
+              children: <ProductTypeStep />,
+            },
+            {
               children: <MainCategoryStep />,
             },
             {
-              children: <MainSubCategoryStep />,
+              children: <SubCategoriesStep />,
             },
           ]}
           className="h-full"
