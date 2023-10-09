@@ -9,7 +9,7 @@ import Step from "../../UI/Step";
 import CategoryCheckList from "../../UI/CategoryCheckList";
 import CategoriesGuide from "./CategoriesGuide";
 
-export default function AuctionTypeStep() {
+export default function MainCategoryStep() {
   const { mainCategories } = useAppSelector((state) => state.categories);
 
   const [openGuideModal, setOpenGuideModal] = React.useState<boolean>(false);

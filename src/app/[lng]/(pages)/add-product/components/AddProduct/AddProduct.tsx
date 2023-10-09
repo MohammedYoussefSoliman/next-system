@@ -5,6 +5,7 @@ import AuctionTypeStep from "../Steps/AuctionTypeStep";
 import ProductTypeStep from "../Steps/ProductType";
 import MainCategoryStep from "../Steps/MainCategoryStep";
 import SubCategoriesStep from "../Steps/SubCategories";
+import PropertiesStep from "../Steps/PropertiesStep";
 
 export default function AddProduct() {
   return (
@@ -23,6 +24,9 @@ export default function AddProduct() {
             },
             {
               children: <SubCategoriesStep />,
+            },
+            {
+              children: <PropertiesStep />,
             },
           ]}
           className="h-full"

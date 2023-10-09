@@ -1,1 +1,1 @@
-export { default } from "./MainCategoryStep";
+export { default } from "./SubCategoryStep";

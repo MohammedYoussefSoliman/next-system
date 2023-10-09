@@ -7,7 +7,7 @@ import Typography from "@/components/Typography";
 import Step from "../../UI/Step";
 import CategoryCheckList from "../../UI/CategoryCheckList";
 
-export default function AuctionTypeStep() {
+export default function SubCategoryStep() {
   const { subCategories } = useAppSelector((state) => state.categories);
 
   const { getValues } = useFormContext();

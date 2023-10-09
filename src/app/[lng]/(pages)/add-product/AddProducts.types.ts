@@ -1,4 +1,5 @@
 import React from "react";
+import { Control, UseFormWatch } from "react-hook-form";
 import type { FormValidationRules } from "@/components/Inputs/Inputs.types";
 import type { IconType } from "@components/Icon/Icon.types";
 
@@ -64,4 +65,30 @@ export type AuctionRadioProps = {
     value: string | number;
   }[];
   validationRules?: Partial<FormValidationRules>;
+};
+
+export type Option = {
+  id: number;
+  has_child: boolean;
+  name: string;
+};
+
+export type Property = {
+  id: number;
+  parent_id: number | string | null;
+  type: "list" | "text" | "size" | "date" | "country_made";
+  name: string;
+  options: Option[];
+};
+
+export type PropertiesProps = {
+  properties: Property[];
+  control: Control<any>;
+  watch: UseFormWatch<any>;
+};
+
+export type PropertyProps = {
+  property: Property;
+  control: Control<any>;
+  watch: UseFormWatch<any>;
 };

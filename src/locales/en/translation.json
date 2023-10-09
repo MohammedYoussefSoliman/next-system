@@ -71,5 +71,7 @@
   "auctionTypeRequired": "Please choose the auction type",
   "productTypeRequired": "Please choose the product type",
   "noSubCategoriesFound": "no sub categories found",
-  "subCategory": "sub category"
+  "subCategory": "sub category",
+  "fillFields": "fill the below fields",
+  "muchInfoGuide": "kindly note when as much as information you entered your product will be more realiable 👌"
 }
