@@ -12,15 +12,15 @@ export default function BaseInput({
   ...inputProps
 }: InputPropsType) {
   return (
-    <div
-      className={`flex  gap-2 h-10 w-full border-cyan-600 rounded ${className}`}
-    >
+    <div className="flex flex-col gap-1 w-full">
       {label && <Label label={label} required={required} />}
-      <input
-        className={`flex-1 outline-none px-4 py-2 border rounded bg-transparent`}
-        type="text"
-        {...inputProps}
-      />
+      <div className="w-full h-[50px] border border-gray-500 focus-within:border-orange-600 rounded-xl">
+        <input
+          className="w-full h-full px-4 py-2 bg-transparent placeholder-opacity-100 focus:placeholder-opacity-50 placeholder-gray-600 outline-none"
+          type="text"
+          {...inputProps}
+        />
+      </div>
       {error && <InputError error={error} />}
     </div>
   );

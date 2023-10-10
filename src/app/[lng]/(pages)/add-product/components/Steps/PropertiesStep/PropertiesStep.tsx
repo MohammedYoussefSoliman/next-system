@@ -62,6 +62,17 @@ export default function PropertiesStep() {
   // console.log(properties);
   // console.log(countries);
 
+  const listProperties = (properties as Property[]).filter(
+    (property) => property.type === "list"
+  );
+  console.log(listProperties);
+  const sizeProperties = (properties as Property[]).filter(
+    (property) => property.type === "size"
+  );
+  const textProperties = (properties as Property[]).filter(
+    (property) => property.type === "text"
+  );
+
   return (
     <Step title="addProduct">
       <div className="w-full flex flex-col gap-4 max-h-[580px] md:max-h-[520px]">
@@ -69,14 +80,15 @@ export default function PropertiesStep() {
           <Typography as="h6" text="fillFields" />
           <Typography text="muchInfoGuide" color="light" />
         </div>
-        properties for subCategory {subCategory}
-        <Properties
-          properties={(properties as Property[]).filter(
-            (property) => property.type === "list"
-          )}
-          control={control}
-          watch={watch}
-        />
+        {listProperties && (
+          <Properties
+            properties={(properties as Property[]).filter(
+              (property) => property.type === "list"
+            )}
+            control={control}
+            watch={watch}
+          />
+        )}
       </div>
     </Step>
   );

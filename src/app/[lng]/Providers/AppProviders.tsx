@@ -9,7 +9,14 @@ import { store, persister } from "@/appState/store";
 import type { PageProps } from "@/common.types";
 import MuiCacheRtl from "./MuiCacheRtl";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: false,
+    },
+  },
+});
 
 export default function AppProviders({ children }: Omit<PageProps, "params">) {
   return (

@@ -67,6 +67,14 @@ export type AuctionRadioProps = {
   validationRules?: Partial<FormValidationRules>;
 };
 
+export type RadioPillProps = Omit<AuctionRadioProps, "radios"> & {
+  label: string;
+  radios: {
+    label: string;
+    value: string | number;
+  }[];
+};
+
 export type Option = {
   id: number;
   has_child: boolean;

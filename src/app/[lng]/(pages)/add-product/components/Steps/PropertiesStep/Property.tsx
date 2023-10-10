@@ -1,16 +1,19 @@
 import React from "react";
 import loGet from "lodash/get";
+import { useTranslation } from "@i18n/client";
+import i18next from "i18next";
 import { useAxiosInstance } from "@/hooks";
 import { Select, TextInput } from "@components/Inputs";
+import Typography from "@/components/Typography";
 import { PropertyProps, Property } from "../../../AddProducts.types";
 
 export default function Property({ property, control, watch }: PropertyProps) {
+  const lng = i18next.language;
+  const { t } = useTranslation(lng);
   const { get } = useAxiosInstance();
   const [subProperties, setSubProperties] = React.useState<Property[]>([]);
 
   const propertyValue = watch(property.name);
-
-  const allValues = watch();
 
   const getProperties = React.useCallback(
     async (id: number) => {
@@ -38,11 +41,15 @@ export default function Property({ property, control, watch }: PropertyProps) {
 
   return (
     <>
-      <div className="flex flex-col gap-1">
+      <div className="flex flex-col gap-4">
         <Select
           name={property.name}
-          label={property.name}
-          placeholder={property.name}
+          placeholder={
+            <div className="flex items-center gap-1">
+              <Typography as="p2" text={property.name} />{" "}
+              <Typography as="p2" text={t("optional")} color="light" />
+            </div>
+          }
           control={control}
           options={
             [
@@ -55,17 +62,21 @@ export default function Property({ property, control, watch }: PropertyProps) {
           }
           changeHandler={({ value }) => {
             if (value !== "other") {
-              getProperties(value);
+              const selectedOption = property.options.find(
+                (opt) => opt.id == value
+              );
+              if (selectedOption?.has_child) {
+                getProperties(value);
+              }
             }
           }}
         />
 
         {propertyValue?.value === "other" && (
           <TextInput
-            label="other option"
+            placeholder={property.name}
             name={`${property.name}_other`}
             control={control}
-            className="[&>input]:bg-white [&>input]:w-3/4"
           />
         )}
       </div>
@@ -77,12 +88,21 @@ export default function Property({ property, control, watch }: PropertyProps) {
               <Select
                 key={sub.name}
                 name={sub.name}
-                label={sub.name}
-                placeholder={`Select ${sub.name}`}
+                placeholder={
+                  <div className="flex items-center gap-1">
+                    <Typography as="p2" text={sub.name} />
+                    <Typography as="p2" text={t("optional")} color="light" />
+                  </div>
+                }
                 control={control}
                 changeHandler={({ value }) => {
                   if (value !== "other") {
-                    getProperties(value);
+                    const selectedOption = sub.options.find(
+                      (opt) => opt.id == value
+                    );
+                    if (selectedOption?.has_child) {
+                      getProperties(value);
+                    }
                   }
                 }}
                 options={
@@ -97,10 +117,9 @@ export default function Property({ property, control, watch }: PropertyProps) {
               />
               {subPropertyValue?.value === "other" && (
                 <TextInput
-                  label="other option"
                   name={`${sub.name}_${property.name}_other`}
                   control={control}
-                  className="[&>input]:bg-white [&>input]:w-3/4"
+                  placeholder={sub.name}
                 />
               )}
             </>

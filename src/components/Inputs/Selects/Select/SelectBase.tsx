@@ -2,7 +2,12 @@ import React from "react";
 import Select from "react-select";
 import Error from "@components/Inputs/Error";
 import Label from "@components/Inputs/Label";
+import DropdownIndicator from "./components/DropdownIndicator";
+import Placeholder from "./components/Placeholder";
+import Option from "./components/Option";
+import SingleValue from "./components/SingleValue";
 import { SelectProps } from "@components/Inputs/Inputs.types";
+import useSelectStyles from "../useSelectSStyle";
 
 export default function SelectBase({
   name,
@@ -17,6 +22,7 @@ export default function SelectBase({
   placeholder,
   ...selectProps
 }: SelectProps) {
+  const styles = useSelectStyles({ error: Boolean(error) });
   const ref = React.useRef<any>(null);
 
   React.useEffect(() => {
@@ -31,9 +37,17 @@ export default function SelectBase({
       <Select
         ref={ref}
         name={name}
+        styles={styles}
         placeholder={placeholder}
         options={options}
         onChange={onChange}
+        components={{
+          IndicatorSeparator: () => null,
+          DropdownIndicator,
+          Placeholder,
+          Option,
+          SingleValue,
+        }}
         value={value}
         {...selectProps}
       />
