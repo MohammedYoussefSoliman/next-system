@@ -1,5 +1,5 @@
 import React from "react";
-import { Drawer as MuiDrawer } from "@mui/material";
+import { Drawer as MuiDrawer, DrawerProps } from "@mui/material";
 import withMuiTheme from "@components/withMuiTheme";
 
 type Props = {
@@ -8,9 +8,17 @@ type Props = {
   anchor?: "top" | "left" | "bottom" | "right";
   children: React.ReactNode;
   fullWidth?: boolean;
+  sx?: DrawerProps["sx"];
 };
 
-function Drawer({ open, onClose, children, anchor = "top", fullWidth }: Props) {
+function Drawer({
+  open,
+  onClose,
+  children,
+  anchor = "top",
+  fullWidth,
+  sx,
+}: Props) {
   return (
     <MuiDrawer
       sx={{
@@ -18,6 +26,7 @@ function Drawer({ open, onClose, children, anchor = "top", fullWidth }: Props) {
           borderRadius: "0 !important",
           width: fullWidth ? "100%" : "fit-content",
         },
+        ...sx,
       }}
       anchor={anchor}
       open={open}

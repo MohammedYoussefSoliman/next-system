@@ -18,7 +18,7 @@ const config = cva(["font-normal"], {
       light: ["text-gray-500", "font-light"],
       secondary: ["text-rose-700", "dark:text-rose-600"],
       success: ["text-green-500", "dark:text-green-400"],
-      warn: ["text-amber-500", "dark:text-amber-400"],
+      warn: ["text-orange-500", "dark:text-orange-400"],
       error: ["text-red-500", "dark:text-red-400"],
       white: ["text-white"],
     },

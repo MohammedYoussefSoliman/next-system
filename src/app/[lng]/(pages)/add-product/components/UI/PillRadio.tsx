@@ -22,6 +22,8 @@ export default function RadioPil({
 
   const registerInstance = register(name, { ...validationRules });
 
+  if (radios.length <= 0) return null;
+
   return (
     <div className="flex flex-col gap-1">
       <div className="flex gap-1 items-center">
@@ -30,7 +32,8 @@ export default function RadioPil({
       </div>
       <div className="flex gap-2 md:gap-4">
         {radios.map(({ value, label }) => {
-          const active = watch(name) === value;
+          const active = watch(name) === `${value}`;
+
           return (
             <RadioPill
               key={`${value}-${name}`}

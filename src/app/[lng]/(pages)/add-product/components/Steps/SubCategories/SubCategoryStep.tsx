@@ -29,7 +29,9 @@ export default function SubCategoryStep() {
             checkItems={currentSubCategories.map((cat) => ({
               title: cat.name,
               value: cat.id,
-              image: loGet(cat, "image.medium", ""),
+              image:
+                loGet(cat, "image.medium") ||
+                loGet(cat, "image.place_holder.medium_bg", ""),
             }))}
           />
         ) : (

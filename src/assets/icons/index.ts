@@ -28,6 +28,8 @@ import MultiProductPackIcon from "./MultiProductPackIcon";
 import MoneyTimeIcon from "./MoneyTimeIcon";
 import TimerIcon from "./TimerIcon";
 import DrawerIcon from "./DrawerIcon";
+import AdultIcon from "./AdultIcon";
+import ChildIcon from "./ChildIcon";
 
 export type { SVGProp } from "./icon.types";
 
@@ -62,6 +64,8 @@ const icons = {
   "money-time": MoneyTimeIcon,
   timer: TimerIcon,
   drawer: DrawerIcon,
+  adult: AdultIcon,
+  child: ChildIcon,
 };
 
 export default icons;

@@ -6,14 +6,21 @@ import { useAxiosInstance } from "@/hooks";
 import { Select, TextInput } from "@components/Inputs";
 import Typography from "@/components/Typography";
 import { PropertyProps, Property } from "../../../AddProducts.types";
+import resolveClientType from "./resolveClientType";
+import DynamicInput from "./DynamicInput";
 
-export default function Property({ property, control, watch }: PropertyProps) {
+export default function Property({
+  property,
+  control,
+  watch,
+  type,
+}: PropertyProps) {
   const lng = i18next.language;
   const { t } = useTranslation(lng);
   const { get } = useAxiosInstance();
   const [subProperties, setSubProperties] = React.useState<Property[]>([]);
 
-  const propertyValue = watch(property.name);
+  const propertyValue = watch(`${property.id}`);
 
   const getProperties = React.useCallback(
     async (id: number) => {
@@ -41,87 +48,29 @@ export default function Property({ property, control, watch }: PropertyProps) {
 
   return (
     <>
-      <div className="flex flex-col gap-4">
-        <Select
-          name={property.name}
-          placeholder={
-            <div className="flex items-center gap-1">
-              <Typography as="p2" text={property.name} />{" "}
-              <Typography as="p2" text={t("optional")} color="light" />
-            </div>
-          }
-          control={control}
-          options={
-            [
-              ...property.options.map((option) => ({
-                label: option.name,
-                value: option.id,
-              })),
-              { label: "other", value: "other" },
-            ] || []
-          }
-          changeHandler={({ value }) => {
-            if (value !== "other") {
-              const selectedOption = property.options.find(
-                (opt) => opt.id == value
-              );
-              if (selectedOption?.has_child) {
-                getProperties(value);
-              }
-            }
-          }}
-        />
-
-        {propertyValue?.value === "other" && (
-          <TextInput
-            placeholder={property.name}
-            name={`${property.name}_other`}
-            control={control}
-          />
-        )}
-      </div>
+      <DynamicInput
+        watch={watch}
+        control={control}
+        name={property.name}
+        options={property.options}
+        id={property.id}
+        getProperties={getProperties}
+        type={type}
+      />
       {subProperties &&
         subProperties.map((sub) => {
           const subPropertyValue = watch(sub.name);
           return (
             <>
-              <Select
-                key={sub.name}
-                name={sub.name}
-                placeholder={
-                  <div className="flex items-center gap-1">
-                    <Typography as="p2" text={sub.name} />
-                    <Typography as="p2" text={t("optional")} color="light" />
-                  </div>
-                }
+              <DynamicInput
+                watch={watch}
                 control={control}
-                changeHandler={({ value }) => {
-                  if (value !== "other") {
-                    const selectedOption = sub.options.find(
-                      (opt) => opt.id == value
-                    );
-                    if (selectedOption?.has_child) {
-                      getProperties(value);
-                    }
-                  }
-                }}
-                options={
-                  [
-                    ...sub.options.map((option) => ({
-                      label: option.name,
-                      value: option.id,
-                    })),
-                    { label: "other", value: "other" },
-                  ] || []
-                }
+                name={sub.name}
+                options={sub.options}
+                id={sub.id}
+                getProperties={getProperties}
+                type={resolveClientType(sub.type, sub.options.length)}
               />
-              {subPropertyValue?.value === "other" && (
-                <TextInput
-                  name={`${sub.name}_${property.name}_other`}
-                  control={control}
-                  placeholder={sub.name}
-                />
-              )}
             </>
           );
         })}

@@ -54,3 +54,9 @@ export const RadioPill = styled("div")<CheckboxProps>`
     background-color: ${active ? colors.orange[500] : colors.white};
   `}
 `;
+export const Check = styled("div")<CheckboxProps>`
+  ${({ active }) => css`
+    border: 1px solid ${active ? colors.orange[500] : colors.orange[200]};
+    background-color: ${active ? colors.orange[500] : colors.white};
+  `}
+`;

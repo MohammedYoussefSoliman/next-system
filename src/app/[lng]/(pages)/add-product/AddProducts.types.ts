@@ -74,6 +74,24 @@ export type RadioPillProps = Omit<AuctionRadioProps, "radios"> & {
     value: string | number;
   }[];
 };
+export type SizeCheckboxProps = {
+  label: string;
+  description?: string;
+  value: string | number;
+  name: string;
+  validationRules?: Partial<FormValidationRules>;
+};
+
+export type SizeChecks = {
+  name: string;
+  checkboxes: Omit<SizeCheckboxProps, "name" | "validationRules">[];
+  validationRules?: Partial<FormValidationRules>;
+};
+
+export type SizesInputProps = {
+  name: string;
+  type: "child" | "adult";
+};
 
 export type Option = {
   id: number;
@@ -89,6 +107,16 @@ export type Property = {
   options: Option[];
 };
 
+export type DynamicPropsType = {
+  type: "list" | "text" | "size" | "country" | "date" | "radio";
+  id: number | string;
+  name: string;
+  options: Option[];
+  control: Control<any>;
+  watch: UseFormWatch<any>;
+  getProperties: (id: number) => void;
+};
+
 export type PropertiesProps = {
   properties: Property[];
   control: Control<any>;
@@ -99,4 +127,10 @@ export type PropertyProps = {
   property: Property;
   control: Control<any>;
   watch: UseFormWatch<any>;
+  type: "list" | "text" | "size" | "country" | "date" | "radio";
+};
+
+export type DrawerProps = {
+  name: string;
+  label: string;
 };

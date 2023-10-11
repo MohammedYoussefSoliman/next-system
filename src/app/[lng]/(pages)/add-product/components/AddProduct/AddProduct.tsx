@@ -2,7 +2,7 @@ import React from "react";
 import Stepper from "@/components/Stepper";
 import FormContext from "../Form/FormContext";
 import AuctionTypeStep from "../Steps/AuctionTypeStep";
-import ProductTypeStep from "../Steps/ProductType";
+import ProductTypeStep from "../Steps/ProductTypeStep";
 import MainCategoryStep from "../Steps/MainCategoryStep";
 import SubCategoriesStep from "../Steps/SubCategories";
 import PropertiesStep from "../Steps/PropertiesStep";

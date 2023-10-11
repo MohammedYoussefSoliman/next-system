@@ -58,8 +58,6 @@ export default function PropertiesStep() {
       </div>
     );
   }
-
-  // console.log(properties);
   // console.log(countries);
 
   const listProperties = (properties as Property[]).filter(
@@ -80,11 +78,9 @@ export default function PropertiesStep() {
           <Typography as="h6" text="fillFields" />
           <Typography text="muchInfoGuide" color="light" />
         </div>
-        {listProperties && (
+        {listProperties && listProperties.length > 0 && (
           <Properties
-            properties={(properties as Property[]).filter(
-              (property) => property.type === "list"
-            )}
+            properties={listProperties}
             control={control}
             watch={watch}
           />
