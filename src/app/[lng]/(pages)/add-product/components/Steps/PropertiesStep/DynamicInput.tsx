@@ -2,7 +2,7 @@ import React from "react";
 import loGet from "lodash/get";
 import { useTranslation } from "@i18n/client";
 import i18next from "i18next";
-import { Select, TextInput } from "@components/Inputs";
+import { Select, TextInput, DatePicker } from "@components/Inputs";
 import Typography from "@/components/Typography";
 import { DynamicPropsType } from "../../../AddProducts.types";
 import PillRadio from "../../UI/PillRadio";
@@ -16,6 +16,7 @@ export default function DynamicInput({
   getProperties,
   control,
   options,
+  mainOptionIdes,
 }: DynamicPropsType) {
   const lng = i18next.language;
   const { t } = useTranslation(lng);
@@ -46,9 +47,7 @@ export default function DynamicInput({
             changeHandler={({ value }) => {
               if (value !== "other") {
                 const selectedOption = options.find((opt) => opt.id == value);
-                if (selectedOption?.has_child) {
-                  getProperties(value);
-                }
+                getProperties(value, mainOptionIdes?.includes(value));
               }
             }}
           />
@@ -76,9 +75,21 @@ export default function DynamicInput({
     case "size":
       return <DrawerInput name={`${id}`} label={name} />;
     case "country":
-      return <div>country input</div>;
+      return <div>country country</div>;
     case "date":
-      return <div>date input</div>;
+      return (
+        <DatePicker
+          label={
+            <div className="flex items-center gap-1">
+              <Typography as="p2" text={name} />{" "}
+              <Typography as="p2" text={t("optional")} color="light" />
+            </div>
+          }
+          control={control}
+          name={`${id}`}
+          onChange={(value) => console.log(value)}
+        />
+      );
 
     case "text":
     default:

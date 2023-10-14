@@ -6,3 +6,5 @@ export { PasswordField } from "./PasswordField";
 export { default as SelectField } from "./SelectField";
 export { default as DialCode } from "./DialCode";
 export { default as OTPInput } from "./OTPInput";
+export { default as MaskedTextInput } from "./MaskedInput";
+export { default as DatePicker } from "./DatePicker";

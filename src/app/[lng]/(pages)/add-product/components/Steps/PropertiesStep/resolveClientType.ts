@@ -4,6 +4,7 @@ const resolveClientType = (
   propertyType: Property["type"],
   optionsLength: number
 ) => {
+  console.log({ propertyType });
   if (propertyType === "country_made") return "country";
   if (propertyType === "list" && optionsLength < 5) {
     return "radio";

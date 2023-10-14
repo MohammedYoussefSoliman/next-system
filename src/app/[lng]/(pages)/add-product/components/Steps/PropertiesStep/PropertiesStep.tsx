@@ -63,13 +63,6 @@ export default function PropertiesStep() {
   const listProperties = (properties as Property[]).filter(
     (property) => property.type === "list"
   );
-  console.log(listProperties);
-  const sizeProperties = (properties as Property[]).filter(
-    (property) => property.type === "size"
-  );
-  const textProperties = (properties as Property[]).filter(
-    (property) => property.type === "text"
-  );
 
   return (
     <Step title="addProduct">

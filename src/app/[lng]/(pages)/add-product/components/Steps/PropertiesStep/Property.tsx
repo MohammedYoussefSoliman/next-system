@@ -20,27 +20,29 @@ export default function Property({
   const { get } = useAxiosInstance();
   const [subProperties, setSubProperties] = React.useState<Property[]>([]);
 
-  const propertyValue = watch(`${property.id}`);
-
   const getProperties = React.useCallback(
-    async (id: number) => {
+    async (id: number, isMainProperty?: boolean) => {
       const response = await get(`/option-properties/${id}`);
-      let propertyName = "";
+      let propertyId: number;
       const properties = loGet(response, "data", []);
       if (properties.length > 0) {
-        propertyName = properties[0].name;
+        propertyId = properties[0].id;
       }
       const foundProperty = subProperties.find(
-        (item) => item.name === propertyName
+        (item) => item.id === propertyId
       );
 
-      if (foundProperty) {
-        const updatedSubProperties = subProperties.filter(
-          (property) => property.name !== propertyName
-        );
-        setSubProperties([...updatedSubProperties, ...response.data]);
+      if (isMainProperty) {
+        setSubProperties([...response.data]);
       } else {
-        setSubProperties((prevState) => [...prevState, ...response.data]);
+        if (foundProperty) {
+          const updatedSubProperties = subProperties.filter(
+            (property) => property.id !== propertyId
+          );
+          setSubProperties([...updatedSubProperties, ...response.data]);
+        } else {
+          setSubProperties((prevState) => [...prevState, ...response.data]);
+        }
       }
     },
     [get, subProperties]
@@ -56,6 +58,7 @@ export default function Property({
         id={property.id}
         getProperties={getProperties}
         type={type}
+        mainOptionIdes={property.options.map((opt) => opt.id)}
       />
       {subProperties &&
         subProperties.map((sub) => {

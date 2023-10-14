@@ -1,5 +1,6 @@
 import React from "react";
 import { AsyncProps } from "react-select/async";
+import { MaskedInputProps as MaskProps } from "react-text-mask";
 import { TextFieldProps, SelectProps as MuiSelectProps } from "@mui/material";
 import { Props, GroupBase } from "react-select";
 import {
@@ -86,6 +87,9 @@ export interface InputPropsType
   required?: true | string;
   namespace?: string;
   changeHandler?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  prefixComponent?: React.ReactNode;
+  suffixComponent?: React.ReactNode;
+  helper?: React.ReactNode;
 }
 
 export type TextFieldPropsType = {
@@ -119,3 +123,21 @@ export type PasswordProgress = {
   name: string;
   control: Control<any>;
 };
+
+export type DatePickerInputProps = Omit<InputPropsType, "changeHandler"> & {
+  changeHandler?: (value: any) => void;
+  validationRules?: Partial<FormValidationRules>;
+  control: Control<any>;
+};
+export type DateInputProps = {
+  name: string;
+  error?: string;
+  onChange?: (value: Date | null | undefined) => void;
+  value?: Date | null;
+  label?: React.ReactNode;
+  required?: true | string;
+};
+
+export interface MaskedInputProps extends InputPropsType {
+  maskProps: MaskProps;
+}

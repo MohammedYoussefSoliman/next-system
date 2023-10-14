@@ -114,7 +114,8 @@ export type DynamicPropsType = {
   options: Option[];
   control: Control<any>;
   watch: UseFormWatch<any>;
-  getProperties: (id: number) => void;
+  getProperties: (id: number, isMainOpt?: boolean) => void;
+  mainOptionIdes?: number[];
 };
 
 export type PropertiesProps = {

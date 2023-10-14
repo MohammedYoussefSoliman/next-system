@@ -30,6 +30,7 @@ import TimerIcon from "./TimerIcon";
 import DrawerIcon from "./DrawerIcon";
 import AdultIcon from "./AdultIcon";
 import ChildIcon from "./ChildIcon";
+import CalendarIcon from "./CalendarIcon";
 
 export type { SVGProp } from "./icon.types";
 
@@ -66,6 +67,7 @@ const icons = {
   drawer: DrawerIcon,
   adult: AdultIcon,
   child: ChildIcon,
+  calendar: CalendarIcon,
 };
 
 export default icons;

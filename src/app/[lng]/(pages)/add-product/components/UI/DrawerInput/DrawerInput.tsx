@@ -27,7 +27,7 @@ export default function DrawerInput({ label, name }: DrawerProps) {
       <button onClick={() => setOpenDrawer(true)} className={classes}>
         <div className="flex-1 flex gap-1 items-center justify-center">
           <Typography as="p2" text={label} />
-          <Typography as="p2" text={label} color="light" />
+          <Typography as="p2" text="optional" color="light" />
         </div>
         <Icon name="drawer" />
       </button>
@@ -42,8 +42,8 @@ export default function DrawerInput({ label, name }: DrawerProps) {
             padding: "32px 40px",
             [mediaSizes.md]: {
               width: 520,
-              borderTopRightRadius: 20,
-              borderBottomRightRadius: 20,
+              borderTopRightRadius: "25px !important",
+              borderBottomRightRadius: "25px !important",
             },
           },
         }}
