@@ -8,5 +8,6 @@
   "requiredField": "this field is required french",
   "about": "about Mazaady",
   "privacyPolicy": "politique de confidentialité",
-  "termsAndCondition": "termes et conditions"
+  "termsAndCondition": "termes et conditions",
+  "chooseSellingType": "choisir le type de vente"
 }

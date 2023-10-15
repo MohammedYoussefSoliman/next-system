@@ -2,35 +2,35 @@
 import React from "react";
 import Step from "../../UI/Step";
 import AuctionRadio from "../../UI/AuctionRadio";
-import ActualAuction from "./ActualAuction";
+import MainAuction from "./MainAuction";
 
 export default function AuctionTypeStep() {
   return (
     <Step
       title="addProduct"
-      subTitle="chooseAuction"
-      stepNames={["mainAuctionType", "type"]}
+      subTitle="chooseSellingType"
+      stepNames={["mainAuctionType", "type", "sellingJourney"]}
     >
       <div className="w-full flex flex-col gap-8">
         <AuctionRadio
-          name="mainAuctionType"
+          name="sellingJourney"
           radios={[
             {
-              label: "live",
-              value: "live",
-              icon: "camera",
+              label: "auction",
+              value: "auction",
+              icon: "hammer",
               description: "liveAuctionDefinition",
             },
             {
-              label: "hot",
-              value: "hot",
-              icon: "flash",
-              description: "hotSaleDefinition",
+              label: "marketPlace",
+              value: "selling",
+              icon: "market",
+              description: "sellingMarketDefinition",
             },
           ]}
-          validationRules={{ required: "mainAuctionTypeRequired" }}
+          validationRules={{ required: "sellingTypeRequired" }}
         />
-        <ActualAuction />
+        <MainAuction />
       </div>
     </Step>
   );

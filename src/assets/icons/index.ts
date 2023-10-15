@@ -31,6 +31,8 @@ import DrawerIcon from "./DrawerIcon";
 import AdultIcon from "./AdultIcon";
 import ChildIcon from "./ChildIcon";
 import CalendarIcon from "./CalendarIcon";
+import MarketIcon from "./MarketIcon";
+import BoxIcon from "./BoxIcon";
 
 export type { SVGProp } from "./icon.types";
 
@@ -68,6 +70,8 @@ const icons = {
   adult: AdultIcon,
   child: ChildIcon,
   calendar: CalendarIcon,
+  market: MarketIcon,
+  box: BoxIcon,
 };
 
 export default icons;

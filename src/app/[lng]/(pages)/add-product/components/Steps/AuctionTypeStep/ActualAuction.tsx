@@ -13,7 +13,7 @@ export default function ActualAuction() {
 
   const mainAuctionValue = watch("mainAuctionType");
 
-  if (!mainAuctionValue) return null;
+  if (!["live", "hot"].includes(mainAuctionValue)) return null;
 
   return (
     <div className="flex flex-col w-full gap-4">

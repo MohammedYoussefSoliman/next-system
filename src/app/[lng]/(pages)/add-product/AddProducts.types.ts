@@ -19,6 +19,7 @@ export type AddProductForm = {
   bid_increase: number;
   estimated_price: number;
   down_payment: number;
+  sellingJourney: "auction" | "selling";
   selling_type: "under_approval" | "estimation_value" | "highest_price";
   type: "normal" | "fast" | "bidding" | "fixed_price";
   productType: "single" | "multi";

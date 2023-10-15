@@ -25,7 +25,7 @@ export default function AuctionRadio({
 
   return (
     <div className="w-full flex-col gap-1">
-      <div className="w-full flex flex-col md:flex-row gap-2 md:gap-4">
+      <div className="w-full flex flex-col md:grid grid-cols-2 gap-2 md:gap-4">
         {radios.map(({ value, icon, description, label }) => {
           const active = watch(name) === value;
           return (

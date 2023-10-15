@@ -120,5 +120,6 @@
   "xxl_size_description": "( 18 uk - 50 italy - 14 us - 46 europe - 18 australia )",
   "xxxl_size_description": "( 20 uk - 52 italy - 16 us - 48 europe - 20 australia )",
   "xxxxl_size_description": "( 22 uk - 54 italy - 18 us - 50 europe - 22 australia )",
-  "chooseTypeSize": "choose type and size"
+  "chooseTypeSize": "choose type and size",
+  "chooseSellingType": "choose selling type"
 }
