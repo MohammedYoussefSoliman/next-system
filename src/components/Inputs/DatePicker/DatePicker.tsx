@@ -4,7 +4,9 @@ import withMuiTheme from "@/components/withMuiTheme";
 import colors from "tailwindcss/colors";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { ar, enGB } from "date-fns/locale";
 import Icon from "@/components/Icon";
+import { useAppSelector } from "@/hooks";
 import Error from "../Error";
 import Label from "../Label";
 import { DateInputProps } from "../Inputs.types";
@@ -20,8 +22,12 @@ function DateInput({
   error,
   required,
 }: DateInputProps) {
+  const { language } = useAppSelector((state) => state.ui);
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
+    <LocalizationProvider
+      dateAdapter={AdapterDateFns}
+      adapterLocale={language === "ar" ? ar : enGB}
+    >
       <div className="w-full flex flex-col gap-2">
         {label && typeof label === "string" ? (
           <Label label={label} required={required} />

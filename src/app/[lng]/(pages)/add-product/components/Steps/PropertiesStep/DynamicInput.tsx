@@ -1,5 +1,4 @@
 import React from "react";
-import loGet from "lodash/get";
 import { useTranslation } from "@i18n/client";
 import i18next from "i18next";
 import { Select, TextInput, DatePicker } from "@components/Inputs";
@@ -7,6 +6,7 @@ import Typography from "@/components/Typography";
 import { DynamicPropsType } from "../../../AddProducts.types";
 import PillRadio from "../../UI/PillRadio";
 import DrawerInput from "../../UI/DrawerInput";
+import SelectCountry from "./SelectCountry";
 
 export default function DynamicInput({
   id,
@@ -75,7 +75,7 @@ export default function DynamicInput({
     case "size":
       return <DrawerInput name={`${id}`} label={name} />;
     case "country":
-      return <div>country country</div>;
+      return <SelectCountry name={`${id}`} control={control} />;
     case "date":
       return (
         <DatePicker

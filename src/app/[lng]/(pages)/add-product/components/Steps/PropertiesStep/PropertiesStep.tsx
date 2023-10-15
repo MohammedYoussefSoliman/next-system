@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useQueries } from "react-query";
+import { useQuery } from "react-query";
 import loGet from "lodash/get";
 import { getResponseMessage } from "@/utils";
 import { useFormContext } from "react-hook-form";
@@ -18,47 +18,36 @@ export default function PropertiesStep() {
   const dispatch = useAppDispatch();
 
   const subCategory = getValues("subCategory");
-
-  const [propertiesQuery, countriesQuery] = useQueries([
-    {
-      queryKey: ["properties", subCategory],
-      queryFn: ({ queryKey }: { queryKey: any[] }) => {
-        const [_, subCategory] = queryKey;
-        if (subCategory) {
-          return get(`properties/${subCategory}`);
-        }
-        return;
-      },
-    },
-    {
-      queryKey: ["countries"],
-      queryFn: () => get("countries"),
-    },
-  ]);
-
-  const { data: propertiesData } = propertiesQuery;
-  const { data: countriesData } = countriesQuery;
+  const {
+    data: propertiesData,
+    error,
+    isLoading,
+  } = useQuery(
+    ["properties", subCategory],
+    ({ queryKey }: { queryKey: any[] }) => {
+      const [_, subCategory] = queryKey;
+      if (subCategory) {
+        return get(`properties/${subCategory}`);
+      }
+      return;
+    }
+  );
 
   const properties = loGet(propertiesData, "data", []);
-  const countries = loGet(countriesData, "data", []);
 
   React.useEffect(() => {
-    if (propertiesQuery.error) {
-      dispatch(showError(getResponseMessage(propertiesQuery.error, true)));
+    if (error) {
+      dispatch(showError(getResponseMessage(error, true)));
     }
-    if (countriesQuery.error) {
-      dispatch(showError(getResponseMessage(countriesQuery.error, true)));
-    }
-  }, [dispatch, propertiesQuery, countriesQuery]);
+  }, [dispatch, error]);
 
-  if (propertiesQuery.isLoading || countriesQuery.isLoading) {
+  if (isLoading) {
     return (
       <div className="flex items-center justify-center w-full h-full">
         <Spinner size={50} />
       </div>
     );
   }
-  // console.log(countries);
 
   const listProperties = (properties as Property[]).filter(
     (property) => property.type === "list"
