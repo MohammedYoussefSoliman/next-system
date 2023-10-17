@@ -8,16 +8,22 @@ import {
   EmailField,
   DialCode,
 } from "@components/Inputs";
-import { useAppDispatch, useNavigation, useDeviceInfo } from "@/hooks";
+import {
+  useAppDispatch,
+  useNavigation,
+  useDeviceInfo,
+  useAppSelector,
+} from "@/hooks";
 import registerService from "@appState/slices/auth/registerService";
 import { Button } from "@/components/Button";
 import Typography from "@/components/Typography";
 import OAuth from "@/components/OAuth";
-import Link from "@/components/Link";
+import ExternalLink from "@/components/ExternalLink";
 import RedirectAuthStatement from "@/components/RedirectAuthStatement";
 import Or from "@/components/Or";
 
 export default function RegisterForm() {
+  const { language } = useAppSelector((state) => state.ui);
   const deviceInfo = useDeviceInfo();
   const [isSubmitting, setIsSubmitting] = React.useState<boolean>(false);
   const { navigate } = useNavigation();
@@ -134,13 +140,31 @@ export default function RegisterForm() {
               color="light"
               text="clickingCreate"
             />{" "}
-            <Link className="inline" label="termsAndCondition" to="/terms" />
-            <Typography className="inline" color="light" text=" , " />
-            <Link
+            <ExternalLink
+              target="_blank"
               className="inline"
-              label="privacyPolicy"
-              to="/privacy-policy"
-            />
+              href={`/${language}/terms`}
+            >
+              <Typography
+                text="termsAndCondition"
+                color="secondary"
+                hoverStyles={["hover:text-rose-600", "hover:underline"]}
+                className="inline"
+              />
+            </ExternalLink>
+            <Typography className="inline" color="light" text=" , " />
+            <ExternalLink
+              target="_blank"
+              className="inline"
+              href={`/${language}/privacy-policy`}
+            >
+              <Typography
+                text="privacyPolicy"
+                color="secondary"
+                hoverStyles={["hover:text-rose-600", "hover:underline"]}
+                className="inline"
+              />
+            </ExternalLink>
           </span>
           <Button
             loading={isSubmitting}
