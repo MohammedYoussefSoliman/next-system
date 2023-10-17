@@ -46,6 +46,15 @@
   "chooseMainCategory": "choose main category",
   "chooseSubCategory": "choose sub category",
   "notMatchedPassword": "password does not match",
+  "auction": "auction",
+  "marketPlace": "market place",
+  "wholeSaleFullQuantity": "whole sale full quantity",
+  "wholeSaleFullQuantityDefinition": "whole sale full quantity for a specific quantity of the product",
+  "wholeSaleByPiece": "whole sale by piece",
+  "wholeSaleByPieceDefinition": "whole sale by piece regardless the quantity of the product",
+  "wholeSaleByBox": "whole sale by box",
+  "wholeSaleByBoxDefinition": "whole sale by box of a fixed amount of the product",
+  "sellingMarketDefinition": "normal market selling methods",
   "knowCorrectCat": "to know the correct category to your product.",
   "showGuide": "show Guide",
   "subCategories": "sub categories",
@@ -74,6 +83,7 @@
   "mainAuctionTypeRequired": "Please choose the main auction type",
   "auctionTypeRequired": "Please choose the auction type",
   "productTypeRequired": "Please choose the product type",
+  "sellingTypeRequired": "Please specify selling type",
   "noSubCategoriesFound": "no sub categories found",
   "subCategory": "sub category",
   "fillFields": "fill the below fields",
@@ -121,5 +131,6 @@
   "xxxl_size_description": "( 20 uk - 52 italy - 16 us - 48 europe - 20 australia )",
   "xxxxl_size_description": "( 22 uk - 54 italy - 18 us - 50 europe - 22 australia )",
   "chooseTypeSize": "choose type and size",
-  "chooseSellingType": "choose selling type"
+  "chooseSellingType": "choose selling type",
+  "chooseSellingWay": "choose selling way"
 }

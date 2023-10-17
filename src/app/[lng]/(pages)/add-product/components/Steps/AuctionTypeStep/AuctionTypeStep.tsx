@@ -19,7 +19,7 @@ export default function AuctionTypeStep() {
               label: "auction",
               value: "auction",
               icon: "hammer",
-              description: "liveAuctionDefinition",
+              description: "normalAuctionDefinition",
             },
             {
               label: "marketPlace",

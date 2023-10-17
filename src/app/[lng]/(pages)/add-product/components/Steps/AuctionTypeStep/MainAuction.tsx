@@ -50,7 +50,7 @@ export default function MainAuction() {
         <>
           <Typography as="h6" text="chooseAuction" />
           <AuctionRadio
-            name="type"
+            name="mainAuctionType"
             radios={[
               {
                 label: "live",

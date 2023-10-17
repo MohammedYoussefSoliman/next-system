@@ -63,8 +63,17 @@
   "chooseMainCategory": "اختر القسم الرئيسي",
   "chooseSubCategory": "اختر القسم الفرعي",
   "notMatchedPassword": "كلمة المرور غير مطابقة",
+  "auction": "مزايدة",
+  "marketPlace": "بيع بالسوق",
   "normalAuction": "مزايدة عادية",
   "normalAuctionDefinition": "تعريف تفصيلي عن المزايدة العادية",
+  "wholeSaleFullQuantity": "بيع بالجملة",
+  "wholeSaleFullQuantityDefinition": "بيع كامل بكميات كبيرة للمنتج",
+  "wholeSaleByPiece": "بيع قطاعي",
+  "wholeSaleByPieceDefinition": "بيع المنتج بالقطعة بغض النظر عن كمية المنتج",
+  "wholeSaleByBox": "بيع بالصندوق",
+  "wholeSaleByBoxDefinition": "بيع بصندوق كوحدة بيع يحتوي على كميات محددة من المنتج",
+  "sellingMarketDefinition": "البيع بطرق السوق العادية",
   "fastAuctionDefinition": "تعريف تفصيلي عن المزايدة السريعة والتي تنتهي بسرعة",
   "knowCorrectCat": "لمعرفة القسم الصحيح المراد اختياره لمنتجك",
   "showGuide": "اعرض المرشد",
@@ -88,6 +97,7 @@
   "productType": "نوع المنتج",
   "productTypeTitle": "اختر نوع المنتج",
   "mainAuctionTypeRequired": "لابد من اختيار نوع المزايدة",
+  "sellingTypeRequired": "من فضلك قم بتحديد نوع البيع",
   "auctionTypeRequired": "لابد من اختيار نوع المزايدة",
   "productTypeRequired": "لابد من اختيار نوع المنتج",
   "noSubCategoriesFound": "لا يوجد قسم فرعي تحت هـا القسم",
@@ -137,5 +147,6 @@
   "xxxl_size_description": "( 20 المملكة المتحدة - 52 إيطاليا - 16 امريكا - 48 أوروبا - 20 أستراليا )",
   "xxxxl_size_description": "( 22 المملكة المتحدة - 54 إيطاليا - 18 امريكا - 50 أوروبا - 22)",
   "chooseTypeSize": "اختر النوع والحجم",
-  "chooseSellingType": "اختار نوع البيع"
+  "chooseSellingType": "اختار نوع البيع",
+  "chooseSellingWay": "اختار طريقة البيع"
 }
