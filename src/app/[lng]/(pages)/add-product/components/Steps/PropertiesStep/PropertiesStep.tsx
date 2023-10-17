@@ -13,8 +13,8 @@ import Step from "../../UI/Step";
 import Properties from "./Properties";
 
 export default function PropertiesStep() {
-  const { getValues, control, watch } = useFormContext();
-  const { get } = useAxiosInstance();
+  const { getValues, control, watch, setValue } = useFormContext();
+  const { get, post } = useAxiosInstance();
   const dispatch = useAppDispatch();
 
   const subCategory = getValues("subCategory");
@@ -54,7 +54,21 @@ export default function PropertiesStep() {
   );
 
   return (
-    <Step title="addProduct">
+    <Step
+      handleNext={async () => {
+        try {
+          const response = await post("add-product");
+          setValue("id", loGet(response, "data.id", ""));
+          return Boolean(response.data.id);
+        } catch (err) {
+          if (err) {
+            dispatch(showError(getResponseMessage(err, true)));
+          }
+          return false;
+        }
+      }}
+      title="addProduct"
+    >
       <div className="w-full flex flex-col gap-4 max-h-[580px] md:max-h-[520px]">
         <div className="flex flex-col gap-1">
           <Typography as="h6" text="fillFields" />

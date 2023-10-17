@@ -132,5 +132,7 @@
   "muchInfoGuide": "Girdiğiniz bilgi kadar ürününüz daha güvenilir olacaktır lütfen unutmayın 👌",
   "optional": "(isteğe bağlı)",
   "chooseTypeSize": "türü ve boyutu seçin",
-  "chooseSellingWay": "satış yolunu seç"
+  "chooseSellingWay": "satış yolunu seç",
+  "uploadAttachment": "Eki yükle",
+  "uploadAttachmentDescription": "Yüksek kaliteli dosya ekleri kullandığınızda ürününüzün daha hızlı satılacağını lütfen unutmayın 👌."
 }

@@ -6,6 +6,7 @@ import Typography from "@/components/Typography";
 import { DynamicPropsType } from "../../../AddProducts.types";
 import PillRadio from "../../UI/PillRadio";
 import DrawerInput from "../../UI/DrawerInput";
+import ListSelect from "./ListSelect";
 import SelectCountry from "./SelectCountry";
 
 export default function DynamicInput({
@@ -25,41 +26,15 @@ export default function DynamicInput({
   switch (type) {
     case "list":
       return (
-        <div className="flex flex-col gap-4">
-          <Select
-            name={`${id}`}
-            placeholder={
-              <div className="flex items-center gap-1">
-                <Typography as="p2" text={name} />{" "}
-                <Typography as="p2" text={t("optional")} color="light" />
-              </div>
-            }
-            control={control}
-            options={
-              [
-                ...options.map((option) => ({
-                  label: option.name,
-                  value: option.id,
-                })),
-                { label: "other", value: "other" },
-              ] || []
-            }
-            changeHandler={({ value }) => {
-              if (value !== "other") {
-                const selectedOption = options.find((opt) => opt.id == value);
-                getProperties(value, mainOptionIdes?.includes(value));
-              }
-            }}
-          />
-
-          {propertyValue?.value === "other" && (
-            <TextInput
-              placeholder={name}
-              name={`${id}_other`}
-              control={control}
-            />
-          )}
-        </div>
+        <ListSelect
+          id={id}
+          control={control}
+          name={name}
+          getProperties={getProperties}
+          mainOptionIdes={mainOptionIdes}
+          options={options}
+          selectedOption={propertyValue}
+        />
       );
     case "radio":
       return (
@@ -87,7 +62,6 @@ export default function DynamicInput({
           }
           control={control}
           name={`${id}`}
-          onChange={(value) => console.log(value)}
         />
       );
 

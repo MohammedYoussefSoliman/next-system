@@ -7,9 +7,6 @@ import AuctionRadio from "../../UI/AuctionRadio";
 export default function ProductTypeStep() {
   return (
     <Step
-      handleNext={() => {
-        console.log("next");
-      }}
       title="addProduct"
       subTitle="productTypeTitle"
       stepNames={["productType"]}

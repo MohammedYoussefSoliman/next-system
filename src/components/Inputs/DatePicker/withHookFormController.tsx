@@ -15,7 +15,7 @@ export default function withHookFormController<
     validationRules,
     ...rest
   }: Props) {
-    const { name } = rest;
+    const { name, onChange: changeHandler } = rest;
 
     return (
       <Controller
@@ -30,9 +30,10 @@ export default function withHookFormController<
             {...fields}
             inputRef={ref}
             error={error?.message}
-            value={moment(value, "YYYY/MM/DD").toDate()}
+            value={moment(value, "YYYY-MM-DD").toDate()}
             onChange={(newValue: Date) => {
-              onChange(moment(newValue).format("YYYY/MM/DD"));
+              onChange(moment(newValue).format("YYYY-MM-DD"));
+              if (changeHandler) changeHandler(newValue);
             }}
             {...rest}
           />

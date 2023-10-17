@@ -9,7 +9,7 @@ import { DateInputProps, ControllerType } from "../Inputs.types";
 type WithControllerProps<T extends FieldValues> = ControllerType<T> &
   DateInputProps;
 
-export default function TextInput<T extends FieldValues>({
+export default function DatePickerInput<T extends FieldValues>({
   validationRules,
   ...props
 }: WithControllerProps<T>) {

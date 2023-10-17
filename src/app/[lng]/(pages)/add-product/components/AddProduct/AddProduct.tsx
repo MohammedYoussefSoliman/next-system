@@ -4,8 +4,9 @@ import FormContext from "../Form/FormContext";
 import AuctionTypeStep from "../Steps/AuctionTypeStep";
 import ProductTypeStep from "../Steps/ProductTypeStep";
 import MainCategoryStep from "../Steps/MainCategoryStep";
-import SubCategoriesStep from "../Steps/SubCategories";
+import SubCategoriesStep from "../Steps/SubCategoriesStep";
 import PropertiesStep from "../Steps/PropertiesStep";
+import MediaStep from "../Steps/MediaStep";
 
 export default function AddProduct() {
   return (
@@ -27,6 +28,9 @@ export default function AddProduct() {
             },
             {
               children: <PropertiesStep />,
+            },
+            {
+              children: <MediaStep />,
             },
           ]}
           className="h-full"

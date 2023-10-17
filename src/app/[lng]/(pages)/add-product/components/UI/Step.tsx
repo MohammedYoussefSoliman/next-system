@@ -58,10 +58,16 @@ export default function Step({
                 if (stepNames) {
                   results = await trigger(stepNames);
                 }
-                console.log(results);
                 if (results) {
-                  if (handleNext) handleNext();
-                  handleStepperNext();
+                  let moveToNextStep: boolean = true;
+                  if (handleNext) {
+                    moveToNextStep = false;
+                    const response = await handleNext();
+                    moveToNextStep = response;
+                  }
+                  if (moveToNextStep) {
+                    handleStepperNext();
+                  }
                 }
               }}
             />
@@ -75,11 +81,17 @@ export default function Step({
             let results = true;
             if (stepNames) {
               results = await trigger(stepNames);
-              handleStepError();
             }
             if (results) {
-              if (handleNext) handleNext();
-              handleStepperNext();
+              let moveToNextStep: boolean = true;
+              if (handleNext) {
+                moveToNextStep = false;
+                const response = await handleNext();
+                moveToNextStep = response;
+              }
+              if (moveToNextStep) {
+                handleStepperNext();
+              }
             }
           }}
         />

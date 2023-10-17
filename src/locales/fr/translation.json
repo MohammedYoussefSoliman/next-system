@@ -131,5 +131,7 @@
   "xxxl_size_description": "( 20 uk - 52 italy - 16 us - 48 europe - 20 australia )",
   "xxxxl_size_description": "( 22 uk - 54 italy - 18 us - 50 europe - 22 australia )",
   "chooseTypeSize": "choisissez le type et la taille",
-  "chooseSellingWay": "choisir le mode de vente"
+  "chooseSellingWay": "choisir le mode de vente",
+  "uploadAttachment": "télécharger la pièce jointe",
+  "uploadAttachmentDescription": "KVeuillez noter que lorsque vous utilisez des pièces jointes de haute qualité, votre produit sera vendu plus rapidement 👌."
 }

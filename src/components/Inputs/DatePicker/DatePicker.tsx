@@ -36,10 +36,11 @@ function DateInput({
         )}
         <DatePicker
           value={value}
-          views={["year", "month", "day"]}
+          views={["day", "month", "year"]}
           onChange={(dateValue) => {
             if (onChange) onChange(dateValue);
           }}
+          // format="LL"
           slots={{
             openPickerIcon: PickerIcon,
           }}

@@ -1,9 +1,10 @@
 import React from "react";
-import { Control, UseFormWatch } from "react-hook-form";
+import { Control, UseFormGetValues, UseFormWatch } from "react-hook-form";
 import type { FormValidationRules } from "@/components/Inputs/Inputs.types";
 import type { IconType } from "@components/Icon/Icon.types";
 
 export type AddProductForm = {
+  id: string | number;
   name: string;
   price: number;
   status: "created" | "draft" | "blocked" | "active" | "confirmed";
@@ -41,7 +42,7 @@ export type StepProps = {
   title?: string;
   subTitle?: string;
   children: React.ReactNode;
-  handleNext?: (callback?: () => void) => void;
+  handleNext?: () => Promise<boolean>;
   stepNames?: string | string[];
 };
 
@@ -115,8 +116,16 @@ export type DynamicPropsType = {
   options: Option[];
   control: Control<any>;
   watch: UseFormWatch<any>;
+  getValues: UseFormGetValues<any>;
   getProperties: (id: number, isMainOpt?: boolean) => void;
   mainOptionIdes?: number[];
+};
+
+export type ListSelectProps = Omit<
+  DynamicPropsType,
+  "type" | "watch" | "getValues"
+> & {
+  selectedOption?: { label: string; value: number | string };
 };
 
 export type PropertiesProps = {
