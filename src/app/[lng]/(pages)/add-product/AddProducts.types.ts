@@ -1,5 +1,5 @@
 import React from "react";
-import { Control, UseFormGetValues, UseFormWatch } from "react-hook-form";
+import { Control, UseFormWatch } from "react-hook-form";
 import type { FormValidationRules } from "@/components/Inputs/Inputs.types";
 import type { IconType } from "@components/Icon/Icon.types";
 
@@ -116,7 +116,6 @@ export type DynamicPropsType = {
   options: Option[];
   control: Control<any>;
   watch: UseFormWatch<any>;
-  getValues: UseFormGetValues<any>;
   getProperties: (id: number, isMainOpt?: boolean) => void;
   mainOptionIdes?: number[];
 };
