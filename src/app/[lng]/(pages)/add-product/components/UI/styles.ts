@@ -50,8 +50,9 @@ export const CheckCircle = styled("div")<CheckboxProps>`
 `;
 export const RadioPill = styled("div")<CheckboxProps>`
   ${({ active }) => css`
-    border: 1px solid ${active ? colors.orange[500] : colors.gray[200]};
-    background-color: ${active ? colors.orange[500] : colors.white};
+    border: ${active ? "2px" : "1px"} solid
+      ${active ? colors.amber[400] : colors.gray[200]};
+    background-color: ${active ? colors.amber[100] : colors.white};
   `}
 `;
 export const Check = styled("div")<CheckboxProps>`

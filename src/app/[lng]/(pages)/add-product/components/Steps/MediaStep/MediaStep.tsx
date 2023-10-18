@@ -5,7 +5,8 @@ import { useFormContext } from "react-hook-form";
 import { useAxiosInstance } from "@/hooks";
 import { formDataHandler } from "@/utils";
 import Typography from "@/components/Typography";
-import ImageInput from "@/components/Inputs/MultiImageInput/ImageInput";
+import ImageInput from "@/components/Inputs/MultiImageInput/FileInput";
+import ImagesInput from "@/components/Inputs/MultiImageInput/FilesInput";
 import Step from "../../UI/Step";
 
 export default function SubCategoryStep() {
@@ -19,10 +20,10 @@ export default function SubCategoryStep() {
       <div className="w-full flex flex-col gap-4 max-h-[580px] md:max-h-[520px]">
         <div className="flex flex-col gap-8">
           <Typography as="h6" text="uploadAttachment" />
-          <ImageInput
-            name="img_file"
+          <ImagesInput
+            name="image"
             type="image"
-            label="image file"
+            label="uploadImages"
             setValue={setValue}
             uploadAction={async (file, type) => {
               const response = await post(
@@ -31,7 +32,6 @@ export default function SubCategoryStep() {
                   [type]: file,
                 })
               );
-              console.log(response.data);
               return response;
             }}
             deleteAction={async (fileId) => {

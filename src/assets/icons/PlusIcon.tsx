@@ -1,7 +1,7 @@
 import colors from "tailwindcss/colors";
 import { SVGProp } from "./icon.types";
 
-function TimesIcon({ size, color }: SVGProp) {
+function PlusIcon({ size, color }: SVGProp) {
   return (
     <svg
       width={size || "24"}
@@ -11,15 +11,15 @@ function TimesIcon({ size, color }: SVGProp) {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M6 18L18 6"
-        stroke={color || colors.gray[400]}
+        d="M3.51472 12.0009H20.4853"
+        stroke={color || colors.gray[700]}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M18 18L6 6"
-        stroke={color || colors.gray[400]}
+        d="M12 20.4862V3.51562"
+        stroke={color || colors.gray[700]}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -28,4 +28,4 @@ function TimesIcon({ size, color }: SVGProp) {
   );
 }
 
-export default TimesIcon;
+export default PlusIcon;

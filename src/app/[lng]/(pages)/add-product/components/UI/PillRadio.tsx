@@ -4,6 +4,7 @@ import { useFormContext } from "react-hook-form";
 import Error from "@/components/Inputs/Error";
 import { RadioPill } from "./styles";
 import Typography from "@/components/Typography";
+import { classNames } from "@/utils";
 import type { RadioPillProps } from "../../AddProducts.types";
 export default function RadioPil({
   name,
@@ -33,6 +34,10 @@ export default function RadioPil({
       <div className="flex gap-2 md:gap-4">
         {radios.map(({ value, label }) => {
           const active = watch(name) === `${value}`;
+          const classes = classNames("text-gray-400", [
+            active && "text-amber-400",
+            "font-medium",
+          ]);
 
           return (
             <RadioPill
@@ -53,7 +58,7 @@ export default function RadioPil({
               <Typography
                 as="p2"
                 text={label}
-                color={active ? "white" : "light"}
+                className={classes}
                 capitalizeFirstLetter
               />
             </RadioPill>

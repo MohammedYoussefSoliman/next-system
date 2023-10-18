@@ -33,6 +33,7 @@ import ChildIcon from "./ChildIcon";
 import CalendarIcon from "./CalendarIcon";
 import MarketIcon from "./MarketIcon";
 import BoxIcon from "./BoxIcon";
+import PlusIcon from "./PlusIcon";
 
 export type { SVGProp } from "./icon.types";
 
@@ -72,6 +73,7 @@ const icons = {
   calendar: CalendarIcon,
   market: MarketIcon,
   box: BoxIcon,
+  plus: PlusIcon,
 };
 
 export default icons;

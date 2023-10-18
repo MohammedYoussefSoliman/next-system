@@ -28,4 +28,29 @@ export interface FileInputPropsType
   uploadAction: (file: File, type: "image" | "audio" | "video") => Promise<any>;
   deleteAction: (id: number | string) => Promise<void>;
   type: "image" | "audio" | "video";
+  disabled?: boolean;
 }
+
+export type ImageType = {
+  file: null | string;
+  id: string;
+  url?: string;
+};
+
+export type MultipleImagesProps = {
+  name: string;
+  files?: {
+    file: string;
+    url?: string;
+  }[];
+  uploadAction: (file: File, type: "image" | "audio" | "video") => Promise<any>;
+  deleteAction: (id: number | string) => Promise<void>;
+  type: "image" | "audio" | "video";
+  setValue: UseFormSetValue<any>;
+  label?: string;
+  required?: string | true;
+};
+
+export type EmptyButtonProps = {
+  disabled?: boolean;
+};

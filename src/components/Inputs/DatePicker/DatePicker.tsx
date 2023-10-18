@@ -40,7 +40,11 @@ function DateInput({
           onChange={(dateValue) => {
             if (onChange) onChange(dateValue);
           }}
-          // format="LL"
+          sx={{
+            ".MuiPickersPopper-root": {
+              direction: "rtl",
+            },
+          }}
           slots={{
             openPickerIcon: PickerIcon,
           }}

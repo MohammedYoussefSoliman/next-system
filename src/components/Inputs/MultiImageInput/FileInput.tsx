@@ -10,6 +10,7 @@ import { showError } from "@appState/slices/ui-actions";
 import Label from "../Label";
 import { FileInputPropsType } from "./MultiImageInput.types";
 import { ImageWrapper } from "./styles";
+import EmptyFile from "./EmptyFile";
 
 export default function ImageInput({
   name,
@@ -23,6 +24,7 @@ export default function ImageInput({
   setValue,
   uploadAction,
   deleteAction,
+  disabled,
   ...InputProps
 }: FileInputPropsType) {
   const dispatch = useAppDispatch();
@@ -33,24 +35,28 @@ export default function ImageInput({
 
   const handleFileChange = React.useCallback(
     async (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (!e.target.files) return;
       setFile(e.target.files);
       setLoading(true);
-
       try {
         if (e.target.files) {
           const response = await uploadAction(e.target.files[0], type);
-          const id = lodashGet(response, "data.media.id");
-          console.log({ id });
+          const id = lodashGet(response, "media.id");
+          console.log(response, id);
+          setValue(name, id);
           setFileId(id);
         }
       } catch (resPonseError) {
+        setFile(null);
         dispatch(showError(getResponseMessage(resPonseError, true)));
       } finally {
         setLoading(false);
       }
     },
-    [dispatch, type, uploadAction]
+    [dispatch, name, setValue, type, uploadAction]
   );
+
+  console.log(fileId);
 
   const resolvePreview = React.useCallback((): string | null => {
     if (file && !isEmpty(file)) {
@@ -69,7 +75,9 @@ export default function ImageInput({
     setValue(name, undefined);
     setFile(null);
     try {
-      await deleteAction(fileId);
+      if (fileId) {
+        await deleteAction(fileId);
+      }
     } catch (resPonseError) {
       dispatch(showError(getResponseMessage(resPonseError, true)));
     }
@@ -78,7 +86,7 @@ export default function ImageInput({
   return (
     <div className="flex flex-col gap-4">
       {label && <Label label={label} required={required} />}
-      <ImageWrapper>
+      <label className="relative w-[88px] h-[88px] flex items-center justify-center">
         <input
           className="absolute w-full h-full top-0 left-0 opacity-0 cursor-pointer"
           type="file"
@@ -86,49 +94,55 @@ export default function ImageInput({
           accept={accepts ? accepts.join(",") : undefined}
           {...InputProps}
         />
-        {file && (
-          <button className="delete--button" onClick={handleDelete}>
-            <Icon name="times" color={colors.black} size={16} />
-          </button>
-        )}
-        {loading && (
-          <div className="w-full h-full flex items-center justify-center rounded-[14px] overflow-hidden absolute">
-            <Spinner
-              bottomColor={colors.transparent}
-              topColor={colors.white}
-              size={20}
-            />
-          </div>
-        )}
+        {file === null ? (
+          <EmptyFile disabled={disabled} />
+        ) : (
+          <ImageWrapper>
+            {file && (
+              <button className="delete--button" onClick={handleDelete}>
+                <Icon name="times" color={colors.black} size={16} />
+              </button>
+            )}
+            {loading && (
+              <div className="w-full h-full flex items-center justify-center rounded-[14px] overflow-hidden absolute">
+                <Spinner
+                  bottomColor={colors.transparent}
+                  topColor={colors.white}
+                  size={20}
+                />
+              </div>
+            )}
 
-        {file && resolvePreview() === "image" ? (
-          <div className="w-full h-full rounded-[14px] overflow-hidden">
-            <Image
-              src={URL.createObjectURL(file[0])}
-              width={100}
-              height={100}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-              }}
-              alt="image_thumb"
-            />
-          </div>
-        ) : fileUrl ? (
-          <Image
-            src={fileUrl}
-            width={100}
-            height={100}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-            }}
-            alt={name}
-          />
-        ) : null}
-      </ImageWrapper>
+            {file && resolvePreview() === "image" ? (
+              <div className="w-full h-full rounded-[14px] overflow-hidden">
+                <Image
+                  src={URL.createObjectURL(file[0])}
+                  width={100}
+                  height={100}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                  alt="image_thumb"
+                />
+              </div>
+            ) : fileUrl ? (
+              <Image
+                src={fileUrl}
+                width={100}
+                height={100}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+                alt={name}
+              />
+            ) : null}
+          </ImageWrapper>
+        )}
+      </label>
     </div>
   );
 }

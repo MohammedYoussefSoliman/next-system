@@ -8,12 +8,13 @@ type ProgressProps = {
 
 export const ImageWrapper = styled("div")`
   position: relative;
-  width: 88px;
-  height: 88px;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 14px;
+  cursor: pointer;
   &::before {
     content: "";
     position: absolute;
@@ -31,6 +32,7 @@ export const ImageWrapper = styled("div")`
     position: absolute;
     top: 0;
     left: -12px;
+    z-index: 3000;
     border: 1.5px solid ${colors.black};
     border-radius: 12px;
     width: 24px;
