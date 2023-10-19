@@ -12,7 +12,7 @@ import { FileInputPropsType } from "./MultiImageInput.types";
 import { ImageWrapper } from "./styles";
 import EmptyFile from "./EmptyFile";
 
-export default function ImageInput({
+export default function FileInput({
   name,
   label,
   type,
@@ -41,8 +41,7 @@ export default function ImageInput({
       try {
         if (e.target.files) {
           const response = await uploadAction(e.target.files[0], type);
-          const id = lodashGet(response, "media.id");
-          console.log(response, id);
+          const id = lodashGet(response, "data.media.id");
           setValue(name, id);
           setFileId(id);
         }
@@ -55,8 +54,6 @@ export default function ImageInput({
     },
     [dispatch, name, setValue, type, uploadAction]
   );
-
-  console.log(fileId);
 
   const resolvePreview = React.useCallback((): string | null => {
     if (file && !isEmpty(file)) {
@@ -71,7 +68,8 @@ export default function ImageInput({
     return null;
   }, [file]);
 
-  const handleDelete = async () => {
+  const handleDelete = async (event: React.MouseEvent<HTMLElement>) => {
+    event.stopPropagation();
     setValue(name, undefined);
     setFile(null);
     try {
@@ -86,9 +84,9 @@ export default function ImageInput({
   return (
     <div className="flex flex-col gap-4">
       {label && <Label label={label} required={required} />}
-      <label className="relative w-[88px] h-[88px] flex items-center justify-center">
+      <div className="relative w-[88px] h-[88px] flex items-center justify-center">
         <input
-          className="absolute w-full h-full top-0 left-0 opacity-0 cursor-pointer"
+          className="absolute w-full h-full top-0 left-0 hover:bg-rose-50 opacity-0 cursor-pointer"
           type="file"
           onChange={handleFileChange}
           accept={accepts ? accepts.join(",") : undefined}
@@ -142,7 +140,7 @@ export default function ImageInput({
             ) : null}
           </ImageWrapper>
         )}
-      </label>
+      </div>
     </div>
   );
 }

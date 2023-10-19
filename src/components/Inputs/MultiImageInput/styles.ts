@@ -1,10 +1,5 @@
 import styled from "@emotion/styled";
-import { css } from "@emotion/react";
 import colors from "tailwindcss/colors";
-
-type ProgressProps = {
-  progress: string;
-};
 
 export const ImageWrapper = styled("div")`
   position: relative;
@@ -32,7 +27,6 @@ export const ImageWrapper = styled("div")`
     position: absolute;
     top: 0;
     left: -12px;
-    z-index: 3000;
     border: 1.5px solid ${colors.black};
     border-radius: 12px;
     width: 24px;

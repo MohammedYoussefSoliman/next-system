@@ -1,14 +1,13 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
-import Typography from "@/components/Typography";
 import FileInput from "./FileInput";
 import Label from "../Label";
 
-import type { ImageType, MultipleImagesProps } from "./MultiImageInput.types";
+import type { FileType, MultipleFilesProps } from "./MultiImageInput.types";
 
-const newImage = (): ImageType => {
+const newFile = (file?: File): FileType => {
   return {
-    file: null,
+    file: file || null,
     id: uuidv4(),
   };
 };
@@ -22,18 +21,20 @@ export default function FilesInput({
   type,
   label,
   required,
-}: MultipleImagesProps) {
-  const [files, setFiles] = React.useState<ImageType[]>([
+}: MultipleFilesProps) {
+  const [files, setFiles] = React.useState<FileType[]>([
     ...currentFiles?.map((item) => ({
       id: uuidv4(),
       file: item.file,
       url: item.url,
     })),
-    newImage(),
+    newFile(),
   ]);
 
-  const addFile = React.useCallback(() => {
-    setFiles((prevState) => [...prevState, newImage()]);
+  console.log({ currentFiles });
+
+  const addFile = React.useCallback((file: File) => {
+    setFiles((prevState) => [...prevState, newFile(file)]);
   }, []);
 
   const removeFile = React.useCallback((id: string) => {
@@ -41,6 +42,8 @@ export default function FilesInput({
       return prevState.filter((item) => item.id !== id);
     });
   }, []);
+
+  console.log(files);
 
   return (
     <div className="flex flex-col w-full gap-2">
@@ -53,10 +56,9 @@ export default function FilesInput({
             setValue={setValue}
             type={type}
             uploadAction={async (file, type) => {
-              try {
-                await uploadAction(file, type);
-                addFile();
-              } catch (err) {}
+              const response = await uploadAction(file, type);
+              addFile(file);
+              return response;
             }}
             deleteAction={async (fileId) => {
               await deleteAction(fileId);

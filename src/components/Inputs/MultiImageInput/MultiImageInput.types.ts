@@ -1,6 +1,6 @@
 import { Control, UseFormSetValue } from "react-hook-form";
 
-export type MultiImageInputProps = {
+export type MultiFileInputProps = {
   name: string;
   label?: string;
   control: Control<any>;
@@ -31,13 +31,13 @@ export interface FileInputPropsType
   disabled?: boolean;
 }
 
-export type ImageType = {
-  file: null | string;
+export type FileType = {
+  file: null | string | File;
   id: string;
   url?: string;
 };
 
-export type MultipleImagesProps = {
+export type MultipleFilesProps = {
   name: string;
   files?: {
     file: string;
