@@ -30,6 +30,7 @@ export default function RootLayout({ children, params: { lng } }: PageProps) {
       "items-center",
       "justify-between",
       "bg-stone-100",
+      nunito.className,
     ],
     [lng === "ar" ? tajawal.className : nunito.className]
   );

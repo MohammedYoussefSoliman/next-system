@@ -1,6 +1,9 @@
 import React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import colors from "tailwindcss/colors";
+import i18next from "i18next";
+
+const lng = i18next.language;
 
 const theme = createTheme({
   direction: "rtl",
@@ -19,7 +22,10 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "__Tajawal_8d4642, __Tajawal_Fallback_8d4642",
+    fontFamily:
+      lng === "ar"
+        ? "__Tajawal_8d4642, __Tajawal_Fallback_8d4642"
+        : "__Nunito_3dc409, __Nunito_Fallback_3dc409",
   },
 });
 export default function withMuiTheme<T extends {}>(
