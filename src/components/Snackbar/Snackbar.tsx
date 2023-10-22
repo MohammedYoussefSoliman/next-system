@@ -9,7 +9,7 @@ import { IconButton } from "@components/Button";
 import { dismissMessage } from "@appState/slices/ui-actions";
 import { useAppDispatch } from "@hooks/index";
 import { SnackbarProps } from "./Snackbar.types";
-
+import { classNames } from "@/utils";
 import withMuiTheme from "@components/withMuiTheme";
 
 import tailwindConfig from "./Snackbar.config";
@@ -51,7 +51,9 @@ function Snackbar({
 
   const [open, setOpen] = React.useState<boolean>(Boolean(message) || false);
   const dispatch = useAppDispatch();
-  const classes = React.useMemo(() => tailwindConfig({ status }), [status]);
+  const baseClasses = React.useMemo(() => tailwindConfig({ status }), [status]);
+
+  const classes = classNames(baseClasses, "w-full");
 
   React.useEffect(() => {
     if (message) setOpen(Boolean(message));
@@ -92,16 +94,18 @@ function Snackbar({
       TransitionComponent={TransitionComponent}
     >
       <div className={classes}>
-        <Icon
-          name={
-            status === "failure"
-              ? `times-badge`
-              : status === "success"
-              ? "check-badge"
-              : "info-badge"
-          }
-          size={60}
-        />
+        <div className="w-15 h-15">
+          <Icon
+            name={
+              status === "failure"
+                ? `times-badge`
+                : status === "success"
+                ? "check-badge"
+                : "info-badge"
+            }
+            size={60}
+          />
+        </div>
         <div className="flex flex-col">
           {title && (
             <Typography
@@ -111,7 +115,7 @@ function Snackbar({
             />
           )}
           {message && (
-            <>
+            <div className="flex-1">
               {typeof message === "string" ? (
                 <Typography
                   as="p1"
@@ -121,7 +125,7 @@ function Snackbar({
               ) : (
                 message
               )}
-            </>
+            </div>
           )}
         </div>
         <IconButton
@@ -129,7 +133,7 @@ function Snackbar({
           icon="times"
           variant="secondary"
           size="medium"
-          className="mr-auto"
+          className="ms-auto"
         />
       </div>
     </MuiSnackbar>
